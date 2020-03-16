@@ -15,9 +15,8 @@ const UserSchema = new Schema({
     required: true
   },
   zipcode: { 
-      type: Number, 
-      min: 10000, 
-      max: 99999 
+      type: String, 
+      required: true
   },
   birthday: {
       type: Date

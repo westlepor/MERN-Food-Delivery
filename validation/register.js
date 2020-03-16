@@ -10,7 +10,9 @@ module.exports = function validateRegisterInput(data) {
   data.password = validText(data.password) ? data.password : "";
   data.password2 = validText(data.password2) ? data.password2 : "";
   data.monetaryRestriction = validText(data.monetaryRestriction) ? data.monetaryRestriction : "";
-  data.zipcode = validInteger(data.zipcode) ? data.zipcode : "";
+  data.zipcode = validText(data.zipcode) ? data.zipcode : "";
+
+//   data.zipcode = validInteger(data.zipcode) ? data.zipcode : "";
 
   if (!Validator.isLength(data.username, { min: 2, max: 15 })) {
     errors.username = "Username must be between 2 and 15 chars";
@@ -44,12 +46,16 @@ module.exports = function validateRegisterInput(data) {
       errors.monetaryRestriction = "Value must be between $ and $$$$";
   }
 
-  if (!(data.zipcode >= 10000 && data.zipcode <= 99999)) {
-      errors.zipcode = "Must be a valid zipcode";
+  if (!Validator.isLength(data.zipcode, { min: 5, max: 5 })){
+      errors.zipcode = "Zipcode must be valid";
   }
 
+    //   if (!(data.zipcode >= 10000 && data.zipcode <= 99999)) {
+    //       errors.zipcode = "Must be a valid zipcode";
+    //   }
+
   return {
-    errors,
-    isValid: Object.keys(errors).length === 0
+      errors,
+      isValid: Object.keys(errors).length === 0
   };
 };
