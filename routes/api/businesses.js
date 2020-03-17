@@ -8,8 +8,6 @@ router.get("/test", (req,res) => {
 });
 
 router.get(
-
-
   "/:id",
   (req,res) => {
     Business.findById(req.params.id)
@@ -19,8 +17,6 @@ router.get(
 );
 
 router.get(
-  
-
   "/index",
   (req,res) => {
     Business.all
