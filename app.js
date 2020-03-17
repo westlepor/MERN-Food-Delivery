@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
+const hours = require("./routes/api/hours");
 const businesses = require("./routes/api/businesses")
 
 const User = require("./models/User");
@@ -33,6 +34,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/users", users);
+app.use("/api/hours", hours);
 // app.use("/api/businesses", businesses);
 
 // Check the environmental variable port, if it exist, use it. Otherwise, use 5000 
