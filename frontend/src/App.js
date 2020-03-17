@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './app.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      This is app
+      {/* <Nav /> */}
+      {/* <Route to="/" component={Main} />
+      <Route to="/" component={SignupComponent} />
+      <Route to="/" component={Main} /> */}
+      {/* <Route to="/signin" component={Session} />
+      <Route to="/signup" component={Session} /> */}
     </div>
   );
 }
 
 export default App;
+
+
+/*
+1 nav+splash page (Chris)
+1 modal (Arno)
+1 signup page (hen)
+1 redux (neil)
+
+*/
