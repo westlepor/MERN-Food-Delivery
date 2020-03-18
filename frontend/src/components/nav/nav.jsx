@@ -3,6 +3,15 @@ import React from 'react';
 
 class NavBar extends React.Component {
 
+    constructor(props) {
+        super(props);
+        // console.log(props);
+        this.state = {
+            username: "",
+            email: "",
+            password: ""
+        }
+    }
 
     render() {
 
@@ -12,7 +21,7 @@ class NavBar extends React.Component {
                     <h1>⌘</h1>
                     <h2>gather</h2>
                 </div>
-                <button>LOG IN</button>
+                <button onClick={() => this.props.openModal('login')}>LOG IN</button>
             </section>
         );
     }

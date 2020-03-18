@@ -1,7 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import LoginFormContainer from '../session/LoginFormContainer';
+import LoginFormContainer from '../session/login_form_container';
 import './modal.css'
 
 function Modal({ modal, closeModal }) {
