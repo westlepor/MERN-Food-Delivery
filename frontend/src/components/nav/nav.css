@@ -1,0 +1,30 @@
+.header-container {
+    position: absolute;
+    z-index: 5;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 1vw;
+}
+
+.header-logo {
+    display: flex;
+    font-size: 3em;
+    font-weight: bolder;
+}
+
+.header-container button {
+    background-color: white;
+    color: #fd5068;
+    padding: .5vw 1.5vw;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 3vw;
+}
+
+.header-container button:hover {
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    color: white;
+}
