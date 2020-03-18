@@ -2,7 +2,7 @@ import React from 'react';
 import './app.css';
 import Nav from './components/nav/nav';
 import SplashPage from './components/main/main'
-import Signup from './components/session/signup'
+import Onboarding from "./components/session/onboarding";
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
       <Route to="/" component={Main} /> */}
       {/* <Route to="/signin" component={Session} />
       <Route to="/signup" component={Session} /> */}
-      <Signup/>
+      <Onboarding/>
     </div>
   );
 }
