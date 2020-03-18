@@ -1,0 +1,213 @@
+.onboarding{
+    max-width: 900px;
+    padding-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.onboarding form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.onboarding-title {
+    cursor: default;
+    text-size-adjust: 100%;
+    line-height: 1.3125;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    text-transform: uppercase;
+}
+
+.onboarding-title h1 {
+    font-size: 1.6rem;
+    font-weight: bolder;
+    font-style: italic;
+    margin: 0 0 .25em;
+}
+
+.onboarding-row {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    width: 100%;
+    margin-top: 10px
+}
+
+.onboarding-row > div:first-child {
+    margin-right: 56px;
+    flex: 1 0 50%;
+}
+
+.onboarding-row div:last-child {
+    flex-basis: 50%;
+}
+
+.onboarding-label {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #2c2c2c;
+}
+
+.input-field{
+    background-color: #f6f7fa;
+    caret-color: #40acf8;
+    width: 100%;
+    padding-left: 50px !important;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.input-field-container{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.input-icon{
+    position: absolute;
+    left: 14px;
+    top: 12px;
+}
+
+.drop-down{
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
+}
+
+.drop-down-button {
+    text-transform: capitalize;
+    /* padding-top: 0; */
+    padding: 0 24px;
+    transition-duration: .2s;
+    border-style: solid;
+    border-color: #2c2c2c;
+    border-width: 2px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    min-height: 45px;
+}
+
+.list-box {
+    line-height: 1.3125;
+    color: #2c2c2c;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px 0 rgba(84,84,84,0.77);
+    background-color: #fff;
+    opacity: 1;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    visibility: visible;
+    width: 280px;
+}
+
+.onboarding-break{
+    line-height: 1.3125;
+    color: #2c2c2c;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 640px;
+    font-style: italic;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.onboarding-break div {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.onboarding-break hr{
+    line-height: 1.3125;
+    color: #2c2c2c;
+    font-size: 1.6rem;
+    box-sizing: content-box;
+    overflow: visible;
+    border-width: 0;
+    background-color: #e8e8e8;
+    display: inline-block;
+    flex-basis: 33.3333%;
+    height: 1px;
+    margin: 0;
+    margin-top: -1px;
+}
+
+.food-restriction-modal button{
+    border-style: solid;
+    border-color: #e8e8e8;
+    border-radius: 8px;
+    color: #545454;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 4px;
+    margin-bottom: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: #f6f7fa;
+    caret-color: #40acf8;
+    border-width: 1px;
+}
+
+.birthday, .birthday-container{
+    vertical-align: top;
+    flex: 1 0 50%;
+}
+
+.onboarding-legend{
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #2c2c2c;
+}
+
+.birthday input {
+    /* margin-right:20px */
+}
+
+.input-field-container{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.birthday-container > .input-field-container input {
+    overflow: visible;
+    touch-action: manipulation;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 2px;
+    border-radius: 8px;
+    margin-top: 0 !important;
+    margin-right: 10px;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+    width: 100px;
+    background-color: #f6f7fa;
+    caret-color: #40acf8;
+}
