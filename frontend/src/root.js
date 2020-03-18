@@ -1,7 +1,7 @@
 import App from "./app";
+import React from "react";
 // import { HashRouter } from "react-router-dom";
 // import { Provider } from "react-redux";
-import React from "react";
 
 const Root = () => (
 //   <Provider store={store}>
