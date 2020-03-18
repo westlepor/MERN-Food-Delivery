@@ -4,15 +4,15 @@ const Hour = require('../../models/Hour');
 
 // hours index page route
 router.get("/", async (req, res) => {
-  // const newHour = await new Hour({
-  //   isOvernight: true,
-  //   start: "22:00",
-  //   end: "22:30",
-  //   day: 1,
-  //   businessId: "5e6dcfeb8f74e14a9175e94a"
-  // })
-  // console.log(newHour);
-  // await newHour.save();
+    // const newHour = await new Hour({
+    //   isOvernight: true,
+    //   start: "10:00",
+    //   end: "12:30",
+    //   day: 10,
+    //   businessId: "5e6dcfeb8f74e14a9175e94a"
+    // })
+    // console.log(newHour);
+    // await newHour.save();
 
     await Hour
       .find()

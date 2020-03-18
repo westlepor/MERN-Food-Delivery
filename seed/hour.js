@@ -2,14 +2,24 @@
 const Hour = require('../models/Hour');
 // const Business = require('../../models/Business');
 
-const newHour = new Hour({
+// Hour.create({
+//     isOvernight: true,
+//     start: "10:00",
+//     end: "12:30",
+//     day: 5,
+//     businessId: "5e6dcfeb8f74e14a9175e94b"
+// })
+
+module.exports = new Hour({
     isOvernight: true,
-    start: "22:00",
-    end: "22:30",
-    day: 2,
-    businessId: "5e6dcfeb8f74e14a9175e94a"
+    start: "10:00",
+    end: "12:30",
+    day: 5,
+    businessId: "5e6dcfeb8f74e14a9175e94b"
 })
+
 newHour.save();
+// console.log(newHour)
 
 // const newHour = await new Hour({
     //     isOvernight: true,

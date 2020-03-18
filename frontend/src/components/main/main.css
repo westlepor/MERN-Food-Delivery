@@ -1,0 +1,110 @@
+#background-video {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+
+    /* -webkit-filter: grayscale(100%);  */
+    /* filter: grayscale(100%); */
+
+    /* -webkit-filter: blur(5px);  */
+    /* filter: blur(5px); */
+
+}
+
+.splash-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    color: white;
+}
+
+.background-container {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+
+.splash-content h1 {
+    font-size: 12vw;
+    font-weight: bold;
+}
+
+.splash-content button {
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    padding: .5vw 4vw;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    
+}
+
+
+
+.splash-content h4{
+    text-align: center;
+    width: 60%;
+    font-size: 14px;
+    font-weight: lighter;
+    margin-top: .1vw;
+    /* text-shadow: 2px 2px black; */
+}
+
+.main {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+@media only screen and (max-width: 1000px) {
+    #background-video {
+        display: none;
+    }
+
+    .background-container {
+        /* background-image: url(https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260); */
+        background-image: url(https://images.pexels.com/photos/1528013/pexels-photo-1528013.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+        /* background-image: url(https://images.pexels.com/photos/5929/food-salad-dinner-eating.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .splash-content button {
+        padding-left: 35%;
+        padding-right: 35%;
+        font-size: 1.5em;
+        position: absolute;
+        top: 80%;
+    }
+
+    .splash-content h1 {
+        position: absolute;
+        bottom: 70%;
+    }
+
+    .splash-content h4 {
+        position: absolute;
+        top: 60%;
+        font-size: 2.5vw;
+        margin: 1vw 1vw;
+        width: 100%;
+    }
+    
+}

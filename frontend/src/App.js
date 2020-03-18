@@ -1,28 +1,22 @@
 import React from 'react';
-import './App.css';
+import './app.css';
+import Nav from './components/nav/nav';
+import SplashPage from './components/main/main'
+import Signup from './components/session/signup'
 
 const App = () => {
   return (
     <div className="app">
-      {/* <Modal /> */}
-      This is app
-      {/* <Nav /> */}
-      {/* <Route to="/" component={Main} />
-      <Route to="/" component={SignupComponent} />
+      {/* <Nav />
+      <SplashPage /> */}
+      {/* <Route to="/" component={SplashPage} /> */}
+      {/* <Route to="/" component={SignupComponent} />
       <Route to="/" component={Main} /> */}
       {/* <Route to="/signin" component={Session} />
       <Route to="/signup" component={Session} /> */}
+      <Signup/>
     </div>
   );
 }
 
 export default App;
-
-
-/*
-1 nav+splash page (Chris)
-1 modal (Arno)
-1 signup page (hen)
-1 redux (neil)
-
-*/
