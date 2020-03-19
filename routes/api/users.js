@@ -12,6 +12,14 @@ router.get("/test", (req, res) => {
   res.json({ msg: "This is the user route" });
 });
 
+router.get("/", async (req, res) => {
+  await User
+    .find()
+    .then(users => res.json(users))
+    .catch(err => res.status(404).json({ nohoursfound: "No users found" }));
+}
+);
+
 router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
@@ -32,13 +40,13 @@ router.post("/register", (req, res) => {
 
   User.findOne({
     email: req.body.email
-  }).then(user => {
+  }).then(async (user) => {
     if (user) {
       return res
         .status(400)
         .json({ email: "A user is already registered with that email" });
     } else {
-      const newUser = new User({
+      const newUser = await new User({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
@@ -55,15 +63,28 @@ router.post("/register", (req, res) => {
           newUser.password = hash;
           newUser
             .save()
-            .then(user => res.json(user))
-            .catch(err => console.log(err));
+            .then(user => {
+              const payload = {
+                id: user.id,
+                username: user.username,
+                email: user.email
+              };
+
+              jwt.sign(
+                payload,
+                keys.secretOrKey,
+                { expiresIn: 3600 },
+                (err, token) => {
+                  return res.json({
+                    success: true,
+                    token: "Bearer " + token
+                  });
+                }
+              );
+            }
+            ).catch(err => console.log(err));
         });
       });
-
-      newUser
-        .save()
-        .then(user => res.send(user))
-        .catch(err => res.send(err));
     }
   });
 });
@@ -87,7 +108,6 @@ router.post("/login", (req, res) => {
     }
 
     bcrypt.compare(password, user.password).then(isMatch => {
-      console.log(isMatch, "is maych");
       if (isMatch) {
         const payload = {
           id: user.id,
