@@ -1,10 +1,16 @@
-import { RECEIVE_GROUP, REMOVE_GROUP} from "../actions/group_actions";
+import { RECEIVE_GROUP, RECEIVE_GROUPS, REMOVE_GROUP} from "../actions/group_actions";
+import _ from 'lodash';
 
 const groupsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
+    let newState = _.merge({}, oldState);
+
     switch (action.type) {
         case RECEIVE_GROUP:
-            return action.group;
+            newState[action.group._id] = action.group;
+            return newState;
+        case RECEIVE_GROUPS:
+            return action.groups;
         case REMOVE_GROUP:
             return null;
         default:
