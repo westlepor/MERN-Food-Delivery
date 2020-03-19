@@ -7,6 +7,7 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout, login, signup } from "./actions/session_actions";
 import { fetchUsers, fetchUser } from "./actions/user_actions";
+import { createGroup, fetchGroups, fetchGroup, deleteGroup, updateGroup } from "./actions/group_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -39,6 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.jwt_decode2 = jwt_decode;
   window.fetchUsers = fetchUsers;
   window.fetchUser = fetchUser;
+  window.createGroup = createGroup;
+  window.fetchGroups = fetchGroups; 
+  window.fetchGroup = fetchGroup; 
+  window.deleteGroup = deleteGroup; 
+  window.updateGroup = updateGroup
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);

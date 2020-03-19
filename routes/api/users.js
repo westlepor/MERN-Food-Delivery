@@ -15,10 +15,22 @@ router.get("/test", (req, res) => {
 router.get("/", async (req, res) => {
   await User
     .find()
-    .then(users => res.json(users))
+    .then(users => {
+      const userObj = {};
+      users.map((user)=>{
+        userObj[user.id] = user;   
+      })
+      res.json(userObj);
+    })
     .catch(err => res.status(404).json({ nohoursfound: "No users found" }));
 }
 );
+
+router.get("/:id", (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json({ nohoursfound: "No hour found with that id" }));
+});
 
 router.get(
   "/current",
