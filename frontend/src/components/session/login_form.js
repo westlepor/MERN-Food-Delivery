@@ -18,8 +18,6 @@ class LoginForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         // this.props.clearErrors();
-        // this.fillDemo = this.fillDemo.bind(this);
-        // this.addTeam = this.addTeam.bind(this);
     }
 
     update(field) {
@@ -43,20 +41,7 @@ class LoginForm extends React.Component {
         }
     }
 
-    // fillDemo(e) {
-    //     e.preventDefault();
-    //     this.props.loginForm({ email: 'mca@beastieboys.com', password: 'password', team_id: 1 })
-    //         .then(() => (this.props.closeModal())).then(() => this.props.history.push('/home'))
-    // }
-
-    // addDemo() {
-
-    //     return (
-    //         <input className='login-signup-button' onClick={this.fillDemo} value='DEMO LOGIN' />
-    //     )
-
-    // }
-
+    
 
     handleSubmit(e) {
         e.preventDefault();
@@ -133,8 +118,7 @@ class LoginForm extends React.Component {
                     <div className='instead'>
                         <br />
                         <p className='link-form-label'>Not a registered user?   </p>
-                        <Link className='link-form' onClick={this.linkModal} to="/">Sign up</Link>
-
+                        <Link className='link-form' onClick={this.props.closeModal} to='/onboarding'>Sign Up</Link>
                     </div>
                     {/* {this.addDemo()} */}
                     {/* {this.addLink()} */}
