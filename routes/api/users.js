@@ -12,8 +12,8 @@ router.get("/test", (req, res) => {
   res.json({ msg: "This is the user route" });
 });
 
-router.get("/", async (req, res) => {
-  await User
+router.get("/", (req, res) => {
+  User
     .find()
     .then(users => {
       const userObj = {};
@@ -22,14 +22,16 @@ router.get("/", async (req, res) => {
       })
       res.json(userObj);
     })
-    .catch(err => res.status(404).json({ nohoursfound: "No users found" }));
+    .catch(err => res.status(404).json({ nousersfound: "No users found" }));
 }
 );
 
 router.get("/:id", (req, res) => {
   User.findById(req.params.id)
     .then(user => res.json(user))
-    .catch(err => res.status(404).json({ nohoursfound: "No hour found with that id" }));
+    .catch(err =>
+      res.status(404).json({ nouserfound: "No user found with that id" })
+    );
 });
 
 router.get(
