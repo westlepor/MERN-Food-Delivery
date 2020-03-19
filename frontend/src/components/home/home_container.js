@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Home from './home';
 
 const mapSTP = (state) => ({
-    
+    user: state.session.user
 })
 
 const mapDTP = (dispatch) => ({
