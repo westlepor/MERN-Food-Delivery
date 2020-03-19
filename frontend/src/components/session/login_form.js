@@ -79,9 +79,9 @@ class LoginForm extends React.Component {
                 <h1 className='form-title'>LOG IN</h1>
                 <div className="form-top">
                     <div className="email">
-                        <label className="login-label" htmlFor="email">
+                        {/* <label className="login-label" htmlFor="email">
                             Email
-                        </label>
+                        </label> */}
                         <div className="input-field-container">
                             <input
                                 required
@@ -104,9 +104,9 @@ class LoginForm extends React.Component {
                 
                 
                 <div className="password">  
-                    <label className="login-label" htmlFor="password">
+                    {/* <label className="login-label" htmlFor="password">
                         Password
-                    </label>
+                    </label> */}
                     <div className="input-field-container">
                         <input
                             onChange={this.update('password')}

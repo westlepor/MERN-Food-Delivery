@@ -1,3 +1,4 @@
+
 .login-form {
     /* border: 2px solid red; */
     height: 400px;
@@ -24,9 +25,10 @@
     width: 80%;
     display: flex;
     flex-direction: column;
-    margin-top: auto ;
     align-items: center;
-    /* margin: 100px 0 0 0; */
+    margin: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
+    justify-content: space-between;
 }
 
 
@@ -51,6 +53,7 @@
 
 
 .login-button {
+    box-sizing: content-box;
     background: linear-gradient(262deg, #ff7854, #fd267d);
     padding: .5vw 4vw;
     border-radius: 50px;
@@ -58,10 +61,12 @@
     white-space: nowrap;
     color: white;
     width: 60px;
+    margin-bottom: 10px 0 10px 0;
+    border: 2px solid #ff7854;
 }
 
 .login-button:hover {
-
+    box-sizing: content-box;
     /* color: linear-gradient(262deg, #ff7854, #fd267d); */
     color:  #ff7854;
     background: white;
@@ -73,7 +78,8 @@
     font-size: 1.6rem;
     font-weight: bolder;
     font-style: italic;
-    margin: 0 0 .25em;
+    margin: .7em 0 .7em 0;
+
 }
 
 /* .login-button {
@@ -86,14 +92,33 @@
     font-size: 15px;
     margin: 100px 0;
 } */
+.input-login-button {
+    box-sizing: content-box;
+    padding: 0;
+    margin: 0;
+}
 
 .instead {
     display: flex;
+    box-sizing: content-box;
     width: 70%;
     justify-content: space-evenly;
-    padding: 5px 0 0 0;
+    padding: 20px 0 0 0;
     font-size: 13px;
 }
+
+#email {
+    height: auto;
+    margin: 0;
+    text-align: left;
+}
+
+#password {
+    height: auto;
+    margin: 0;
+    text-align: left;
+}
+
 
 .link-form-label {
     color: darkgray;
@@ -141,9 +166,13 @@
 
 .input-field-container{
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     position: relative;
+     width: 100%;
+    margin-bottom: 10px;
+    display: flex;
 }
+
 
 .input-icon{
     position: absolute;
@@ -154,10 +183,4 @@
 
 
 
-
-.input-field-container{
-    width: 100%;
-    margin-bottom: 20px;
-    display: flex;
-}
 
