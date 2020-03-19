@@ -15,7 +15,7 @@ class Nav extends React.Component {
     render() {
         console.log(this.props);
         return (
-            <section className="header-container">
+            <section className="header-container signup">
                 <div className="header-logo">
                     <h1>⌘</h1>
                     <h2>gather</h2>
