@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFish, faVoicemail, faEnvelope, faUserAlt, faLock, faHome } from '@fortawesome/free-solid-svg-icons'
+import './login.css'
 
 
 
@@ -8,18 +11,15 @@ class LoginForm extends React.Component {
         super(props);
        
         this.state = {
-            username: "",
             email: "",
-            password: "",
-            teamId: ""
+            password: ""
         }
 
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.linkModal = this.linkModal.bind(this);
-        this.props.clearErrors();
-        this.fillDemo = this.fillDemo.bind(this);
-        this.addTeam = this.addTeam.bind(this);
+        // this.props.clearErrors();
+        // this.fillDemo = this.fillDemo.bind(this);
+        // this.addTeam = this.addTeam.bind(this);
     }
 
     update(field) {
@@ -64,7 +64,7 @@ class LoginForm extends React.Component {
         const user = Object.assign({}, this.state);
 
         
-        this.props.processForm(user).then(() => {
+        this.props.login(user).then(() => {
             this.props.closeModal();
             this.props.history.push('/home');
         },
@@ -75,29 +75,67 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <form className='login form' onSubmit={this.handleSubmit}>
+            <form className='login-form' onSubmit={this.handleSubmit}>
+                <h1 className='form-title'>LOG IN</h1>
                 <div className="form-top">
-                    <h1 className='form-title'>{this.props.formType}</h1>
-                    <br />
-                    <br />
-    
-
-                    <label className='login-label'>Email
+                    <div className="email">
+                        <label className="login-label" htmlFor="email">
+                            Email
+                        </label>
+                        <div className="input-field-container">
+                            <input
+                                required
+                                onChange={this.update('email')}
+                                className="input-field"
+                                type="email"
+                                value={this.state.email}
+                                id="email"
+                                placeholder="email"
+                            />
+                            <span className="input-icon">
+                                <FontAwesomeIcon
+                                    icon={faEnvelope}
+                                    color="#2c2c2c30"
+                                    size="sm"
+                                />
+                            </span>
+                        </div>
+                    </div>
+                
+                
+                <div className="password">  
+                    <label className="login-label" htmlFor="password">
+                        Password
                     </label>
-
-                    <input className='login-field' type="text" placeholder="    name@company.com" value={this.state.email} onChange={this.update('email')} />
-
-                    <label className='login-label'>Password
-                    </label>
-
-                    <input className='login-field' type="password" placeholder="    password" value={this.state.password} onChange={this.update('password')} />
-
+                    <div className="input-field-container">
+                        <input
+                            onChange={this.update('password')}
+                            className="input-field"
+                            type="password"
+                            id="password"
+                            placeholder="password"
+                        />
+                        <span className="input-icon">
+                            <FontAwesomeIcon
+                                icon={faLock}
+                                color="#2c2c2c30"
+                                size="sm"
+                            />
+                        </span>
+                    </div>          
                 </div>
+            </div>
 
                 {this.renderErrors()}
                 <div className="form-bottom">
                     <br />
-                    <input className='login-button' type="submit" value={this.props.formType} />
+                    <input className='login-button' type="submit" value='LOG IN' />
+                    <div className='instead'>
+                        <br />
+                        <p className='link-form-label'>Not a registered user?   </p>
+                        <Link className='link-form' onClick={this.linkModal} to="/">Sign up</Link>
+
+                    </div>
                     {/* {this.addDemo()} */}
                     {/* {this.addLink()} */}
                 </div>
