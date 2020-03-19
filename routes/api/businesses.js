@@ -16,9 +16,9 @@ router.get(
 );
 
 router.get(
-  "/index",
+  "/",
   (req,res) => {
-    Business.all
+    Business.find()
       .then(businesses => res.json(businesses))
       .catch(err => res.status(404).json({ nobusinessesfound: "Cannot find businesses" }))
   }

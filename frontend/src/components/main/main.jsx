@@ -2,21 +2,13 @@ import React from 'react';
 import './main.css';
 
 class SplashPage extends React.Component {
-
-
     render(){
-
         return(
             <div className="main">
                 <section className="background-container">
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        src="https://videos.ctfassets.net/7m90b3o5uk7x/1blO3VWJKwMQGKgCe2Oue6/47c3186699639d6d1a248f08eed60c50/COTE_VIDEO_4.mp4"
-                        type="video/mp4"
-                        id="background-video"
-                    />
+                    <video playsInline autoPlay muted loop id="background-video">
+                        <source src="https://videos.ctfassets.net/7m90b3o5uk7x/1blO3VWJKwMQGKgCe2Oue6/47c3186699639d6d1a248f08eed60c50/COTE_VIDEO_4.mp4" type="video/mp4" />
+                    </video>
                 </section>
                 <section>
                     <div className="splash-content">
@@ -28,8 +20,6 @@ class SplashPage extends React.Component {
             </div>
         );
     }
-
-
 };
 
 export default SplashPage;

@@ -4,11 +4,6 @@ const Category = require("../../models/Category");
 
 // Categorys index page route
 router.get("/", async (req, res) => {
-  const category1 = await new Category({
-      name: 'seafood'
-  })
-  await category1.save();
-    
   await Category.find()
     .then(categories => res.json(categories))
     .catch(err => res.status(404).json({ nocategoriesfound: "No categories found" }));
