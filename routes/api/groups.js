@@ -3,6 +3,31 @@ const router = express.Router();
 const Group = require("../../models/Group");
 const validateGroupInput = require("../../validation/group")
 
+router.get("/", (req, res) => {
+    Group.find()
+      .then(groups => res.json(groups))
+      .catch(err => res.status(404).json({ nogroupsfound: "Cannot find groups" }))
+});
+
+router.get(
+  "/:id", (req, res) => {
+    Group.find(req.params.id)
+      .then(group => res.json(group))
+      .catch(err =>
+        res.status(404).json({ nogroupfound: "Cannot find the group" })
+      );
+  });
+
+router.delete("/:id", (req,res) => {
+  Group.findOneAndDelete(req.params.id)
+    .then(group => {
+      res.json(group);
+    })
+    .catch(err =>
+      res.status(404).json({ nogroupfound: "Cannot delete the group" })
+    );
+});
+
 router.post("/", async (req, res) => {
   const { errors, isValid } = validateGroupInput(req.body);
   if (!isValid) {
@@ -13,7 +38,7 @@ router.post("/", async (req, res) => {
     groupName: req.body.groupName,
     startTime: req.body.startTime,
     endTime: req.body.endTime,
-    users: req.body.users, 
+    users: req.body.users,
     foodRestrictions: req.body.foodRestrictions,
     monetaryRestriction: req.body.monetaryRestriction,
     isSplit: req.body.isSplit
@@ -23,25 +48,6 @@ router.post("/", async (req, res) => {
     .save()
     .then(group => res.send(group))
     .catch(err => res.send(err));
-});
-
-router.get("/", (req, res) => {
-    Group.find()
-      .then(groups => res.json(groups))
-      .catch(err => res.status(404).json({ nobusinessesfound: "Cannot find groups" }))
-});
-
-router.get(
-  "/:id", (req, res) => {
-    Group.find(req.params.id)
-      .then(group => res.json(group))
-      .catch(err => res.status(404).json({ nobusinessesfound: "Cannot find groups" }))
-  });
-
-router.delete("/:id", (req,res) => {
-  Group.findOneAndDelete(req.params.id).then((group)=>{
-    res.json(group);
-  }).catch(err => res.status(404).json({ nobusinessesfound: "Cannot delete the group" }))
 });
 
 router.put("/:id", async (req, res) => {
@@ -71,7 +77,5 @@ router.put("/:id", async (req, res) => {
     .then(group => res.send(group))
     .catch(err => res.send(err));
 });
-
-
 
 module.exports = router;
