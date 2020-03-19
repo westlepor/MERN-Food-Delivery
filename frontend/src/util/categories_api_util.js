@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export const fetchcategories = () => {
+export const fetchCategories = () => {
     return axios.get('/api/categories')
 };

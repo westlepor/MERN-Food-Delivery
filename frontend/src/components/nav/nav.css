@@ -11,15 +11,16 @@
 
 .header-logo {
     display: flex;
-    font-size: 3em;
+    font-size: 2rem;
     font-weight: bolder;
-    margin-left: 1vw;
+    margin-right: 30px;
+    margin-left: 5%;
 }
 
 .header-logo h1 {
     padding-top: 5px;
+    margin-right: 5px
 }
-
 
 .header-container button {
     background-color: white;
@@ -27,8 +28,7 @@
     padding: .5vw 1.5vw;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 3vw;
-    
+    margin-right: 4vw;
 }
 
 .header-container button:hover {
@@ -61,10 +61,41 @@
     }
 
     .header-container button {
-            position: absolute;
-            top: 73%;
-            padding: .5% 36%;
-            border-radius: 50px;
-            font-size: 1.5em;
+        position: absolute;
+        top: 73%;
+        padding: .5% 36%;
+        border-radius: 50px;
+        font-size: 1.5em;
     }
+}
+
+.register .header-container {
+    position: relative;
+    z-index: none;
+    display: flex;
+    color: black;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 1vw;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(232, 232, 232);
+}
+
+.register .header-logo {
+    display: flex;
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-right: 30px;
+    margin-left: 5%;
+}
+
+.register .header-logo h1 {
+    padding-top: 5px;
+    margin-right: 5px;
+}
+
+
+.register .header-container button {
+    display: none;
 }
