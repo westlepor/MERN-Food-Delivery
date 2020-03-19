@@ -1,4 +1,4 @@
-import App from "./app";
+import App from "./gather";
 import React from "react";
 import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";

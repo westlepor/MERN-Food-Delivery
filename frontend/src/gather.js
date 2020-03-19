@@ -1,14 +1,14 @@
 import React from 'react';
-import './app.css';
+import "./gather.css";
 import NavContainer from './components/nav/nav_container';
 import SplashPage from './components/main/main';
 import Onboarding from './components/session/onboarding';
 import Modal from './components/modal/modal'
 import { Route, Switch } from 'react-router-dom';
 
-const App = () => {
+const Gather = () => {
   return (
-    <div className="app">
+    <div className="gather">
       <Modal />
       {/* <Switch> */}
         <Route exact path="/" component={NavContainer} />
@@ -23,4 +23,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default Gather;
