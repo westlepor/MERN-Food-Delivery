@@ -11,3 +11,16 @@ export const fetchUser = (userId) => {
 export const fetchUsers = () => {
     return axios.get(`/api/users`);
 };
+
+// make routes (make sure we have routes)
+// redux utils
+// redux actions
+// redux reducers
+// combine it with entities
+
+// user
+// businesses / business
+// hours / hour
+// categories / category
+// groups / group
+// 

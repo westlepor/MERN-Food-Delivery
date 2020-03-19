@@ -1,20 +1,19 @@
 import "./nav.css";
 import React from 'react';
 
-class NavBar extends React.Component {
+class Nav extends React.Component {
 
     constructor(props) {
         super(props);
-        // console.log(props);
         this.state = {
             username: "",
             email: "",
             password: ""
         }
     }
-
+    
     render() {
-
+        console.log(this.props);
         return (
             <section className="header-container">
                 <div className="header-logo">
@@ -25,8 +24,6 @@ class NavBar extends React.Component {
             </section>
         );
     }
-
-
 };
 
-export default NavBar;
+export default Nav;
