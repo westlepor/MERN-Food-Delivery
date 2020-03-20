@@ -1,5 +1,4 @@
 import { RECEIVE_CATEGORIES } from "../actions/category_actions";
-import _ from "lodash";
 
 const categoriesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);

@@ -1,36 +1,19 @@
 import React from "react";
 import "./gather.css";
-import NavContainer from './components/nav/nav_container';
-import SplashPage from './components/main/main';
-import Onboarding from './components/session/onboarding';
-import Modal from './components/modal/modal'
+import '../src/components/main/main.css';
 import HomeContainer from './components/home/home_container'
 import Swipe from "./components/swipe/swipe";
-import { Route } from "react-router-dom";
+import SplashPage from "./components/main/splash_page";
+import { AuthRoute, ProtectedRoute } from "./util/route_util"; 
+import Register from './components/session/register';
 
 const Gather = () => {
   return (
     <div className="gather">
-      <Route exact path="/" render={props => (
-          <div className="splash-page">
-            <Modal />
-            <NavContainer />
-            <SplashPage />
-          </div>
-        )}
-      />
-
-      <Route exact path="/onboarding" render={props => (
-          <div className="register">
-            <Modal />
-            <NavContainer />
-            <Onboarding />
-          </div>
-        )}
-      />
-
-      <Route exact path="/swipe" component={Swipe} />
-      <Route exact path="/home" component={HomeContainer} />
+      <AuthRoute exact path="/" component={SplashPage} />
+      <AuthRoute exact path="/onboarding" component={Register} />
+      <ProtectedRoute exact path="/home" component={HomeContainer}/>
+      <ProtectedRoute exact path="/swipe" component={Swipe} />
     </div>
   );
 };
