@@ -1,5 +1,4 @@
 import { RECEIVE_HOURS } from "../actions/hour_actions";
-import _ from 'lodash';
 
 const hourReducer = (oldState = {}, action) => {
     Object.freeze(oldState);

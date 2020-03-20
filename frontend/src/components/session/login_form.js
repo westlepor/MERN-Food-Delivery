@@ -1,21 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faLock, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./login.css";
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       email: "",
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.props.clearErrors();
-    // this.fillDemo = this.fillDemo.bind(this);
-    // this.addTeam = this.addTeam.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -34,23 +31,9 @@ class LoginForm extends React.Component {
             </li>
           ))}
         </ul>
-      );
+      )
     }
   }
-
-  // fillDemo(e) {
-  //     e.preventDefault();
-  //     this.props.loginForm({ email: 'mca@beastieboys.com', password: 'password', team_id: 1 })
-  //         .then(() => (this.props.closeModal())).then(() => this.props.history.push('/home'))
-  // }
-
-  // addDemo() {
-
-  //     return (
-  //         <input className='login-signup-button' onClick={this.fillDemo} value='DEMO LOGIN' />
-  //     )
-
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -62,19 +45,33 @@ class LoginForm extends React.Component {
         this.props.closeModal();
         this.props.history.push("/home");
       }
-      // () => this.renderErrors()
-    );
+    )
+  }
+
+  demoLogin(e){
+    e.preventDefault();
+    e.stopPropagation();
+    const demoUser = {
+      email: "stuff@stuff.stuff",
+      password: "password"
+    }
+    this.props.login(demoUser).then(
+      () => {
+        this.props.closeModal();
+        this.props.history.push("/home");
+      }
+    )
   }
 
   render() {
     return (
       <form className="login-form" onSubmit={this.handleSubmit}>
+        <div className="x-mark" onClick={() => { this.props.closeModal();}}>
+          <FontAwesomeIcon icon={faTimes} color="#2c2c2c30" size="1x" />
+        </div>
         <h1 className="form-title">LOG IN</h1>
         <div className="form-top">
           <div className="email">
-            {/* <label className="login-label" htmlFor="email">
-                            Email
-                        </label> */}
             <div className="input-field-container">
               <input
                 required
@@ -96,9 +93,6 @@ class LoginForm extends React.Component {
           </div>
 
           <div className="password">
-            {/* <label className="login-label" htmlFor="password">
-                        Password
-                    </label> */}
             <div className="input-field-container">
               <input
                 onChange={this.update("password")}
@@ -117,6 +111,11 @@ class LoginForm extends React.Component {
         {this.renderErrors()}
         <div className="form-bottom">
           <br />
+          <div className="form-bottom-demo">
+            <button className="demo-user-button" onClick={this.demoLogin}>
+              Demo User
+            </button>
+          </div>
           <input className="login-button" type="submit" value="LOG IN" />
           <div className="instead">
             <br />
@@ -125,8 +124,6 @@ class LoginForm extends React.Component {
               Sign up
             </Link>
           </div>
-          {/* {this.addDemo()} */}
-          {/* {this.addLink()} */}
         </div>
       </form>
     );
