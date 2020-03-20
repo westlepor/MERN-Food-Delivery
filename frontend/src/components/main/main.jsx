@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './main.css';
 
-class SplashPage extends React.Component {
+class Main extends React.Component {
     render(){
         return(
             <div className="main">
@@ -14,7 +15,7 @@ class SplashPage extends React.Component {
                     <div className="splash-content">
                         <h1>Eat Right</h1>
                         <h4>Choosing a restaurant or bar for a group of people can be challenging, location, price, distance; you want to take everyones preferences into consideration. This can be time consuming and complicated, MealMatch will help the group make their decision.</h4>
-                        <button>SIGN UP</button>
+                        <button> <Link to="/onboarding">SIGN UP</Link></button>
                     </div>
                 </section>
             </div>
@@ -22,4 +23,4 @@ class SplashPage extends React.Component {
     }
 };
 
-export default SplashPage;
+export default Main;

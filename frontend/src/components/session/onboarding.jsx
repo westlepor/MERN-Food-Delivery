@@ -13,8 +13,8 @@ class Onboarding extends React.Component {
     super(props);
 
     this.state = {
-      username: "henry",
-      email: "hkryucr@gmail.com",
+      username: "",
+      email: "",
       password: "",
       password2: "",
       zipcode: "",
