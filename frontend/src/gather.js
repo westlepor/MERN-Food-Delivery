@@ -1,5 +1,7 @@
 import React from "react";
 import "./gather.css";
+
+import HomeContainer from './components/home/home_container'
 import NavContainer from "./components/nav/nav_container";
 import SplashPage from "./components/main/main";
 import Onboarding from "./components/session/onboarding";
@@ -33,7 +35,7 @@ const Gather = () => {
           </div>
         )}
       />
-
+      <Route exact path="/home" component={HomeContainer}/>
       <Route exact path="/swipe" component={Swipe} />
     </div>
   );
