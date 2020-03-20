@@ -3,7 +3,7 @@ import _ from "lodash";
 
 const categoriesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
-  let newState = _.merge({}, oldState);
+
   switch (action.type) {
     case RECEIVE_CATEGORIES:
       return action.categories;

@@ -1,24 +1,31 @@
 const express = require("express");
 const router = express.Router();
 const Group = require("../../models/Group");
-const validateGroupInput = require("../../validation/group")
+const validateGroupInput = require("../../validation/group");
 
 router.get("/", (req, res) => {
-    Group.find()
-      .then(groups => res.json(groups))
-      .catch(err => res.status(404).json({ nogroupsfound: "Cannot find groups" }))
+  Group.find()
+    .then(groups => {
+      const groupObj = {};
+      groups.map(group => {
+        groupObj[group.id] = group;
+      });
+      res.json(groupObj);
+    })
+    .catch(err =>
+      res.status(404).json({ nogroupsfound: "Cannot find groups" })
+    );
 });
 
-router.get(
-  "/:id", (req, res) => {
-    Group.find(req.params.id)
-      .then(group => res.json(group))
-      .catch(err =>
-        res.status(404).json({ nogroupfound: "Cannot find the group" })
-      );
-  });
+router.get("/:id", (req, res) => {
+  Group.find(req.params.id)
+    .then(group => res.json(group))
+    .catch(err =>
+      res.status(404).json({ nogroupfound: "Cannot find the group" })
+    );
+});
 
-router.delete("/:id", (req,res) => {
+router.delete("/:id", (req, res) => {
   Group.findOneAndDelete(req.params.id)
     .then(group => {
       res.json(group);
@@ -54,7 +61,7 @@ router.put("/:id", async (req, res) => {
   Group.findOne({
     groupName: req.body.groupName
   }).then(group => {
-    group.delete
+    group.delete;
   });
 
   const { errors, isValid } = validateGroupInput(req.body);
