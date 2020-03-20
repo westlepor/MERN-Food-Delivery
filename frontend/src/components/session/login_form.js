@@ -39,7 +39,6 @@ class LoginForm extends React.Component {
     e.preventDefault();
     e.stopPropagation();
     const user = Object.assign({}, this.state);
-
     this.props.login(user).then(
       () => {
         this.props.closeModal();
@@ -120,7 +119,7 @@ class LoginForm extends React.Component {
           <div className="instead">
             <br />
             <p className="link-form-label">Not a registered user? </p>
-            <Link className="link-form" onClick={this.linkModal} to="/">
+            <Link className="link-form" onClick={this.props.closeModal} to="/onboarding">
               Sign up
             </Link>
           </div>
