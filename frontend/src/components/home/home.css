@@ -1,10 +1,12 @@
 .home-nav-bar {
-    background-color: white;
+    background-color: #f5f7fa;
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 30%;
     color: black;
+    align-items: center;
+    min-width: 580px;
 }
 
 .home-page {
@@ -15,28 +17,150 @@
     width: 100%;
     height: 100%;
     justify-content: flex-start;
-    color: white;
 }
 
 .home-search-bar{
-    width: 92%;
-    padding: .6vw;
-    background-color: white;
+    width: 85%;
+    padding: 1.6% 6px;
     border-radius: 5px;
-    margin: .5vw;
+    margin: 1%;
     align-self: center;
     box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    background: white;
+}
+
+
+
+.home-nav-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-nav-content-top {
+    width: 90%;
+}
+
+.home-nav-content-bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logout-button {
+    padding: 1.5% 40%;
+    background-color: white;
+    color: black;
+    margin: 2%;
+    border-radius: 50px;
+    border: black 1px solid;
+    cursor: pointer;
+}
+
+.home-search-section h1 {
+    position: relative;
+    left: .2%;
+    font-size: 2.6rem;
+    padding-left: 2%;
+    padding-right: .5%;
+    color: white;
+}
+
+.home-nav-bar h2, .home-nav-bar h3{
+    padding-top: 2%;
+}
+
+.home-search-section {
+    padding-top: .8%;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.home-button-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.home-button-container button {
+    background-color: lightgrey;
+    padding: 1% 14.5%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: black 1px solid;
+    border-bottom: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#selected-button {
+   background-color: white; 
 }
 
 .home-search-bar input {
     width: 100%;
+    
 }
 
-iframe{
+/* Create Group Modal Section */
+
+.create-group-form {
+    width: 100%;
     height: 100%;
-    width: 70vw;
-    z-index: -1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4%;
 }
+
+.create-group-form form {
+    width: 90%;
+}
+
+
+.input-field {
+    width: 80%;
+}
+
+.submit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-group-form .submit-button {
+    align-self: center;
+    padding: 1.6% 40%;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    color: white;
+    margin: 1%;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 27%;
+}
+
+
+
+/* Join Group Form */
+
+.join-group-form {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2%;
+}
+
+/* Map Section */
 
 .home-map-container {
     height: 100%;
@@ -46,3 +170,31 @@ iframe{
     height: 100%;
 }
 
+iframe{
+    height: 100%;
+    width: 70vw;
+    z-index: -1;
+}
+
+@media only screen and (max-width: 800px) {
+    .home-nav-bar {
+        width: 100vw;
+    }
+
+    .home-nav-bar {
+        min-width: 100vw;
+    }
+
+    iframe{
+        display: none;
+    }
+
+    h3 {
+        display: none;
+    }
+
+    .home-button-container button {
+        padding: 1% 6%;
+        margin-top: 3%;
+    }
+}
