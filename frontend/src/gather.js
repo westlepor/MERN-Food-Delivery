@@ -1,28 +1,44 @@
-import React from 'react';
+import React from "react";
 import "./gather.css";
-import NavContainer from './components/nav/nav_container';
-import SplashPage from './components/main/main';
-import Onboarding from './components/session/onboarding';
-import Modal from './components/modal/modal'
-import { Route, Switch } from 'react-router-dom';
+
 import HomeContainer from './components/home/home_container'
+import NavContainer from "./components/nav/nav_container";
+import SplashPage from "./components/main/main";
+import Onboarding from "./components/session/onboarding";
+import Modal from "./components/modal/modal";
+import Swipe from "./components/swipe/swipe";
+import { Route } from "react-router-dom";
 
 const Gather = () => {
   return (
     <div className="gather">
-      <Modal />
-      {/* <Switch> */}
-        <Route exact path="/" component={NavContainer} />
-        <Route exact path="/" component={SplashPage} />
-        <Route exact path="/onboarding" component={Onboarding}/>
-        <Route exact path="/home" component={HomeContainer}/>
-        {/* <Route exact to="/" component={Main} /> */}
-        {/* <Route to="/signin" component={Session} />
-        <Route to="/signup" component={Session} /> */}
-        {/* <Onboarding /> */}
-      {/* </Switch> */}
+      <Route
+        exact
+        path="/"
+        render={props => (
+          <div className="splash-page">
+            <Modal />
+            <NavContainer />
+            <SplashPage />
+          </div>
+        )}
+      />
+
+      <Route
+        exact
+        path="/onboarding"
+        render={props => (
+          <div className="register">
+            <Modal />
+            <NavContainer />
+            <Onboarding />
+          </div>
+        )}
+      />
+      <Route exact path="/home" component={HomeContainer}/>
+      <Route exact path="/swipe" component={Swipe} />
     </div>
   );
-}
+};
 
 export default Gather;

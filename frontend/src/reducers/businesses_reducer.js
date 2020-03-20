@@ -4,9 +4,10 @@ import _ from 'lodash';
 const businessReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let newState = _.merge({}, oldState);
+
     switch (action.type) {
         case RECEIVE_BUSINESS:
-            newState[action.business.id] = action.business;
+            newState[action.business._id] = action.business;
             return newState;
         case RECEIVE_BUSINESSES:
             return action.businesses;

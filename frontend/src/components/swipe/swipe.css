@@ -1,0 +1,54 @@
+* {
+    /* border: 1px solid blue !important; */
+}
+
+.gather {
+    width: 100vw;
+  height: 100vh;
+}
+
+#swipe {
+    width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+aside {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100vh;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+}
+
+main {
+    display: flex;
+    width: 60%;
+    height: 100vh;
+}
+
+nav {
+    display: flex;
+    height: 100px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.likes {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: auto;
+    margin-bottom: 1em;
+    height: auto;
+}
+
+.nav-logo {
+    display: flex;
+    font-size: 2em;
+    font-weight: bolder;
+    margin-left: 1vw;
+}
+
+.welcome-swipe {
+    font-size: 32px;
+}

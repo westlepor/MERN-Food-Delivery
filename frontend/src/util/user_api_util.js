@@ -18,8 +18,7 @@ export const fetchUsers = () => {
 // redux reducers
 // combine it with entities
 
-// businesses / business -> no businesses route
-// hours / hour
-// categories / category
-// groups / group -> no groups route
-// 
+// businesses / business -> done
+// hours / hour done done
+// categories / category done
+// groups / group -> no groups route 

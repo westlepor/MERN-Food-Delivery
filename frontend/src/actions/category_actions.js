@@ -6,7 +6,7 @@ const receiveCategories = payload => ({
     categories: payload.data
 });
 
-export const fetchCategories = () => dispatch => (
-    APIUtil.fetchCategories()
-        .then((categories) => dispatch(receiveCategories()))
+export const fetchCategories = () => dispatch =>
+    APIUtil.fetchCategories().then(categories =>
+    dispatch(receiveCategories(categories))
 );
