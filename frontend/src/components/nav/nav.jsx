@@ -2,6 +2,7 @@ import "./nav.css";
 import React from "react";
 import { Link } from 'react-router-dom';
 
+
 class Nav extends React.Component {
   constructor(props) {
     super(props);
@@ -16,8 +17,10 @@ class Nav extends React.Component {
     return (
       <section className="header-container">
         <div className="header-logo">
+
           <h1><Link to="/">⌘</Link></h1>
           <h2><Link to="/">gather</Link></h2>
+
         </div>
         <div className="header-button">
           <button onClick={() => this.props.openModal("login")}>LOG IN</button>

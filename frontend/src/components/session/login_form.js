@@ -7,6 +7,7 @@ import "./login.css";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       email: "",
       password: ""
@@ -39,6 +40,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     e.stopPropagation();
     const user = Object.assign({}, this.state);
+
     this.props.login(user).then(
       () => {
         this.props.closeModal();
