@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { logout } from '../../actions/session_actions'
 import './swipe.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
@@ -12,35 +14,36 @@ class Swipe extends React.Component {
             <div id="swipe">
                 <aside>
                     <nav><div className="nav-logo">
-                        <h1>⌘</h1>
-                        <h2>gather</h2>
+                        <Link to="/home">⌘</Link>
+                        {/* <h1>⌘</h1> */}
+                        {/* <h2>gather</h2> */}
                         </div>
                         <h2 className="welcome-swipe">Hi Henry!</h2>
                         {/* <div className="welcome-swipe">{props.currentUser.username}</div> */}
-                        <span>
+                        <Link className="logout" onClick={this.props.logout} to="/">    
                             <FontAwesomeIcon
                                 icon={faSignOutAlt}
                                 color="white"
                                 size="2x"
                             />
-                        </span>
+                        </Link>
                     </nav>
                     <div className="caroussel">CAROUSSEL</div>
                     <div className="business-info">BUSINESS INFO</div>
                     <div className="likes">
-                    <span>
+                    <span className="like">
                             <FontAwesomeIcon
                                 icon={faCheck}
                                 color="white"
-                                size="7x"
+                                size="5x"
                             />
                             
                     </span>
-                    <span>
+                    <span className="dislike">
                             <FontAwesomeIcon
                                 icon={faTimes}
                                 color="white"
-                                size="7x"
+                                size="5x"
                             />
                     </span>
                     </div>

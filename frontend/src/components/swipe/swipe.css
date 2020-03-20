@@ -1,5 +1,5 @@
 * {
-    /* border: 1px solid blue !important; */
+    border: 1px solid blue !important;
 }
 
 .gather {
@@ -34,12 +34,43 @@ nav {
     align-items: center;
 }
 
+.caroussel {
+    height: 35%;
+}
+
+.business-info {
+    height: 35%;
+}
+
+.logout {
+    cursor: pointer;
+}
+
 .likes {
     display: flex;
     justify-content: space-evenly;
     margin-top: auto;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     height: auto;
+    /* position: fixed; */
+}
+
+.like {
+    display: flex;
+    justify-content: center;
+    width: 46%;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.dislike {
+    display: flex;
+    justify-content: center;
+    width: 46%;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
 }
 
 .nav-logo {
