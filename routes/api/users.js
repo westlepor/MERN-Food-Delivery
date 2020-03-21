@@ -7,6 +7,7 @@ const User = require("../../models/User");
 const passport = require("passport");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+const FoodRestriction = require("../../models/FoodRestriction");
 
 router.get("/test", (req, res) => {
   res.json({ msg: "This is the user route" });
@@ -46,7 +47,7 @@ router.get(
   }
 );
 
-router.post("/register", (req, res) => {
+router.post("/signup", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
@@ -60,18 +61,18 @@ router.post("/register", (req, res) => {
         .status(400)
         .json({ email: "A user is already registered with that email" });
     } else {
+      
       const newUser = await new User({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
         zipcode: req.body.zipcode,
         birthday: req.body.birthday,
-        // foodRestriction: [req.foodRestriction.id...],
-        // groups: req.body.groups,
+        foodRestriction: req.body.selectedFoodRestrictions,
         monetaryRestriction: req.body.monetaryRestriction
       });
 
-      bcrypt.genSalt(10, (err, salt) => {
+      await bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) throw err;
           newUser.password = hash;

@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
+import FoodRestrictionFormContainer from '../session/food_restriction_form_container';
 import './modal.css'
 
 function Modal({ modal, closeModal }) {
@@ -12,6 +13,9 @@ function Modal({ modal, closeModal }) {
     switch (modal) {
         case 'login':
             component = <LoginFormContainer />;
+            break;
+        case 'foodRestriction':
+            component = <FoodRestrictionFormContainer/>;
             break;
         default:
             return null;
