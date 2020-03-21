@@ -21,14 +21,14 @@ const UserSchema = new Schema({
   birthday: {
       type: Date
   },
-  foodRestriction: {
+  foodRestriction: [{
       type: Schema.Types.ObjectId,
       ref: "foodRestrictions"
-  },
-  groups: {
+  }],
+  groups: [{
       type: Schema.Types.ObjectId,
       ref: "groups"
-  },
+  }],
   monetaryRestriction: {
       type: String, 
       required: true

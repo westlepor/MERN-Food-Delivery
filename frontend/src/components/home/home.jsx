@@ -127,7 +127,7 @@ class Home extends React.Component {
                 </div>
                 <div className="is-split">
                   <div className="is-split-container">
-                    <label for="styled"> Cost Covered?
+                    <label htmlFor="styled"> Cost Covered?
                       <div className="toggles">
                         <input type="checkbox" name="styled" id="styled"/>
                       </div>

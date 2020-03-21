@@ -7,11 +7,6 @@ const User = require("../../models/User");
 const passport = require("passport");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
-const FoodRestriction = require("../../models/FoodRestriction");
-
-router.get("/test", (req, res) => {
-  res.json({ msg: "This is the user route" });
-});
 
 router.get("/", (req, res) => {
   User
@@ -24,8 +19,7 @@ router.get("/", (req, res) => {
       res.json(userObj);
     })
     .catch(err => res.status(404).json({ nousersfound: "No users found" }));
-}
-);
+});
 
 router.get("/:id", (req, res) => {
   User.findById(req.params.id)
@@ -34,18 +28,6 @@ router.get("/:id", (req, res) => {
       res.status(404).json({ nouserfound: "No user found with that id" })
     );
 });
-
-router.get(
-  "/current",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    res.json({
-      id: req.user.id,
-      username: req.user.username,
-      email: req.user.email
-    });
-  }
-);
 
 router.post("/signup", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);

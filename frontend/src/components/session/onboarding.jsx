@@ -108,7 +108,7 @@ class Onboarding extends React.Component {
   render() {
     return (
       <div className="onboarding">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="onboarding-title">
             <h1>CREATE ACCOUNT</h1>
           </div>
@@ -255,9 +255,7 @@ class Onboarding extends React.Component {
             </div>
           </div>
           <div className="onboarding-submit">
-            <button className="onboarding-submit-button" onClick={this.handleSubmit}>
-              Continue
-            </button>
+            <input type="submit" className="onboarding-submit-button" value="Continue"/>
           </div>
         </form>
       </div>
