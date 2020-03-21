@@ -94,7 +94,7 @@ class Onboarding extends React.Component {
       selectedFoodRestrictions: selectedFoodRestrictions,
       birthday: birthday
     }
-    console.log(newUser);
+
     this.props.signup(newUser);
   }
 
@@ -104,6 +104,21 @@ class Onboarding extends React.Component {
     }
   }
 
+  renderErrors() {
+    if (!_.isEmpty(this.props.errors)) {
+      return (
+        <ul className="errors">
+          {Object.values(this.props.errors).map((error, idx) => (
+            <li className="error" key={idx}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      )
+    } else {
+      return null;
+    }
+  }
 
   render() {
     return (
@@ -255,6 +270,7 @@ class Onboarding extends React.Component {
             </div>
           </div>
           <div className="onboarding-submit">
+            {this.renderErrors()}
             <input type="submit" className="onboarding-submit-button" value="Continue"/>
           </div>
         </form>
