@@ -1,0 +1,28 @@
+.caroussel, .biz-caroussel, .biz-caroussel-gallery {
+    width: 100%;
+    height: 100%
+}
+
+.biz-caroussel-gallery > div{
+    width: 100%;
+    height: 100%;
+}
+
+.biz-caroussel-gallery > .flickity-slider {
+    display: flex;
+}
+
+.biz-caroussel-gallery img {
+    object-fit: cover;
+    height: calc(100vh/4);
+    width: calc(100vh/4);
+    margin-left: 3px;
+}
+
+.biz-caroussel-gallery-cell {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 5px;
+    border-radius: 5px;
+}
