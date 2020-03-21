@@ -6,16 +6,14 @@ import LoginForm from './login_form';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        errors: state.errors.session,
-        ownProps:ownProps
+        errors: state.errors.session
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         login: user => dispatch(login(user)),
-        closeModal: () => dispatch(closeModal()),
-        openModal: (modal) => dispatch(openModal(modal))
+        closeModal: () => dispatch(closeModal())
     }
 }
 

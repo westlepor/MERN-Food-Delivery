@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./login.css";
+import _ from 'lodash';
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       email: "",
       password: ""
@@ -23,16 +23,18 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
-    if (this.props.errors) {
+    if (!_.isEmpty(this.props.errors)) {
       return (
         <ul className="errors">
-          {this.props.errors.map((error, i) => (
-            <li className="error" key={`error=${i}`}>
+          { Object.values(this.props.errors).map((error, idx) => (
+            <li className="error" key={idx}>
               {error}
             </li>
-          ))}
+          )) }
         </ul>
       )
+    } else {
+      return null;
     }
   }
 
@@ -42,7 +44,10 @@ class LoginForm extends React.Component {
     const user = Object.assign({}, this.state);
 
     this.props.login(user).then(
-      () => {
+      (res) => {
+        if (res.type = "RECEIVE_SESSION_ERRORS"){
+          return null;
+        }
         this.props.closeModal();
         this.props.history.push("/home");
       }
