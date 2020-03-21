@@ -18,6 +18,9 @@ const arr = JSON.parse(fs.readFileSync("./categories.json"));
 console.log(arr);
 console.log("file ended");
 
+// const arr = (fs.readFileSync("./foodRestriction.js");
+// console.log(arr);
+// console.log("end");
 
 // fs.readFileSync("./categories.json", (err, data)=>{
 //     if (err) throw err;
