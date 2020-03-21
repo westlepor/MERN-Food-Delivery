@@ -14,8 +14,8 @@ const Category = require("../models/Category");
 
 const categories = [];
 
-const arr = fs.readFileSync("./categories.json");
-console.log(JSON.parse(arr));
+const arr = JSON.parse(fs.readFileSync("./categories.json"));
+console.log(arr);
 console.log("file ended");
 
 
