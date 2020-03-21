@@ -1,13 +1,5 @@
 import "./home.css";
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    fasearch
-} from "@fortawesome/free-solid-svg-icons";
-import { Link } from 'react-router-dom'
-
-
-
 
 class Home extends React.Component {
 
@@ -42,8 +34,11 @@ class Home extends React.Component {
     }
   };
 
+  componentDidMount(){
+    this.props.fetchUsers();
+  }
+
   render() {
-      
     return (
       <div className="home-page">
         <section className="home-nav-bar">
@@ -156,8 +151,8 @@ class Home extends React.Component {
               </div>
             : null }
             <div className="home-nav-content-bottom">
-                <h2> Logged in as, {this.props.user.email}</h2>
-                <button className="logout-button">LOGOUT</button>
+                <h2> Logged in as, {this.props.users}</h2>
+                <button className="logout-button" onClick={this.props.logout}>LOGOUT</button>
             </div>
           </div>
         </section>
@@ -169,7 +164,6 @@ class Home extends React.Component {
         </section>
       </div>
     );
-  }
-};
+  }};
 
 export default Home;
