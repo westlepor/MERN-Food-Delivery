@@ -10,6 +10,7 @@ import { fetchUsers, fetchUser } from "./actions/user_actions";
 import { fetchHours } from "./actions/hour_actions";
 import { fetchBusinesses, fetchBusiness } from "./actions/business_actions";
 import { fetchCategories } from "./actions/category_actions";
+import { fetchFoodRestrictions } from "./actions/food_restriction_actions";
 import { createGroup, fetchGroups, fetchGroup, deleteGroup, updateGroup } from "./actions/group_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -52,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchBusiness = fetchBusiness;
   window.fetchHours = fetchHours;
   window.fetchCategories = fetchCategories;
+  window.fetchFoodRestrictions = fetchFoodRestrictions;
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);

@@ -8,7 +8,7 @@ const hours = require("./routes/api/hours");
 const categories = require("./routes/api/categories");
 const businesses = require("./routes/api/businesses");
 const groups = require("./routes/api/groups");
-
+const foodRestrictions = require("./routes/api/foodRestrictions")
 const User = require("./models/User");
 const bodyParser = require('body-parser');
 
@@ -41,6 +41,7 @@ app.use("/api/hours", hours);
 app.use("/api/categories", categories);
 app.use("/api/businesses", businesses);
 app.use("/api/groups", groups);
+app.use("/api/foodRestrictions", foodRestrictions);
 
 // Check the environmental variable port, if it exist, use it. Otherwise, use 5000 
 const port = process.env.PORT || 5000;

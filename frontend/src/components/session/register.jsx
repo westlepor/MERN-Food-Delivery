@@ -1,7 +1,7 @@
 import React from 'react';
 import NavContainer from "../nav/nav_container";
 import Modal from "../modal/modal";
-import Onboarding from "./onboarding";
+import OnboardingContainer from "./onboarding_container";
 
 class Register extends React.Component {
     render() {
@@ -9,7 +9,7 @@ class Register extends React.Component {
             <div className="register">
                 <Modal />
                 <NavContainer />
-                <Onboarding />
+                <OnboardingContainer />
             </div>
         );
     }
