@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { logout } from '../../actions/session_actions'
+import { logout } from '../../actions/session_actions';
+import BizCaroussel from '../swipe/caroussel/biz_caroussel'
 import './swipe.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
@@ -9,6 +10,7 @@ class Swipe extends React.Component {
     constructor(props) {
         super(props);
     }
+
     render() {
         return (
             <div id="swipe">
@@ -28,8 +30,11 @@ class Swipe extends React.Component {
                             />
                         </Link>
                     </nav>
-                    <div className="caroussel">CAROUSSEL</div>
-                    <div className="business-info">BUSINESS INFO</div>
+                    <div className="caroussel">
+                        <BizCaroussel />
+                    </div>
+                    <div className="business-info">BUSINESS INFO
+                    </div>
                     <div className="likes">
                     <span className="like">
                             <FontAwesomeIcon
