@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BizCaroussel from '../swipe/caroussel/biz_caroussel'
+import BizCaroussel from '../swipe/caroussel/biz_caroussel';
+import BizInfo from '../swipe/biz_info/biz_info';
 import './swipe.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
@@ -29,7 +30,9 @@ class Swipe extends React.Component {
           <div className="caroussel">
             <BizCaroussel />
           </div>
-          <div className="business-info">BUSINESS INFO</div>
+          <div className="business-info">
+            <BizInfo />
+          </div>
           <div className="like-or-dislike">
             <div className="like-or-dislike-container">
               <span className="like">
