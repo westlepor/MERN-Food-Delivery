@@ -43,7 +43,7 @@ module.exports = function validateRegisterInput(data) {
   }
 
   if (!Validator.isLength(data.monetaryRestriction, { min: 1, max: 4 })) {
-      errors.monetaryRestriction = "Value must be between $ and $$$$";
+      errors.monetaryRestriction = "Monetary restriction value must be between $ and $$$$";
   }
 
   if (!Validator.isLength(data.zipcode, { min: 5, max: 5 })){

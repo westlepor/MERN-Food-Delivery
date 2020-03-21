@@ -53,6 +53,7 @@
     justify-content: space-between;
     cursor: pointer;
 }
+
 .FR-item-container > div:last-child{
     display: none;
 }

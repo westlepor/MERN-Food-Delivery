@@ -4,10 +4,10 @@ import { logout, signup } from "../../actions/session_actions";
 import Onboarding from "./onboarding";
 
 const mapSTP = state => ({
-    // currentUser: state.entities.users[state.session.currentUserId],
     curState: state,
     selectedFoodRestrictions: state.ui.selectedFoodRestrictions,
-    foodRestrictions: state.entities.foodRestrictions
+    foodRestrictions: state.entities.foodRestrictions,
+    errors: state.errors.session
 });
 
 const mapDTP = dispatch => ({
