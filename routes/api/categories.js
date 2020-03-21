@@ -1,35 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const db = require("../../config/keys").mongoURI;
 const fs = require("fs");
 const Category = require("../../models/Category");
-// const arr = [
-//   {
-//     name: "3D Printing"
-//   },
-//   {
-//     name: "Abruzzese"
-//   },
-//   {
-//     name: "Absinthe Bars"
-//   },
-//   {
-//     name: "Acai Bowls"
-//   },
-//   {
-//     name: "Accessories"
-//   },
-//   {
-//     name: "Accountants"
-//   },
-//   {
-//     name: "Acne Treatment"
-//   },
-//   {
-//     name: "Active Life"
-//   }
-// ];
-
-
 
 router.get("/", (req, res) => {
   Category.find()
@@ -45,44 +18,21 @@ router.get("/", (req, res) => {
 
 
 router.get("/seed", async (req, res) => {
+  
+  //add drop db function here?
+  
+  const arr = JSON.parse(fs.readFileSync("seed/categories.json"));
+  for(let i = 0; i < arr.length; i++){
+    let category = new Category(arr[i]);
+    console.log(category);
+    category.save();
+  }
 
-  const arr = fs.readFile("../seed/categories.json", async (err, data) => {
-    if (err) throw err;
-    return JSON.parse(data);
-  })
-
-  // const arr = [
-  //   {
-  //     name: "3D Printing"
-  //   }
-  // ];
-
-    for(let i = 0; i < arr.length; i++){
-      console.log("hello")
-
-      const category1 = await new Category({
-        name: arr[i].name
-      });
-      
-      console.log(category1);
-      await category1.save();
-
-      console.log("hello again")
-    }
-
-    await Category.find()
+  Category.find()
     .then((categories)=>{
       res.json(categories);
-    })
+  })
 });
-
-  // console.log("hello")
-
-  
-
-  
-  
-// });
 
 router.get("/:id", (req, res) => {
   Category.findById(req.params.id)
