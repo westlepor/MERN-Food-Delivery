@@ -18,14 +18,14 @@ const BusinessSchema = new Schema({
     type: Number,
     required: true
   },
-  categories: {
+  categories: [{
     type: Schema.Types.ObjectId,
     ref: "categories"
-  },
-  hours: {
+  }],
+  hours: [{
     type: Schema.Types.ObjectId,
     ref: "hours"
-  },
+  }],
   phone: {
     type: String,
     required: true
