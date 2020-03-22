@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './biz_info.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhoneAlt, faExternalLinkAlt, faStar  } from '@fortawesome/free-solid-svg-icons';
-import $ from 'jquery';
+import { faPhoneAlt, faExternalLinkAlt  } from '@fortawesome/free-solid-svg-icons';
 
 class BizInfo extends React.Component {
     constructor(props) {

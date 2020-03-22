@@ -9,6 +9,7 @@ router.get(
   (req, res) => {
     Business
       .find()
+      .limit(20)
       .then(businesses => {
         const businessObj = {};
         businesses.map(business => {

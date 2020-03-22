@@ -73,7 +73,6 @@ class Home extends React.Component {
     this.props.openModal("foodRestriction")
   }
 
-
   render() {
     return (
       <div className="home-page">

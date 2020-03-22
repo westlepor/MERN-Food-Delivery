@@ -1,0 +1,71 @@
+.swipe-main-map{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.map-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.swipe-main-map{
+    background: -webkit-gradient(linear, 50% 0%, 50% 100, color-stop(100%, rgba(0, 0, 0, 0)), color-stop(100%, #fa8072));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
+    background: linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
+}
+
+/* .marker {
+  background-image: url('https://f0.pngfuel.com/png/767/275/black-round-frame-on-white-background-computer-icons-symbol-icon-design-pointer-map-map-marker-png-clip-art.png');
+  background-color: transparent;
+  background-size: cover;
+  width: 50px;
+  height: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+} */
+
+.marker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #fd267d;
+  transform: rotate(-45deg);
+  margin: -20px 0 0 -20px;
+  position: absolute;
+}
+
+.marker:after {
+  content: "";
+  width: 14px;
+  height: 12px;
+  margin: 8px 0 0 8px;
+  background: #eeeded;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.sidebar-style {
+    display: inline-block; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 12px;
+    background-color: #404040;
+    color: #ffffff;
+    z-index: 1 !important;
+    padding: 6px;
+    font-weight: bold;
+}
