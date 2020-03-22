@@ -18,14 +18,15 @@ const BusinessSchema = new Schema({
     type: Number,
     required: true
   },
-  categories: [{
-    type: Schema.Types.ObjectId,
-    ref: "categories"
-  }],
-  hours: [{
-    type: Schema.Types.ObjectId,
-    ref: "hours"
-  }],
+  categories: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "categories"
+    }
+  ],
+  hours: {
+    type: Array
+  },
   phone: {
     type: String,
     required: true
@@ -70,6 +71,9 @@ const BusinessSchema = new Schema({
   },
   isClosed: {
     type: Boolean
+  },
+  photos: {
+    type: Array
   },
   createdAt: {
     type: Date,

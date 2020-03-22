@@ -19,12 +19,10 @@ router.get("/", (req, res) => {
 
 router.get("/seed", async (req, res) => {
   
-  //add drop db function here?
-  
+  // add drop db function here?
   const arr = JSON.parse(fs.readFileSync("seed/categories.json"));
   for(let i = 0; i < arr.length; i++){
     let category = new Category(arr[i]);
-    console.log(category);
     category.save();
   }
 
