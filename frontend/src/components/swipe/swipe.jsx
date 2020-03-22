@@ -2,13 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import BizCaroussel from '../swipe/caroussel/biz_caroussel';
 import BizInfo from '../swipe/biz_info/biz_info';
+import SwipeMainMap from './swipe_main_map';
 import './swipe.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import _ from 'lodash';
 
 class Swipe extends React.Component {
+  componentDidMount(){
+    this.props.fetchBusinesses();
+  }
 
   render() {
+    if (_.isEmpty(this.props.businesses)){
+      return null;
+    }
+
     return (
       <div className="swipe">
         <div className="swipe-aside">
@@ -18,11 +27,19 @@ class Swipe extends React.Component {
             </div>
             <h2 className="welcome-swipe">Hi Henry!</h2>
             {/* <h1>⌘</h1>
-            <h2>gather</h2> */}
+          <h2>gather</h2> */}
             {/* <div className="welcome-swipe">{props.currentUser.username}</div> */}
             <div className="logout-container">
-              <Link className="logout-logo" onClick={this.props.logout} to="/">
-                <FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x" />
+              <Link
+                className="logout-logo"
+                onClick={this.props.logout}
+                to="/"
+              >
+                <FontAwesomeIcon
+                  icon={faSignOutAlt}
+                  color="white"
+                  size="2x"
+                />
               </Link>
             </div>
           </div>
@@ -30,7 +47,7 @@ class Swipe extends React.Component {
             <BizCaroussel />
           </div>
           <div className="business-info">
-            <BizInfo />
+            <BizInfo business={this.props.businesses[0]} />
           </div>
           <div className="like-or-dislike">
             <div className="like-or-dislike-container">
@@ -43,7 +60,9 @@ class Swipe extends React.Component {
             </div>
           </div>
         </div>
-        <div className="swipe-main">This is main</div>
+        <div className="swipe-main">
+          <SwipeMainMap businesses={this.props.businesses} />
+        </div>
       </div>
     );
   }

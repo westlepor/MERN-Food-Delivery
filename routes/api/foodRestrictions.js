@@ -28,6 +28,14 @@ router.get("/seed", async (req, res) => {
     });
 });
 
+router.get("/deleteAll", async (req, res) => {
+    FoodRestriction.deleteMany({}, function (err) {
+        console.log("FoodRestriction collection removed");
+        FoodRestriction.find().then(foodRestrictions => {
+            res.json(foodRestrictions);
+        });
+    });
+});
 
 router.get("/:id", (req, res) => {
     FoodRestriction.findById(req.params.id)
