@@ -30,7 +30,7 @@ mongoose
     console.log("Connected to mongoDB");
   })
   .catch(err => console.log(err));
-  
+
 // Setup the path
 app.get("/", (req, res) => {
     res.send("This is a splash page!");

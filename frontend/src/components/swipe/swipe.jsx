@@ -7,9 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 class Swipe extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
