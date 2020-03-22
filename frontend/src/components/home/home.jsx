@@ -233,6 +233,7 @@ class Home extends React.Component {
             {this.state.form === "join group" ? 
               <div className="join-group-form">
                 sup.
+                <img src="https://i.kym-cdn.com/entries/icons/facebook/000/000/297/asian_prince.jpg" />
               </div>
             : null }
             <div className="home-nav-content-bottom">
