@@ -23,9 +23,11 @@ class Swipe extends React.Component {
             {/* <h1>⌘</h1>
             <h2>gather</h2> */}
             {/* <div className="welcome-swipe">{props.currentUser.username}</div> */}
-            <Link className="logout" onClick={this.props.logout} to="/">
-              <FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x" />
-            </Link>
+            <div className="logout-container">
+              <Link className="logout-logo" onClick={this.props.logout} to="/">
+                <FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x" />
+              </Link>
+            </div>
           </div>
           <div className="caroussel">
             <BizCaroussel />

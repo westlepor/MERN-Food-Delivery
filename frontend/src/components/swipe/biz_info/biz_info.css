@@ -1,0 +1,116 @@
+div[class^="biz"] {
+    /* border: 1px solid blue; */
+    z-index: 100;
+    /* padding: 5px 5px 0 0; */
+}
+.biz-info {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.biz-name {
+    font-weight: bolder;
+    font-size: 2.3em;
+    padding: 0 0.45em 0 0.45em;
+}
+
+.biz-ratings-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.biz-rating {
+    padding: 0 1em 0 1em;
+}
+.biz-review-count {
+    padding: 0 1em 0 1em;
+}
+
+.biz-price-categories-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.biz-price {
+    padding: 0 1em 0 1em;
+}
+
+.biz-location-hours-container {
+    display: flex;
+    flex-direction: column;  
+    font-size: 1.25em;  
+    padding: 0 1em 0 1em;
+}
+
+.biz-location-hours-subcontainer {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.75rem;
+}
+
+.biz-location {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+.biz-hours {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.biz-phone-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.biz-phone-icon {
+    padding: 0 1em 0 1em;
+}
+
+.biz-yelp-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.biz-yelp-icon {
+    padding: 0 1em 0 1em;
+}
+
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+ 
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+ 
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+ 
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .biz-name {
+    font-weight: bold;
+    font-size: 1.8em;
+    padding: 0 0.45em 0 0.45em;
+}
+
+}
