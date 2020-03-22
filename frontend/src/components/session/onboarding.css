@@ -47,6 +47,10 @@
     flex-basis: 50%;
 }
 
+.groupname-container {
+    position: relative;
+}
+
 .onboarding-label {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -72,10 +76,10 @@
     position: relative;
 }
 
-.input-icon{
+.inputicon{
     position: absolute;
     left: 14px;
-    top: 12px;
+    top: 36px;
 }
 
 .drop-down{
