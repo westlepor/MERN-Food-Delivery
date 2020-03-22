@@ -22,7 +22,7 @@
 .swipe-aside-nav {
     display: flex;
     flex-basis: 80px;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     color: white;
     background: linear-gradient(262deg, #ff7854, #fd267d);
@@ -45,8 +45,10 @@
     background-color: white;
 }
 
-.logout {
-    cursor: pointer;
+.logout-container {
+    display: flex;
+    font-weight: bolder;
+    margin-right: 2vw;
 }
 
 .likes {
@@ -57,10 +59,12 @@
     height: auto;
 }
 
-.like-or-dislike{
+.like-or-dislike {
     flex: 0 0 80px;
     background: linear-gradient(262deg, #ff7854, #fd267d);
     display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 }
 
@@ -68,7 +72,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 30px;
+    padding: 20px;
+    margin-top: auto;
 }
 
 .like {
@@ -97,7 +102,7 @@
     display: flex;
     font-size: 2rem;
     font-weight: bolder;
-    margin-left: 1vw;
+    margin-left: 2vw;
 }
 
 .welcome-swipe {
@@ -105,21 +110,45 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    main {
+    .swipe-main {
         width: 50%;
     }
     
-    aside {
+    .swipe-aside {
         width: 50%;
     }
 }
 @media only screen and (max-width: 700px) {
-    main {
+    .swipe-main {
         width: 0%;
         display: none;
     }
 
-    aside {
+    .swipe-aside {
         width: 100%;
+    }
+
+    .like-or-dislike-container {
+    padding: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    }
+
+    .swipe-aside-nav {
+    flex-basis: 60px;
+    }
+
+    .welcome-swipe {
+        font-size: 1.5em;
+    }
+
+    .nav-logo {
+       font-size: 1.5em;
+        margin-left: 4vw;
+    }
+    
+    .logout-logo {
+        font-size: .75em;
+        margin-right: 4vw;
     }
 }

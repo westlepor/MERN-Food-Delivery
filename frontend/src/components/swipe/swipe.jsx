@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BizCaroussel from '../swipe/caroussel/biz_caroussel'
+import BizCaroussel from '../swipe/caroussel/biz_caroussel';
+import BizInfo from '../swipe/biz_info/biz_info';
 import './swipe.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
@@ -19,14 +20,18 @@ class Swipe extends React.Component {
             {/* <h1>⌘</h1>
             <h2>gather</h2> */}
             {/* <div className="welcome-swipe">{props.currentUser.username}</div> */}
-            <Link className="logout" onClick={this.props.logout} to="/">
-              <FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x" />
-            </Link>
+            <div className="logout-container">
+              <Link className="logout-logo" onClick={this.props.logout} to="/">
+                <FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x" />
+              </Link>
+            </div>
           </div>
           <div className="caroussel">
             <BizCaroussel />
           </div>
-          <div className="business-info">BUSINESS INFO</div>
+          <div className="business-info">
+            <BizInfo />
+          </div>
           <div className="like-or-dislike">
             <div className="like-or-dislike-container">
               <span className="like">
