@@ -29,7 +29,20 @@
     background: white;
 }
 
+.get-started-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
 
+.get-started-bar {
+    height: 3px;
+    width: 22%;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    z-index: 5;
+    margin-bottom: 2%;
+}
 
 .home-nav-content {
     width: 100%;
@@ -72,6 +85,8 @@
 
 .home-nav-bar h2, .home-nav-bar h3{
     padding-top: 2%;
+    margin-bottom: 0;
+    margin-top: 1.5%;
 }
 
 .home-search-section {
@@ -97,15 +112,89 @@
     border-bottom: none;
     cursor: pointer;
     white-space: nowrap;
+    top: 2px;
+    position: relative;
 }
 
 #selected-button {
-   background-color: white; 
+   background-color: white;
+   position: relative;
+   z-index: 2;
+   top: 1px;
 }
 
 .home-search-bar input {
     width: 100%;
     
+}
+
+.optional-divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 3%;
+}
+
+.optional-divider div {
+    margin-bottom: 0;
+}
+
+.optional-divider h2 {
+    padding: 0 2%;
+    margin-top: 0;
+
+}
+
+.endtime-container label, .is-split-container {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* Slider */
+
+.switch {
+    width: 50px;
+    height: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.slider:before {
+    position: absolute;
+    background-color: #fff;
+    height: 20px;
+    width: 20px;
+    content: "";
+    left: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    transition: .5s;
+}
+
+input:checked + .slider {
+    background-color: #fd267d;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
 }
 
 /* Create Group Section */
@@ -118,40 +207,60 @@
     flex-direction: column;
     align-items: center;
     padding-top: 4%;
+    border-top: solid black 1px;
+    box-shadow: 0px 0px 3px 0px grey;
+    z-index: 1;
 }
 
 .create-group-form form {
     width: 90%;
 }
 
-
-
 form > div {
     width: 90%;
-}
-
-
-.input-field {
-    width: 80%;
 }
 
 .submit-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 .create-group-form .submit-button {
     align-self: center;
-    padding: 1.6% 40%;
+    padding: 1.6% 4%;
     background: linear-gradient(262deg, #ff7854, #fd267d);
     color: white;
     margin: 1%;
     border-radius: 50px;
     cursor: pointer;
-    margin-top: 27%;
+    margin-top: 2%;
 }
 
+.drop-down{
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
+}
 
+.create-group-form-row {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.create-group-form-row > div {
+    width: 50%;
+}
+
+.add-users-container {
+    margin-bottom: 40% ;
+}
+
+input[type=time] {
+    width: 40%;
+}
 
 /* Join Group Form */
 
@@ -163,6 +272,9 @@ form > div {
     flex-direction: column;
     align-items: center;
     padding-top: 2%;
+    border-top: solid black 1px;
+    box-shadow: 0px 0px 3px 0px grey;
+    z-index: 1;
 }
 
 /* Map Section */
@@ -184,9 +296,7 @@ iframe{
 @media only screen and (max-width: 800px) {
     .home-nav-bar {
         width: 100vw;
-    }
-
-    .home-nav-bar {
+        font-size: .9em;
         min-width: 100vw;
     }
 
