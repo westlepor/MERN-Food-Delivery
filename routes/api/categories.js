@@ -16,20 +16,26 @@ router.get("/", (req, res) => {
     .catch(err => res.status(404).json({ nocategoriesfound: "No categories found" }));
 });
 
-
 router.get("/seed", async (req, res) => {
-  
-  // add drop db function here?
   const arr = JSON.parse(fs.readFileSync("seed/categories.json"));
-  for(let i = 0; i < arr.length; i++){
+  for (let i = 0; i < arr.length; i++) {
     let category = new Category(arr[i]);
-    category.save();
+    await category.save();
   }
 
   Category.find()
-    .then((categories)=>{
+    .then((categories) => {
       res.json(categories);
-  })
+    })
+});
+
+router.get("/deleteAll", async (req, res) => {
+  Category.deleteMany({}, function (err) {
+    console.log("Category collection removed");
+    Category.find().then(categories => {
+      res.json(categories);
+    });
+  });
 });
 
 router.get("/:id", (req, res) => {
@@ -39,8 +45,5 @@ router.get("/:id", (req, res) => {
       res.status(404).json({ nocategorysfound: "No category found with that id" })
     );
 });
-
-
-
 
 module.exports = router;

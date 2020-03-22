@@ -1,0 +1,26 @@
+[
+    {
+        "restriction": "Milk / Lactose"
+    },
+    {
+        "restriction": "Egg"
+    },
+    {
+        "restriction": "Shellfish"
+    },
+    {
+        "restriction": "Peanut / Tree Nut"
+    },
+    {
+        "restriction": "Wheat(Gluten)"
+    },
+    {
+        "restriction": "Soybean"
+    },
+    {
+        "restriction": "Vegetarian Diet"
+    },
+    {
+        "restriction": "Vegan Diet"
+    }
+]

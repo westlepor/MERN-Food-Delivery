@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Business = require("../../models/Business");
+const Category = require("../../models/Category");
+const fs = require('fs');
 
 router.get(
   "/",
@@ -21,18 +23,14 @@ router.get(
 );
 
 router.get("/seed", async (req, res) => {
-  // add drop db function here?
-  // Business.find().then((res)=>{
-  //   res.delete()
-  // })
-
-  Business.remove({}, function(err) {
-    console.log("Business collection removed");
-  });
-
   const arr = JSON.parse(fs.readFileSync("seed/sf_businesses.json"));
+
   for (let i = 0; i < arr.length; i++) {
     const curBiz = arr[i];
+    if (curBiz.price === "" || curBiz.phone === "") {
+      continue;
+    }
+
     let business = new Business({
       businessName: curBiz.business_name,
       yelpUrl: curBiz.url,
@@ -55,20 +53,41 @@ router.get("/seed", async (req, res) => {
       photos: curBiz.photos
     });
 
-    business.save();
-  }
+    let curCategories = [];
+    for (let j = 0; j < curBiz.categories.length; j++) {
+      const curCate = curBiz.categories[j];
+      await Category.findOne({ name: curCate }).then(res => {
+        curCategories.push(res._id);
+        res.businesses.push(business._id);
+        res.save();
+      });
+    }
 
+    business["categories"] = curCategories;
+    await business.save();
+  }
+  console.log("business data uploaded.")
   Business.find().then(businesses => {
     res.json(businesses);
   });
 });
+
+router.get("/deleteAll", async (req, res) => {
+  Business.deleteMany({}, function (err) {
+    console.log("Business collection removed");
+    Business.find().then(businesses => {
+      res.json(businesses);
+    });
+  });
+})
+
 
 router.get(
   "/:id",
   (req, res) => {
     Business.findById(req.params.id)
       .then(business => res.json(business))
-      .catch(err => res.status(404).json({ nobusinessfound: "No business found with that id"}))
+      .catch(err => res.status(404).json({ nobusinessfound: "No business found with that id" }))
   }
 );
 module.exports = router;

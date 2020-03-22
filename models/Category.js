@@ -6,6 +6,10 @@ const CategorySchema = new Schema({
     type: String,
     required: true
   },
+  businesses: [{
+    type: Schema.Types.ObjectId,
+    ref: "businesses"
+  }],
   createdAt: {
     type: Date,
     default: Date.now

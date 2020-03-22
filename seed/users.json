@@ -1,0 +1,131 @@
+[
+    {
+        "username": "Demo User",
+        "email": "demouser@demo.com",
+        "password": "password",
+        "zipcode": "12345",
+        "birthday": "1999-0-24",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf205",
+            "5e76c1bc81306b4c825bf206"
+        ],
+        "monetaryRestriction": "$"
+    },
+    {
+        "username": "Demo User 2",
+        "email": "stuff@stuff.stuff",
+        "password": "password",
+        "zipcode": "12345",
+        "birthday": "1988-2-22",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf208",
+            "5e76c1bc81306b4c825bf20c"
+        ],
+        "monetaryRestriction": "$$$"
+    },
+    {
+        "username": "Henry Ryu",
+        "email": "Henry@hen.com",
+        "password": "password2",
+        "zipcode": "22222",
+        "birthday": "1998-2-21",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf208",
+            "5e76c1bc81306b4c825bf209"
+        ],
+        "monetaryRestriction": "$"
+    },
+    {
+        "username": "Christopher Thompson",
+        "email": "Christopher@CT.com",
+        "password": "password3",
+        "zipcode": "33333",
+        "birthday": "1990-4-21",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf205",
+            "5e76c1bc81306b4c825bf20c"
+        ],
+        "monetaryRestriction": "$"
+    },
+    {
+        "username": "Arno Thompson",
+        "email": "Arno@CT.com",
+        "password": "Arnoword3",
+        "zipcode": "44444",
+        "birthday": "1992-7-21",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf209",
+            "5e76c1bc81306b4c825bf20c"
+        ],
+        "monetaryRestriction": "$$$$"
+    },
+    {
+        "username": "Joe Thebest",
+        "email": "Joe@Thebest.com",
+        "password": "Thebest3Joe",
+        "zipcode": "55555",
+        "birthday": "1982-7-21",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf20a",
+            "5e76c1bc81306b4c825bf206"
+        ],
+        "monetaryRestriction": "$$$$"
+    },
+    {
+        "username": "Jordan Tom",
+        "email": "Jordan@Tom.com",
+        "password": "Thebest3Jordon",
+        "zipcode": "99812",
+        "birthday": "1977-9-22",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf20a",
+            "5e76c1bc81306b4c825bf206"
+        ],
+        "monetaryRestriction": "$$"
+    },
+    {
+        "username": "Lily",
+        "email": "lily@gmail.com",
+        "password": "password",
+        "zipcode": "95616",
+        "birthday": "1993-6-22",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf20b"
+        ],
+        "monetaryRestriction": "$"
+    },
+    {
+        "username": "Arya",
+        "email": "arya@gmail.com",
+        "password": "password",
+        "zipcode": "94539",
+        "birthday": "1995-4-09",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf208"
+        ],
+        "monetaryRestriction": "$$$$"
+    },
+    {
+        "username": "Ned",
+        "email": "ned@gmail.com",
+        "password": "password",
+        "zipcode": "95035",
+        "birthday": "1996-3-12",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf206",
+            "5e76c1bc81306b4c825bf207"
+        ],
+        "monetaryRestriction": "$$$"
+    },
+    {
+        "username": "Jon",
+        "email": "jon@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf205"
+        ],
+        "monetaryRestriction": "$$"
+    }
+]

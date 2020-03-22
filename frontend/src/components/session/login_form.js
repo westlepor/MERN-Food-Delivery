@@ -26,11 +26,11 @@ class LoginForm extends React.Component {
     if (!_.isEmpty(this.props.errors)) {
       return (
         <ul className="errors">
-          { Object.values(this.props.errors).map((error, idx) => (
+          {Object.values(this.props.errors).map((error, idx) => (
             <li className="error" key={idx}>
               {error}
             </li>
-          )) }
+          ))}
         </ul>
       )
     } else {
@@ -45,7 +45,7 @@ class LoginForm extends React.Component {
 
     this.props.login(user).then(
       (res) => {
-        if (res.type = "RECEIVE_SESSION_ERRORS"){
+        if (res.type === "RECEIVE_SESSION_ERRORS") {
           return null;
         }
         this.props.closeModal();
@@ -54,17 +54,16 @@ class LoginForm extends React.Component {
     )
   }
 
-  demoLogin(e){
+  demoLogin(e) {
     e.preventDefault();
     e.stopPropagation();
     const demoUser = {
-      email: "stuff@stuff.stuff",
+      email: "demouser@demo.com",
       password: "password"
     }
     this.props.login(demoUser).then(
       () => {
         this.props.closeModal();
-        this.props.history.push("/home");
       }
     )
   }
@@ -72,7 +71,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <form className="login-form" onSubmit={this.handleSubmit}>
-        <div className="x-mark" onClick={() => { this.props.closeModal();}}>
+        <div className="x-mark" onClick={() => { this.props.closeModal(); }}>
           <FontAwesomeIcon icon={faTimes} color="#2c2c2c30" size="1x" />
         </div>
         <h1 className="form-title">LOG IN</h1>

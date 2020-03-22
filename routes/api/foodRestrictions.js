@@ -1,26 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const FoodRestriction = require("../../models/FoodRestriction");
+const fs = require("fs");
 
-router.get("/", async (req, res) => {
+router.get("/", (req, res) => {
 
-    // const curFRs = [
-    //     "Milk / Lactose",
-    //     "Egg",
-    //     "Shellfish",
-    //     "Peanut / Tree Nut",
-    //     "Wheat(Gluten)",
-    //     "Soybean",
-    //     "Vegetarian Diet",
-    //     "Vegan Diet"
-    // ];
-
-    // for(let i = 0; i < curFRs.length; i++){
-    //     const newFR = await new FoodRestriction({ restriction: curFRs[i]})
-    //     await newFR.save() 
-    // }
-
-    await FoodRestriction.find()
+    FoodRestriction.find()
         .then(foodRestrictions => {
             const foodRestrictionObj = {};
             foodRestrictions.map(foodRestriction => {
@@ -28,34 +13,21 @@ router.get("/", async (req, res) => {
             });
             res.json(foodRestrictionObj);
         })
-        .catch(err => res.status(404).json({ noFoodRestrictionsFound: "No food restrictions found" }));
+        .catch(err => res.status(404).json({ noFoodRestrictionsFound: "No Food Restrictions found" }));
 });
 
 router.get("/seed", async (req, res) => {
-  
-    //add drop db function here?
-    
-    const curFRs = [
-        "Milk / Lactose",
-        "Egg",
-        "Shellfish",
-        "Peanut / Tree Nut",
-        "Wheat(Gluten)",
-        "Soybean",
-        "Vegetarian Diet",
-        "Vegan Diet"
-    ];
-    for(let i = 0; i < curFRs.length; i++){
-      let fr = new FoodRestriction(arr[i]);
-      console.log(category);
-      category.save();
+    const arr = JSON.parse(fs.readFileSync("seed/foodRestrictions.json"));
+    for (let i = 0; i < arr.length; i++) {
+        let foodRestriction = new FoodRestriction(arr[i]);
+        await foodRestriction.save();
     }
-  
-    Category.find()
-      .then((categories)=>{
-        res.json(categories);
-    })
-  });
+    console.log("Food restriction data uploaded.")
+    FoodRestriction.find().then(foodRestrictions => {
+        res.json(foodRestrictions);
+    });
+});
+
 
 router.get("/:id", (req, res) => {
     FoodRestriction.findById(req.params.id)
