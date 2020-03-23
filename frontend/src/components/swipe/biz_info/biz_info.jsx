@@ -2,16 +2,18 @@ import React from 'react';
 import './biz_info.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt, faExternalLinkAlt  } from '@fortawesome/free-solid-svg-icons';
+import _ from 'lodash';
 
 class BizInfo extends React.Component {
     constructor(props) {
         super(props);
         this.handleName = this.handleName.bind(this);
+        this.handleCategories = this.handleCategories.bind(this);
         this.handleHours = this.handleHours.bind(this);
     }
     
     handleName() {
-        if (!this.props.business) {
+        if (_.isEmpty(this.props.business)) {
             return null;
         } else {
             return (
@@ -24,8 +26,26 @@ class BizInfo extends React.Component {
         }
     }
 
+    handleCategories() {
+        if (_.isEmpty(this.props.business)) {
+            return null;
+        } else {
+            return (
+            <div className='biz-categories'>{
+                this.props.business.categories.map(category => {
+                    return (
+                        <div className='biz-category' >{category.name}</div>
+                    )
+                })
+            }</div>    
+            )
+        }
+
+    }
+   
+
     handleHours() {
-        if (!this.props.business) {
+        if (_.isEmpty(this.props.business)) {
             return null;
         } else {
             let hours = this.props.business.hours;
@@ -83,7 +103,7 @@ class BizInfo extends React.Component {
                 </div>
                 <div className="biz-price-categories-container">
                     <div className='biz-price'>{this.props.business.price}</div>
-                    <div className='biz-categories'>Seafood, Bars</div>
+                    {this.handleCategories()}
                 </div>
                 <div className='biz-location-hours-container'>
                         <h2>Location & Hours</h2>
@@ -130,76 +150,3 @@ class BizInfo extends React.Component {
 
 export default BizInfo;
 
-// businessName: {
-//     type: String,
-//         required: true
-// },
-// yelpUrl: {
-//     type: String,
-//         required: true
-// },
-// latitude: {
-//     type: Number,
-//         required: true
-// },
-// longitude: {
-//     type: Number,
-//         required: true
-// },
-// categories: {
-//     type: Schema.Types.ObjectId,
-//         ref: "categories"
-// },
-// hours: {
-//     type: Schema.Types.ObjectId,
-//         ref: "hours"
-// },
-// phone: {
-//     type: String,
-//         required: true
-// },
-// reviewCount: {
-//     type: Number,
-//         required: true
-// },
-// price: {
-//     type: String,
-//         required: true
-// },
-// rating: {
-//     type: String,
-//         required: true
-// },
-// zipcode: {
-//     type: String,
-//         required: true
-// },
-// country: {
-//     type: String,
-//         required: true
-// },
-// state: {
-//     type: String,
-//         required: true
-// },
-// city: {
-//     type: String,
-//         required: true
-// },
-// address1: {
-//     type: String,
-//         required: true
-// },
-// address2: {
-//     type: String
-// },
-// address3: {
-//     type: String
-// },
-// isClosed: {
-//     type: Boolean
-// },
-// createdAt: {
-//     type: Date,
-//     default: Date.now
-// }

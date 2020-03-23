@@ -32,6 +32,15 @@ div[class^="biz"] {
     flex-direction: row;
 }
 
+.biz-categories {
+    display: flex;
+    flex-direction: row;
+}
+
+.biz-category {
+    padding: 0 0.5em 0 0.5em;
+}
+
 .biz-price {
     padding: 0 1em 0 1em;
 }
