@@ -1,34 +1,16 @@
-.swipe-main-map{
+.swipe-main-map .swipe-main-map{
     width: 100%;
     height: 100%;
     position: relative;
 }
 
-.map-container {
+.swipe-main-map .map-container {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.swipe-main-map{
-    background: -webkit-gradient(linear, 50% 0%, 50% 100, color-stop(100%, rgba(0, 0, 0, 0)), color-stop(100%, #fa8072));
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
-    background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
-    background: linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
-}
-
-/* .marker {
-  background-image: url('https://f0.pngfuel.com/png/767/275/black-round-frame-on-white-background-computer-icons-symbol-icon-design-pointer-map-map-marker-png-clip-art.png');
-  background-color: transparent;
-  background-size: cover;
-  width: 50px;
-  height: 80px;
-  border-radius: 50%;
-  cursor: pointer;
-} */
-
-.marker {
+.swipe-main-map .marker {
   width: 30px;
   height: 30px;
   border-radius: 50% 50% 50% 0;
@@ -36,9 +18,10 @@
   transform: rotate(-45deg);
   margin: -20px 0 0 -20px;
   position: absolute;
+  cursor: pointer;
 }
 
-.marker:after {
+.swipe-main-map .marker:after {
   content: "";
   width: 14px;
   height: 12px;
@@ -46,18 +29,19 @@
   background: #eeeded;
   border-radius: 50%;
   position: absolute;
+  cursor: pointer;
 }
 
-.mapboxgl-popup {
+.swipe-main-map .mapboxgl-popup {
   max-width: 200px;
 }
 
-.mapboxgl-popup-content {
+.swipe-main-map .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
 
-.sidebar-style {
+.swipe-main-map .sidebar-style {
     display: inline-block; 
     position: absolute;
     top: 0;
@@ -68,4 +52,31 @@
     z-index: 1 !important;
     padding: 6px;
     font-weight: bold;
+}
+
+.swipe-main-map .mapboxgl-popup-content{
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.swipe-main-map .mapboxgl-popup-close-button{
+  right: 10px;
+}
+
+.swipe-main-map .swipe-map-popup {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.swipe-main-map .swipe-map-popup-title {
+  width: 200px;
+  font-size: 1rem;
+  margin: 0.3rem 0;
+  flex-wrap: nowrap;
+  font-weight: bold;
+  text-align: start;
 }

@@ -53,15 +53,23 @@ class SwipeMainMap extends React.Component {
             .setPopup(
               new mapboxgl.Popup({ offset: 25 }) // add popups
                 .setHTML(
-                  "<h3>" +
-                    marker.businessName +
-                    "</h3><p>" +
-                    marker.businessName +
-                    "</p>"
+                  '<div class="' + "swipe-map-popup" + '">' +
+                    '<img src="' + marker.photos[0] + '" style="' + "height:200px; width:200px; object-fit:cover; border-radius: 4px" + '"/>' +
+                    '<div class="' + "swipe-map-popup-title" + '">' + marker.businessName.split("_").join(" ") + "</div>" +
+                    '<div class="' + "swipe-map-popup-rating" + '">' +
+                      '<span class="' + "swipe-map-popup-rating-span" + '">' + marker.rating + "</span>" +
+                      " rating out of " +
+                      '<span class="' + "g-map-infowindow-rating-span" + '">' + marker.reviewCount + "</span>" 
+                      + " reviews" + 
+                    "</div>" + 
+                  "<div>"
                 )
             )
             .addTo(map);
         });    
+/*
+        
+*/
     }
   }
 
