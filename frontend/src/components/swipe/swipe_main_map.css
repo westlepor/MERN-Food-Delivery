@@ -1,3 +1,8 @@
+.swipe-main-map {
+  position: relative;
+  width: 100%;
+}
+
 .swipe-main-map .swipe-main-map{
     width: 100%;
     height: 100%;
@@ -79,4 +84,12 @@
   flex-wrap: nowrap;
   font-weight: bold;
   text-align: start;
+}
+
+.swipe-map-popup-price-span {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
 }
