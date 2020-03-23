@@ -30,7 +30,7 @@ class HomeMap extends React.Component {
         zoom: map.getZoom().toFixed(2)
       });
     });
-
+    
     if (this.props.businesses != null){
         const curBusinesses = Object.values(
             this.props.businesses

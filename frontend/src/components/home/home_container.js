@@ -11,7 +11,7 @@ const mapSTP = (state) => ({
     users: Object.values(state.entities.users),
     foodRestrictions: state.entities.foodRestrictions,
     selectedFoodRestrictions: state.ui.selectedFoodRestrictions,
-    businesses: Object.values(state.entities.businesses)
+    businesses: state.entities.businesses
 })
 
 const mapDTP = (dispatch) => ({

@@ -16,7 +16,7 @@ class Home extends React.Component {
       groupName: "",
       startTime: "",
       endTime: "",
-      users: [...this.props.users.map((user) => user.userName)],
+      users: [],
       selectedFoodRestrictions: this.props.selectedFoodRestrictions,
       monetaryRestriction: "",
       isSplit: true,
@@ -71,8 +71,11 @@ class Home extends React.Component {
   };
   
   componentDidMount(){
-    this.props.fetchBusinesses();
-    this.props.fetchUsers();
+    this.props.fetchBusinesses().then(()=>{
+      return this.props.fetchUsers().then(()=>{
+        this.setState({users: this.props.users.map((user) => user.username)})
+      })
+    })
   }
   
   foodRestrictionClick(e) {
@@ -82,11 +85,13 @@ class Home extends React.Component {
   
   handleTextChange(e) {
     const value = e.target.value;
+    
     let candidates = [];
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, 'i');
       candidates = this.state.users.sort().filter(user => regex.test(user));
     }
+    
     this.setState({
       candidates,
       userSearch: value
@@ -135,6 +140,10 @@ class Home extends React.Component {
   }
 
   render() {
+    if(_.isEmpty(this.props.businesses)){
+      return null;
+    }
+
     return (
       <div className="home-page">
         <Modal />

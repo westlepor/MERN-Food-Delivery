@@ -51,7 +51,7 @@ class SwipeMainMap extends React.Component {
           new mapboxgl.Marker(el)
             .setLngLat([marker.longitude, marker.latitude])
             .setPopup(
-              new mapboxgl.Popup({ offset: 25 }) // add popups
+              new mapboxgl.Popup({ offset: 25 })
                 .setHTML(
                   '<div class="' + "swipe-map-popup" + '">' +
                     '<img src="' + marker.photos[0] + '" style="' + "height:200px; width:200px; object-fit:cover; border-radius: 4px" + '"/>' +
@@ -70,10 +70,7 @@ class SwipeMainMap extends React.Component {
                 )
             )
             .addTo(map);
-        });    
-/*
-        
-*/
+        });
     }
   }
 

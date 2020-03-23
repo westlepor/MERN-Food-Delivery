@@ -10,15 +10,6 @@
     height: 100%;
 }
 
-.home-map{
-    background: -webkit-gradient(linear, 50% 0%, 50% 100, color-stop(100%, rgba(0, 0, 0, 0)), color-stop(100%, #fa8072));
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
-    background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
-    background: linear-gradient(top, rgba(0, 0, 0, 0) 100px, #fa8072 100px);
-}
-
-
 .marker {
   width: 30px;
   height: 30px;

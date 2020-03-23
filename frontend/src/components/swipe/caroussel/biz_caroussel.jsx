@@ -3,13 +3,9 @@ import './biz-caroussel.css';
 import Flickity from "flickity";
 
 class BizCaroussel extends React.Component {
-    constructor(props) {
-        super(props); 
-    }
-    
     componentDidMount() {
         var elem = document.querySelector('.biz-caroussel-gallery');
-        var flickity = new Flickity(elem, {
+        new Flickity(elem, {
           wrapAround: "true",
           autoPlay: 3000,
           contain: true,

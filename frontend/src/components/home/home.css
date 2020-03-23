@@ -216,7 +216,7 @@ input:checked + .slider:before {
     width: 90%;
 }
 
-form > div {
+.create-group-form form > div {
     width: 90%;
 }
 
