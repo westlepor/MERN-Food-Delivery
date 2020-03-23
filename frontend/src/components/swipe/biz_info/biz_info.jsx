@@ -8,6 +8,46 @@ import $ from 'jquery';
 class BizInfo extends React.Component {
     constructor(props) {
         super(props);
+        this.handleName = this.handleName.bind(this);
+        this.handleHours = this.handleHours.bind(this);
+    }
+    
+    handleName() {
+        if (!this.props.business) {
+            return null;
+        } else {
+            return (
+                <h1 className='biz-name'>
+                    {
+                        this.props.business.businessName.split('_').join(' ')
+                    }
+                </h1>
+            )
+        }
+    }
+
+    handleHours() {
+        if (!this.props.business) {
+            return null;
+        } else {
+            let hours = this.props.business.hours;
+            const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+            return (
+                <div className='biz-hours'>
+                    <ul>Hours:
+                        {hours.map(hour => {
+                            return (
+                                <li className='biz-hours-day' key={hour.day}>
+                                    <div className='week-day'>{weekDays[hour.day]}</div>
+                                    <div className='biz-hours-hour'>{hour.start} - {hour.end}</div>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+            )
+        }
     }
   
     // handleRating() {
@@ -26,20 +66,25 @@ class BizInfo extends React.Component {
     // }
 
     render() {
+
+        if (!this.props.business) {
+            return null;
+        } else {
+            debugger;
         return (
             <div className='biz-info'>
-                <h1 className='biz-name'>Fog Harbor Fish House</h1>
+                {this.handleName()}
                 <div className="biz-ratings-container">
-                    <div className='biz-rating'>Rating: 5.0</div>
+                    <div className='biz-rating'>Rating: {this.props.business.rating}</div>
                     <div className='biz-stars' >
                         <div className="stars-outer">
                             <div className="stars-inner"></div>
                         </div>
                     </div>
-                    <div className='biz-review-count'>5000 reviews</div>
+                    <div className='biz-review-count'>{this.props.business.reviewCount} reviews</div>
                 </div>
                 <div className="biz-price-categories-container">
-                    <div className='biz-price'>$$$</div>
+                    <div className='biz-price'>{this.props.business.price}</div>
                     <div className='biz-categories'>Seafood, Bars</div>
                 </div>
                 <div className='biz-location-hours-container'>
@@ -47,24 +92,14 @@ class BizInfo extends React.Component {
                     <div className='biz-location-hours-subcontainer'>
                         <div className='biz-location'>
                             <ul>Location:
-                                <li>Pier 39</li>
-                                <li>Ste A-202</li>
-                                <li>address3</li>
-                                <li>San Francisco</li>
-                                <li>CA 94133</li>
+                                <li>{this.props.business.address1}</li>
+                                <li>{this.props.business.address2}</li>
+                                <li>{this.props.business.address3}</li>
+                                <li>{this.props.business.city}</li>
+                                <li>{this.props.business.state}, {this.props.business.zipcode}</li>
                             </ul>
                         </div>
-                        <div className='biz-hours'>
-                            <ul>Hours:
-                                <li>Mon hours</li>
-                                <li>Tue hours</li>
-                                <li>Wed hours</li>
-                                <li>Thu hours</li>
-                                <li>Fri hours</li>
-                                <li>Sat hours</li>
-                                <li>Sun hours</li>
-                            </ul>
-                        </div>
+                        {this.handleHours()}
                     </div>  
                 </div>
                 <div className='biz-phone-container'>
@@ -75,7 +110,7 @@ class BizInfo extends React.Component {
                             size="sm"
                         />
                     </span>
-                    <div className='biz-phone'>(415) 421-2442</div>
+                    <div className='biz-phone'>{this.props.business.phone}</div>
                 </div>
                 <div className='biz-yelp-container'>
                     <span className="biz-yelp-icon">
@@ -85,11 +120,13 @@ class BizInfo extends React.Component {
                             size="sm"
                         />
                     </span>
-                    <div className='biz-yelp'>yelp.com/fogharborfishhouse</div>
+                    <div className='biz-yelp'>
+                        <a href={this.props.business.yelpUrl}>Yelp Link</a>
+                    </div>
                 </div>
-
             </div>
         );
+        }
     }
 };
 

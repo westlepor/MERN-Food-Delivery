@@ -8,7 +8,16 @@ import { faCheck, faTimes, faSignOutAlt } from '@fortawesome/free-solid-svg-icon
 
 class Swipe extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchBusinesses();
+  }
+  
   render() {
+    
     return (
       <div className="swipe">
         <div className="swipe-aside">
@@ -30,7 +39,7 @@ class Swipe extends React.Component {
             <BizCaroussel />
           </div>
           <div className="business-info">
-            <BizInfo />
+            <BizInfo business={Object.values(this.props.businesses)[0]} />
           </div>
           <div className="like-or-dislike">
             <div className="like-or-dislike-container">

@@ -62,6 +62,15 @@ div[class^="biz"] {
     width: 50%;
 }
 
+.biz-hours-day {
+    display: flex;
+    flex-direction: row;
+}
+
+.week-day {
+    width: 50%;
+}
+
 .biz-phone-container {
     display: flex;
     flex-direction: row;
