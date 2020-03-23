@@ -51,11 +51,15 @@ class SwipeMainMap extends React.Component {
           new mapboxgl.Marker(el)
             .setLngLat([marker.longitude, marker.latitude])
             .setPopup(
-              new mapboxgl.Popup({ offset: 25 }) // add popups
+              new mapboxgl.Popup({ offset: 25 })
                 .setHTML(
                   '<div class="' + "swipe-map-popup" + '">' +
                     '<img src="' + marker.photos[0] + '" style="' + "height:200px; width:200px; object-fit:cover; border-radius: 4px" + '"/>' +
-                    '<div class="' + "swipe-map-popup-title" + '">' + marker.businessName.split("_").join(" ") + "</div>" +
+                    '<div class="' + "swipe-map-popup-title" + '">' + marker.businessName.split("_").join(" ") +  "</div>" +
+                    '<div class="' + "swipe-map-popup-price-span" + '">' + 
+                      '<span>' + marker.price + '∙' + "</span>" +
+                      '<span>' + marker.categories.map(category=>category.name).join(", ") + "</span>" + 
+                    "</div>" +
                     '<div class="' + "swipe-map-popup-rating" + '">' +
                       '<span class="' + "swipe-map-popup-rating-span" + '">' + marker.rating + "</span>" +
                       " rating out of " +
@@ -66,21 +70,16 @@ class SwipeMainMap extends React.Component {
                 )
             )
             .addTo(map);
-        });    
-/*
-        
-*/
+        });
     }
   }
 
   render() {
     return (
       <div className="swipe-main-map">
-        <div>
-          <div className="sidebar-style">
-            Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom:{" "}
-            {this.state.zoom}
-          </div>
+        <div className="sidebar-style">
+          Longitude : {this.state.lng} | Latitude : {this.state.lat} | Zoom:{" "}
+          {this.state.zoom}
         </div>
         <div ref={el => (this.mapContainer = el)} className="map-container" />
       </div>

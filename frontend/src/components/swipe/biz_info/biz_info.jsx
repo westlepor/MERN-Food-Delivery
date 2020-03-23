@@ -67,22 +67,7 @@ class BizInfo extends React.Component {
             )
         }
     }
-  
-    // handleRating() {
-    //     const ratings = {
-    //         biz_stars: 2.8
-    //     };
-
-    //     // total number of stars
-    //     const starTotal = 5;
-
-    //     for (const rating in ratings) {
-    //         const starPercentage = (ratings[rating] / starTotal) * 100;
-    //         const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
-    //         document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
-    //     }
-    // }
-
+ 
     render() {
 
         if (!this.props.business) {

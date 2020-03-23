@@ -16,7 +16,6 @@ router.get(
         businesses.map(business => {
           businessObj[business.id] = business;
         });
-
         res.json(businessObj);
       });
   }
