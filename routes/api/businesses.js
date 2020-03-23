@@ -7,19 +7,18 @@ const fs = require('fs');
 router.get(
   "/",
   (req, res) => {
-    Business
-      .find()
+    Business.find()
       .limit(20)
-      .then(businesses => {
+      .populate({ path: "categories", select: "name" })
+      .exec(function(err, businesses) {
+        if (err) return handleError(err);
         const businessObj = {};
         businesses.map(business => {
           businessObj[business.id] = business;
         });
+
         res.json(businessObj);
-      })
-      .catch(err =>
-        res.status(404).json({ nobusinessesfound: "Cannot find businesses" })
-      );
+      });
   }
 );
 
@@ -59,7 +58,7 @@ router.get("/seed", async (req, res) => {
       const curCate = curBiz.categories[j];
       await Category.findOne({ name: curCate }).then(res => {
         curCategories.push(res._id);
-        res.businesses.push(business._id);
+        // res.businesses.push(business._id);
         res.save();
       });
     }
