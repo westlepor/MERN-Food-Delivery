@@ -4,7 +4,6 @@
 .pnp.js
 
 keys_dev.js
-keys_prod.js
 
 # testing
 /coverage
