@@ -13,6 +13,14 @@ class Swipe extends React.Component {
     this.props.fetchBusinesses();
   }
 
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchBusinesses();
+  }
+  
   render() {
     if (_.isEmpty(this.props.businesses)){
       return null;

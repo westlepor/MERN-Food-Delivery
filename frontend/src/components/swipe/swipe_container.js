@@ -5,7 +5,7 @@ import { fetchBusinesses } from "../../actions/business_actions";
 
 const mSTP = state => ({
     // currentUser: state.entities.users[state.session.currentUserId]
-    businesses: state.entities.businesses,
+    businesses: Object.values(state.entities.businesses),
     // group: state.entities.group
 })
 

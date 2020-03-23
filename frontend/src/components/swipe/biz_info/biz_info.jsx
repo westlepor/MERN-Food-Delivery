@@ -2,48 +2,107 @@ import React from 'react';
 import './biz_info.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt, faExternalLinkAlt  } from '@fortawesome/free-solid-svg-icons';
+import _ from 'lodash';
 
 class BizInfo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleName = this.handleName.bind(this);
+        this.handleCategories = this.handleCategories.bind(this);
+        this.handleHours = this.handleHours.bind(this);
+    }
+    
+    handleName() {
+        if (_.isEmpty(this.props.business)) {
+            return null;
+        } else {
+            return (
+                <h1 className='biz-name'>
+                    {
+                        this.props.business.businessName.split('_').join(' ')
+                    }
+                </h1>
+            )
+        }
+    }
+
+    handleCategories() {
+        if (_.isEmpty(this.props.business)) {
+            return null;
+        } else {
+            return (
+            <div className='biz-categories'>{
+                this.props.business.categories.map(category => {
+                    return (
+                        <div className='biz-category' >{category.name}</div>
+                    )
+                })
+            }</div>    
+            )
+        }
+
+    }
+   
+
+    handleHours() {
+        if (_.isEmpty(this.props.business)) {
+            return null;
+        } else {
+            let hours = this.props.business.hours;
+            const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+            return (
+                <div className='biz-hours'>
+                    <ul>Hours:
+                        {hours.map(hour => {
+                            return (
+                                <li className='biz-hours-day' key={hour.day}>
+                                    <div className='week-day'>{weekDays[hour.day]}</div>
+                                    <div className='biz-hours-hour'>{hour.start} - {hour.end}</div>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </div>
+            )
+        }
+    }
+ 
     render() {
+
+        if (!this.props.business) {
+            return null;
+        } else {
+            debugger;
         return (
             <div className='biz-info'>
-                <h1 className='biz-name'>Fog Harbor Fish House</h1>
+                {this.handleName()}
                 <div className="biz-ratings-container">
-                    <div className='biz-rating'>Rating: 5.0</div>
+                    <div className='biz-rating'>Rating: {this.props.business.rating}</div>
                     <div className='biz-stars' >
                         <div className="stars-outer">
                             <div className="stars-inner"></div>
                         </div>
                     </div>
-                    <div className='biz-review-count'>5000 reviews</div>
+                    <div className='biz-review-count'>{this.props.business.reviewCount} reviews</div>
                 </div>
                 <div className="biz-price-categories-container">
-                    <div className='biz-price'>$$$</div>
-                    <div className='biz-categories'>Seafood, Bars</div>
+                    <div className='biz-price'>{this.props.business.price}</div>
+                    {this.handleCategories()}
                 </div>
                 <div className='biz-location-hours-container'>
                         <h2>Location & Hours</h2>
                     <div className='biz-location-hours-subcontainer'>
                         <div className='biz-location'>
                             <ul>Location:
-                                <li>Pier 39</li>
-                                <li>Ste A-202</li>
-                                <li>address3</li>
-                                <li>San Francisco</li>
-                                <li>CA 94133</li>
+                                <li>{this.props.business.address1}</li>
+                                <li>{this.props.business.address2}</li>
+                                <li>{this.props.business.address3}</li>
+                                <li>{this.props.business.city}</li>
+                                <li>{this.props.business.state}, {this.props.business.zipcode}</li>
                             </ul>
                         </div>
-                        <div className='biz-hours'>
-                            <ul>Hours:
-                                <li>Mon hours</li>
-                                <li>Tue hours</li>
-                                <li>Wed hours</li>
-                                <li>Thu hours</li>
-                                <li>Fri hours</li>
-                                <li>Sat hours</li>
-                                <li>Sun hours</li>
-                            </ul>
-                        </div>
+                        {this.handleHours()}
                     </div>  
                 </div>
                 <div className='biz-phone-container'>
@@ -54,7 +113,7 @@ class BizInfo extends React.Component {
                             size="sm"
                         />
                     </span>
-                    <div className='biz-phone'>(415) 421-2442</div>
+                    <div className='biz-phone'>{this.props.business.phone}</div>
                 </div>
                 <div className='biz-yelp-container'>
                     <span className="biz-yelp-icon">
@@ -64,86 +123,15 @@ class BizInfo extends React.Component {
                             size="sm"
                         />
                     </span>
-                    <div className='biz-yelp'>yelp.com/fogharborfishhouse</div>
+                    <div className='biz-yelp'>
+                        <a href={this.props.business.yelpUrl}>Yelp Link</a>
+                    </div>
                 </div>
-
             </div>
         );
+        }
     }
 };
 
 export default BizInfo;
 
-// businessName: {
-//     type: String,
-//         required: true
-// },
-// yelpUrl: {
-//     type: String,
-//         required: true
-// },
-// latitude: {
-//     type: Number,
-//         required: true
-// },
-// longitude: {
-//     type: Number,
-//         required: true
-// },
-// categories: {
-//     type: Schema.Types.ObjectId,
-//         ref: "categories"
-// },
-// hours: {
-//     type: Schema.Types.ObjectId,
-//         ref: "hours"
-// },
-// phone: {
-//     type: String,
-//         required: true
-// },
-// reviewCount: {
-//     type: Number,
-//         required: true
-// },
-// price: {
-//     type: String,
-//         required: true
-// },
-// rating: {
-//     type: String,
-//         required: true
-// },
-// zipcode: {
-//     type: String,
-//         required: true
-// },
-// country: {
-//     type: String,
-//         required: true
-// },
-// state: {
-//     type: String,
-//         required: true
-// },
-// city: {
-//     type: String,
-//         required: true
-// },
-// address1: {
-//     type: String,
-//         required: true
-// },
-// address2: {
-//     type: String
-// },
-// address3: {
-//     type: String
-// },
-// isClosed: {
-//     type: Boolean
-// },
-// createdAt: {
-//     type: Date,
-//     default: Date.now
-// }
