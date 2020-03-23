@@ -2,7 +2,9 @@ import "./home.css";
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
-import Map from '../map/map'
+import HomeMap from './home_map';
+import Modal from "../modal/modal"
+import _ from 'lodash';
 
 class Home extends React.Component {
 
@@ -14,10 +16,12 @@ class Home extends React.Component {
       groupName: "",
       startTime: "",
       endTime: "",
-      users: [],
+      users: [...this.props.users.map((user) => user.userName)],
       selectedFoodRestrictions: this.props.selectedFoodRestrictions,
       monetaryRestriction: "",
-      isSplit: true
+      isSplit: true,
+      userSearch: "",
+      candidates: []
     }
     
     this.handleChange = this.handleChange.bind(this);
@@ -25,6 +29,8 @@ class Home extends React.Component {
     this.moneySelect = this.moneySelect.bind(this);
     this.moneyHandle = this.moneyHandle.bind(this);
     this.foodRestrictionClick = this.foodRestrictionClick.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
+    this.candidateSelected = this.candidateSelected.bind(this);
   }
 
   handleChange(type) {
@@ -65,6 +71,7 @@ class Home extends React.Component {
   };
   
   componentDidMount(){
+    this.props.fetchBusinesses();
     this.props.fetchUsers();
   }
   
@@ -72,10 +79,65 @@ class Home extends React.Component {
     e.preventDefault();
     this.props.openModal("foodRestriction")
   }
+  
+  handleTextChange(e) {
+    const value = e.target.value;
+    let candidates = [];
+    if (value.length > 0) {
+      const regex = new RegExp(`^${value}`, 'i');
+      candidates = this.state.users.sort().filter(user => regex.test(user));
+    }
+    this.setState({
+      candidates,
+      userSearch: value
+    })
+  }
+
+  renderCandidates() {
+    const { candidates } = this.state;
+    if (candidates.length === 0) return null;
+    return (
+      <div className="auto-complete-text-container">
+        {candidates.slice(0, 5).map((user, idx) => <li onClick={this.candidateSelected} key={idx}><span>{user}</span></li>)}
+      </div>
+    )
+  }
+
+  candidateSelected(e) {
+    this.setState({
+      userSearch: e.nativeEvent.target.innerText,
+      candidates: []
+    })
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+
+    let selectedFoodRestrictions = null;
+
+    if (!_.isEmpty(this.props.foodRestrictions)) {
+      selectedFoodRestrictions = this.state.selectedFoodRestrictions.map((selectedRestriction) => {
+        let curEl = Object.values(this.props.foodRestrictions).filter(restriction => restriction.restriction === selectedRestriction)
+        return curEl[0]._id
+      })
+    }
+
+    const newGroup = {
+      groupName: this.state.groupName,
+      endTime: this.state.endTime,
+      users: this.state.users,
+      foodRestrictions: this.state.selectedFoodRestrictions,
+      monetaryRestriction: this.state.monetaryRestriction,
+      isSplit: this.state.isSplit
+    }
+
+    this.props.createGroup(newGroup);
+  }
 
   render() {
     return (
       <div className="home-page">
+        <Modal />
         <section className="home-nav-bar">
           <div className="home-search-section">
             <h1>⌘</h1>
@@ -135,8 +197,17 @@ class Home extends React.Component {
                     <label className="group-label" htmlFor="add-users">
                       Add Users
                   </label>
-                    <div className="add-users-modal">
-                      <button onClick={this.foodRestrictionClick}>+ Add Users</button>
+                    <div className="add-users">
+                      <input
+                        onChange={this.handleTextChange}
+                        className="input-field"
+                        type="text"
+                        value={this.state.userSearch}
+                        placeholder="Add Users"
+                      />
+                      <div>
+                        {this.renderCandidates()}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -243,10 +314,7 @@ class Home extends React.Component {
         </section>
         <section className="home-map-section">
           <div className="home-map-container">
-            {/* <Map /> */}
-            <iframe
-              src='https://api.mapbox.com/styles/v1/mapbox/streets-v11.html?title=false&zoomwheel=true&access_token=pk.eyJ1IjoiY2hyaXN0eDg2IiwiYSI6ImNrN3o5MzZkYTA0MTYzZG1zcXlicmV3ODYifQ.f3TP4Ewd27ht76l2HDPoRw#12.5/37.770/-122.448'>
-            </iframe>  
+            <HomeMap businesses={this.props.businesses}/>  
           </div>
         </section>
       </div>
