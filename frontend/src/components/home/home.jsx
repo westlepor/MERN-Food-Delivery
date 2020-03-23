@@ -3,6 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import HomeMap from './home_map';
+import HomeSearch from './home_search';
 import Modal from "../modal/modal"
 import _ from 'lodash';
 
@@ -148,12 +149,7 @@ class Home extends React.Component {
       <div className="home-page">
         <Modal />
         <section className="home-nav-bar">
-          <div className="home-search-section">
-            <h1>⌘</h1>
-            <div className="home-search-bar">
-              <input type="search" placeholder="Find a place"/>
-            </div>
-          </div>
+          <HomeSearch/>
           <div className="home-nav-content">
             <div className="home-nav-content-top">
               <div className="get-started-container">
