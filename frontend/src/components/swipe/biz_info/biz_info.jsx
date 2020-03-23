@@ -72,8 +72,7 @@ class BizInfo extends React.Component {
 
         if (!this.props.business) {
             return null;
-        } else {
-            debugger;
+        } 
         return (
             <div className='biz-info'>
                 {this.handleName()}
@@ -129,7 +128,6 @@ class BizInfo extends React.Component {
                 </div>
             </div>
         );
-        }
     }
 };
 
