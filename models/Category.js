@@ -8,7 +8,7 @@ const CategorySchema = new Schema({
   },
   businesses: [{
     type: Schema.Types.ObjectId,
-    ref: "businesses"
+    ref: "Business"
   }],
   createdAt: {
     type: Date,

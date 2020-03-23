@@ -14,20 +14,19 @@ const GroupSchema = new Schema({
         type: Date,
         required: true
     },
-    users: {
+    users: [{
         type: Schema.Types.ObjectId,
         ref: "users"
-    },
-    foodRestrictions: {
+    }],
+    foodRestrictions: [{
         type: Schema.Types.ObjectId,
         ref: "foodRestrictions"
-    },
+    }],
     monetaryRestriction: {
         type: String
     },
     isSplit: {
         type: Boolean,
-        // required: true,
         default: true
     },
     votedBusinesses: {

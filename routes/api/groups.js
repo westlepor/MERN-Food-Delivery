@@ -17,6 +17,46 @@ router.get("/", (req, res) => {
     );
 });
 
+
+router.get("/seed", async (req, res) => {
+
+  var dt = new Date();
+  dt.setHours(dt.getHours() + 2);
+
+  let newGroup = {
+    groupName: "firstMatch",
+    startTime: new Date(), 
+    endTime: dt,
+    users: ["5e76d6f78ea8ea572008161b", "5e76d6f78ea8ea572008161e"],
+    foodRestrictions: ["5e76c1bc81306b4c825bf208", "5e76c1bc81306b4c825bf209"],
+    monetaryRestriction: "$$",
+    isSplit: true,
+    votedBusinesses: {
+      "5e76c0146513aa4aaf0cbe55": 0,
+      
+    }
+  };
+
+  let group = new Group(newGroup);
+  await groups.save();
+
+  Group.find().then(groups => {
+    res.json(groups);
+  });
+
+
+});
+
+router.get("/deleteAll", async (req, res) => {
+  Group.deleteMany({}, function (err) {
+    console.log("Group collection removed");
+    Group.find().then(groups => {
+      res.json(groups);
+    });
+  });
+});
+
+
 router.get("/:id", (req, res) => {
   Group.find(req.params.id)
     .then(group => res.json(group))

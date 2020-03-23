@@ -21,7 +21,7 @@ const BusinessSchema = new Schema({
   categories: [
     {
       type: Schema.Types.ObjectId,
-      ref: "categories"
+      ref: "Category"
     }
   ],
   hours: {

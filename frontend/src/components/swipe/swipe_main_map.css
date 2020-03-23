@@ -1,0 +1,82 @@
+.swipe-main-map .swipe-main-map{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.swipe-main-map .map-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.swipe-main-map .marker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #fd267d;
+  transform: rotate(-45deg);
+  margin: -20px 0 0 -20px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.swipe-main-map .marker:after {
+  content: "";
+  width: 14px;
+  height: 12px;
+  margin: 8px 0 0 8px;
+  background: #eeeded;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.swipe-main-map .mapboxgl-popup {
+  max-width: 200px;
+}
+
+.swipe-main-map .mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.swipe-main-map .sidebar-style {
+    display: inline-block; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 12px;
+    background-color: #404040;
+    color: #ffffff;
+    z-index: 1 !important;
+    padding: 6px;
+    font-weight: bold;
+}
+
+.swipe-main-map .mapboxgl-popup-content{
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.swipe-main-map .mapboxgl-popup-close-button{
+  right: 10px;
+}
+
+.swipe-main-map .swipe-map-popup {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.swipe-main-map .swipe-map-popup-title {
+  width: 200px;
+  font-size: 1rem;
+  margin: 0.3rem 0;
+  flex-wrap: nowrap;
+  font-weight: bold;
+  text-align: start;
+}
