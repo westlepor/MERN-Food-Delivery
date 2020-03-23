@@ -15,7 +15,6 @@ class HomeSearch extends React.Component{
         }
 
         this.zipcode = Zipcode;
-        console.log(this.zipcode)
         this.optionSelected = this.optionSelected.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.inputChange = this.inputChange.bind(this);
@@ -23,13 +22,10 @@ class HomeSearch extends React.Component{
 
     handleSubmit(e){    
         e.preventDefault();
-        console.log(this.zipcode);
-        /*
-
-        this.props.fetchBusinesses();
-
-        */
-
+        const selectedNeighborhood = this.zipcode.filter((zipcode) => zipcode.neighborhood === this.state.searchText)
+        if (selectedNeighborhood.length !== 0){
+            this.props.updateZoom(selectedNeighborhood[0]);
+        }
     }
 
     inputChange(e){
@@ -39,8 +35,6 @@ class HomeSearch extends React.Component{
             const regex = new RegExp(`^${value.toLowerCase()}`, 'i');
             options = this.state.neighborhoods.sort().filter(nh => regex.test(nh.toLowerCase()));
         }
-        console.log(options)
-        console.log(this.state.neighborhoods)
         this.setState({
             options,
             searchText: value

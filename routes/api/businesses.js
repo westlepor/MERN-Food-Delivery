@@ -21,6 +21,33 @@ router.get(
   }
 );
 
+router.get(
+  "/coordinates",
+  (req, res) => {
+    const {_sw, _ne} = JSON.parse(req.query.bounds);
+    const south = _sw.lng;
+    const west = _sw.lat;
+    const north = _ne.lng;
+    const east = _ne.lat;
+
+    Business.find({ longitude: { $gt: south, $lt: north }})
+      .limit(20)
+      .populate({ path: "categories", select: "name" })
+      .exec(function (err, businesses) {
+        if (err) return handleError(err);
+        const businessObj = {};
+        
+        businesses.map(business => {
+          if(business.latitude > west && business.latitude < east){
+            businessObj[business.id] = business;
+          }
+        });
+        res.json(businessObj);
+      });
+
+  }
+);
+
 router.get("/seed", async (req, res) => {
   const arr = JSON.parse(fs.readFileSync("seed/sf_businesses.json"));
 
