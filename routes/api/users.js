@@ -140,7 +140,8 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           handle: user.handle,
-          email: user.email
+          email: user.email,
+          username: user.username
         };
 
         jwt.sign(

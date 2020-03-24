@@ -58,11 +58,14 @@ router.get("/deleteAll", async (req, res) => {
 
 
 router.get("/:id", (req, res) => {
-  Group.find(req.params.id)
-    .then(group => res.json(group))
-    .catch(err =>
-      res.status(404).json({ nogroupfound: "Cannot find the group" })
-    );
+  Group.findById(req.params.id)
+    .populate("businesses")
+    .populate("users")
+    .populate("foodRestrictions")
+    .exec(function (err, group) {
+      if (err) return handleError(err);
+      res.json(group);
+    });
 });
 
 router.delete("/:id", (req, res) => {

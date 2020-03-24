@@ -21,11 +21,28 @@
 
 .swipe-aside-nav {
     display: flex;
-    flex-basis: 80px;
+    flex-basis: 62.742px;
     justify-content: space-between;
     align-items: center;
     color: white;
     background: linear-gradient(262deg, #ff7854, #fd267d);
+}
+
+.welcome-swipe {
+    font-size: 0.8rem;
+    width: 100%;
+    font-weight: bolder;
+}
+.welcome-swipe div:first-child{
+    margin-bottom: 3px;;
+}
+.welcome-swipe > div > svg, .welcome-swipe > div > span {
+    margin-right: 1rem;
+}
+
+.swipe-logout svg {
+    font-size: 1.4rem;
+    margin-top: 1.2rem;
 }
 
 .swipe-main {
@@ -48,8 +65,9 @@
 .logout-container {
     display: flex;
     font-weight: bolder;
-    margin-right: 2vw;
+    margin-right: 1vw;
 }
+
 
 .likes {
     display: flex;
@@ -100,14 +118,11 @@
 
 .nav-logo {
     display: flex;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     margin-left: 2vw;
 }
 
-.welcome-swipe {
-    font-size: 2rem;
-}
 
 @media only screen and (max-width: 1000px) {
     .swipe-main {

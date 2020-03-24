@@ -60,7 +60,7 @@ class HomeNavContent extends React.Component{
         </div>
         {currentTab}
         <div className="home-nav-content-bottom">
-          <h2> Logged in as, {this.props.user.email}</h2>
+          <h2> Logged in as, {this.props.user.username}</h2>
           <button className="logout-button" onClick={this.props.logout}>LOGOUT</button>
         </div>
       </div>
