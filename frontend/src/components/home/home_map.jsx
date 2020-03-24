@@ -1,6 +1,7 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
 import './home_map.css';
+import './home_map_marker.css';
 import MarkerManager from './marker_manager';
 import _ from 'lodash';
 

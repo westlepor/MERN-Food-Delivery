@@ -12,15 +12,17 @@ const fs = require("fs");
 router.get("/", (req, res) => {
   User
     .find()
-    .then(users => {
+    .populate({ path: "foodRestriction", select: "restriction" })
+    .exec(function (err, users) {
+      if (err) return handleError(err);
       const userObj = {};
-      users.map((user) => {
+      users.map(user => {
         userObj[user.id] = user;
-      })
+      });
       res.json(userObj);
-    })
-    .catch(err => res.status(404).json({ nousersfound: "No users found" }));
+    });
 });
+
 
 router.get("/seed", async (req, res) => {
   const arr = JSON.parse(fs.readFileSync("seed/users.json"));

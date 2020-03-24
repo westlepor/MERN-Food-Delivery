@@ -1,0 +1,59 @@
+.home-map .marker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #fd267d;
+  transform: rotate(-45deg);
+  margin: -20px 0 0 -20px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.home-map .marker:after {
+  content: "";
+  width: 14px;
+  height: 12px;
+  margin: 8px 0 0 8px;
+  background: #eeeded;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.home-map .mapboxgl-popup{
+  max-width: 200px;
+}
+
+.home-map .mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.home-map-popup {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.home-map .mapboxgl-popup-close-button{
+  right: 10px;
+}
+
+.home-map .home-map-popup-title {
+  width: 200px;
+  font-size: 1rem;
+  margin: 0.3rem 0;
+  flex-wrap: nowrap;
+  font-weight: bold;
+  text-align: start;
+}
+
+.home-map-popup-price-span {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+}
