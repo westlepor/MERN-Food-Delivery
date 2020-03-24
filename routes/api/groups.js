@@ -88,9 +88,13 @@ router.post("/", async (req, res) => {
     users: req.body.users,
     foodRestrictions: req.body.foodRestrictions,
     monetaryRestriction: req.body.monetaryRestriction,
+    businesses: req.body.businesses,
+    votedBusinesses: req.body.votedBusinesses,
     isSplit: req.body.isSplit
   });
 
+  console.log("Each User needs to add groupid into their data");
+  
   await newGroup
     .save()
     .then(group => res.send(group))

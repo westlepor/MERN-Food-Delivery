@@ -26,7 +26,16 @@ class Home extends React.Component {
         <Modal />
         <section className="home-nav-bar">
           <HomeSearch updateZoom={this.props.updateZoom}/>
-          <HomeNavContent user={this.props.user} businesses={this.props.businesses} users={this.props.users} selectedFoodRestrictions={this.props.selectedFoodRestrictions} logout={this.props.logout} openModal={this.props.openModal}/>
+          <HomeNavContent 
+            history={this.props.history}
+            user={this.props.user} 
+            businesses={this.props.businesses} 
+            users={this.props.users} 
+            selectedFoodRestrictions={this.props.selectedFoodRestrictions} 
+            logout={this.props.logout} 
+            openModal={this.props.openModal} 
+            createGroup={this.props.createGroup}
+          />
         </section>
         <section className="home-map-section">
           <div className="home-map-container">

@@ -27,7 +27,17 @@ class HomeNavContent extends React.Component{
       return null;
     }
 
-    const currentTab = (this.state.form === "join group") ? <JoinGroup /> : <CreateGroup users={this.props.users} selectedFoodRestrictions={this.props.selectedFoodRestrictions} openModal={this.props.openModal}/>
+    const currentTab = (this.state.form === "join group") 
+    ? <JoinGroup /> 
+    : <CreateGroup 
+      history={this.props.history}
+      user={this.props.user}
+      users={this.props.users} 
+      selectedFoodRestrictions={this.props.selectedFoodRestrictions} 
+      openModal={this.props.openModal} 
+      createGroup={this.props.createGroup} 
+      businesses={this.props.businesses}
+    />
 
     return (
       <div className="home-nav-content">

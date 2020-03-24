@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers, faUserPlus, faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faUsers, faUserPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 import _ from 'lodash';
 import './create_group.css'
 
@@ -10,7 +10,7 @@ class CreateGroup extends React.Component{
     this.state = {
       groupName: "",
       startTime: "",
-      endTime: new Date(),
+      endTime: "",
       users: Object.values(this.props.users),
       selectedFoodRestrictions: [],
       foodRestrictions: [],
@@ -32,11 +32,10 @@ class CreateGroup extends React.Component{
 
   handleTextChange(e) {
     const value = e.target.value;
-
     let candidates = [];
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, 'i');
-      candidates = this.state.users.filter(user => (regex.test(user.username)) || (regex.test(user.email)));
+      candidates = this.state.users.filter(user => ((regex.test(user.username)) || (regex.test(user.email))) && (user._id !== this.props.user.id) );
     }
 
     this.setState({
@@ -60,26 +59,23 @@ class CreateGroup extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    const votedBusinesses = _.mapValues(this.props.businesses, () => 0);
+  
+    const newGroup = {
+      groupName: this.state.groupName,
+      startTime: new Date,
+      endTime: new Date(this.state.endTime),
+      users: [...this.state.addUsers, this.props.user.id],
+      foodRestrictions: this.state.foodRestrictions,
+      monetaryRestriction: this.state.monetaryRestriction,
+      isSplit: this.state.isSplit,
+      businesses: Object.keys(this.props.businesses),
+      votedBusinesses
+    }
 
-    // let selectedFoodRestrictions = null;
-    // if (!_.isEmpty(this.props.foodRestrictions)) {
-    //   selectedFoodRestrictions = this.state.selectedFoodRestrictions.map((selectedRestriction) => {
-    //     let curEl = Object.values(this.props.foodRestrictions).filter(restriction => restriction.restriction === selectedRestriction)
-    //     return curEl[0]._id
-    //   })
-    // }
-
-    // const newGroup = {
-    //   groupName: this.state.groupName,
-    //   endTime: this.state.endTime,
-    //   users: this.state.candidates,
-    //   foodRestrictions: this.state.selectedFoodRestrictions,
-    //   monetaryRestriction: this.state.monetaryRestriction,
-    //   isSplit: this.state.isSplit
-    // }
-
-    // this.props.createGroup(newGroup);
+    this.props.createGroup(newGroup).then((res)=>{
+      return this.props.history.push(`/swipe/${res.group._id}`);
+    });
   }
 
   handleChange(type) {
@@ -171,6 +167,7 @@ class CreateGroup extends React.Component{
   }
 
   render(){
+
     return (
       <div className="create-group-form">
         <form onSubmit={this.handleSubmit}>
@@ -235,6 +232,7 @@ class CreateGroup extends React.Component{
               <div className="endtime-container">
                 <label> End Time
                   <input
+                  required
                   onChange={this.handleChange("endTime")}
                   className="endtime-input-field"
                   type="datetime-local"

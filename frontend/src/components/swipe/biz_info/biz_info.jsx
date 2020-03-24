@@ -32,9 +32,9 @@ class BizInfo extends React.Component {
         } else {
             return (
             <div className='biz-categories'>{
-                this.props.business.categories.map(category => {
+                this.props.business.categories.map((category, idx) => {
                     return (
-                        <div className='biz-category' >{category.name}</div>
+                        <div className='biz-category' key={idx} >{category.name}</div>
                     )
                 })
             }</div>    

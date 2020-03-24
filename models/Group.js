@@ -16,11 +16,15 @@ const GroupSchema = new Schema({
     },
     users: [{
         type: Schema.Types.ObjectId,
-        ref: "users"
+        ref: "User"
     }],
     foodRestrictions: [{
         type: Schema.Types.ObjectId,
-        ref: "foodRestrictions"
+        ref: "FoodRestriction"
+    }],
+    businesses: [{
+        type: Schema.Types.ObjectId,
+        ref: "Business"
     }],
     monetaryRestriction: {
         type: String
