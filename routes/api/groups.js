@@ -59,7 +59,10 @@ router.get("/deleteAll", async (req, res) => {
 
 router.get("/:id", (req, res) => {
   Group.findById(req.params.id)
-    .populate("businesses")
+    .populate({ path: "businesses", populate: {
+      path: "categories",
+      model: "Category"
+    }})
     .populate("users")
     .populate("foodRestrictions")
     .exec(function (err, group) {
