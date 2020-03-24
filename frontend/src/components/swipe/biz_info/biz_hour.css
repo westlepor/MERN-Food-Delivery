@@ -1,0 +1,25 @@
+.biz-hour {
+    display: flex;
+    flex-direction: row;
+    line-height: 1.45rem;
+}
+
+.biz-hour-day {
+    min-width: 36px;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+.biz-hour-time {
+    font-size: 0.875rem;
+}
+
+.biz-hour-opened, .biz-hour-closed{
+    font-weight: bolder;
+    font-size: 0.775rem;
+    margin-left: 0.8rem;
+    color: #05a882;
+}
+.biz-hour-closed {
+    color: #d32323;
+}

@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import BizCaroussel from '../swipe/caroussel/biz_caroussel';
 import BizInfo from '../swipe/biz_info/biz_info';
+import LikeOrDislike from './like_or_dislike';
 import SwipeMainMap from './swipe_main_map';
+import SwipeUserInfo from './swipe_user_info';
 import './swipe.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faTimes, faSignOutAlt, faUserAlt, faUserFriends, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faSignOutAlt, faUserAlt, faUserFriends, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import _ from 'lodash';
 
 class Swipe extends React.Component {
@@ -53,20 +55,12 @@ class Swipe extends React.Component {
           <div className="caroussel">
             <BizCaroussel />
           </div>
-          <div className="business-info">
+          <div className="bisuness-info">
             <BizInfo business={businesses[0]} />
           </div>
-          <div className="like-or-dislike">
-            <div className="like-or-dislike-container">
-              <span className="like">
-                <FontAwesomeIcon icon={faCheck} color="white" size="2x" />
-              </span>
-              <span className="dislike">
-                <FontAwesomeIcon icon={faTimes} color="white" size="2x" />
-              </span>
-            </div>
-          </div>
-        </div>
+          <SwipeUserInfo foodRestrictions={groups.foodRestrictions}/>
+          <LikeOrDislike/>
+        </div >
         <div className="swipe-main">
           <SwipeMainMap businesses={businesses} />
         </div>
