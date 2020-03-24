@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Zipcode } from './zipcode';
 
 class HomeSearch extends React.Component{
-
     constructor(props){
         super(props);
         this.state = {
@@ -63,7 +62,7 @@ class HomeSearch extends React.Component{
             <form className="home-search-section" onSubmit={this.handleSubmit}>
                 <h1>⌘</h1>
                 <div className="home-search-bar">
-                    <input type="search" placeholder="Neighborhood Search" onChange={this.inputChange} value={this.state.searchText} />
+                    <input type="search" placeholder="Filter by neighborhood" onChange={this.inputChange} value={this.state.searchText} />
                     <div className="auto-complete-options">
                         {this.renderOptions()}
                     </div>
@@ -75,4 +74,5 @@ class HomeSearch extends React.Component{
         )
     }
 }
+
 export default HomeSearch;

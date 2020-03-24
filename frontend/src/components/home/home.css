@@ -24,14 +24,15 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-.get-started-bar {
+.home-nav-content .get-started-bar {
     height: 3px;
-    width: 22%;
+    width: 35%;
     background: linear-gradient(262deg, #ff7854, #fd267d);
     z-index: 5;
-    margin-bottom: 2%;
+    margin: 2%;
 }
 
 .home-nav-content {
@@ -69,8 +70,6 @@
     margin-bottom: 0;
     margin-top: 1.5%;
 }
-
-
 
 .home-button-container {
     display: flex;
@@ -119,9 +118,17 @@
 .endtime-container label, .is-split-container {
     display: flex;
     flex-direction: column;
-    
 }
 
+.is-split-container label:first-child{
+    margin-bottom: 0.4rem;
+}
+
+.is-split-explanation {
+    font-size: 0.8rem;
+    /* font-style: italic; */
+    color: #fd267d;
+}
 /* Slider */
 
 .switch {
@@ -159,36 +166,15 @@
     transition: .2s;
 }
 
-input:checked + .slider {
+.is-split input:checked + .slider {
     background-color: #ff3f3f;
 }
 
-input:checked + .slider:before {
+.is-split input:checked + .slider:before {
     transform: translateX(20px);
 }
 
-/* Create Group Section */
 
-.create-group-form {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 4%;
-    border-top: solid black 1px;
-    box-shadow: 0px 0px 3px 0px grey;
-    z-index: 1;
-}
-
-.create-group-form form {
-    width: 90%;
-}
-
-.create-group-form form > div {
-    width: 90%;
-}
 
 .submit-container {
     display: flex;
@@ -211,25 +197,6 @@ input:checked + .slider:before {
     vertical-align: top;
     position: relative;
     display: inline-block;
-}
-
-.create-group-form-row {
-    display: flex;
-    width: 100%;
-    justify-content: left;
-    align-items: flex-start;
-}
-
-.create-group-form-row > div {
-    width: 50%;
-}
-
-.add-users-container {
-    margin-bottom: 40% ;
-}
-
-input[type=time] {
-    width: 40%;
 }
 
 /* Join Group Form */
@@ -262,9 +229,13 @@ input[type=time] {
 
 .home-map-section {
     height: 100%;
+    width: 100%;
 }
 
 
+
+
+/* this one needs to be fixed
 @media only screen and (max-width: 800px) {
     .home-nav-bar {
         width: 100vw;
@@ -293,3 +264,5 @@ input[type=time] {
         width: 90%;
     }
 }
+
+*/

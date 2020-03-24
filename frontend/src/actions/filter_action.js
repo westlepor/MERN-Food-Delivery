@@ -1,5 +1,3 @@
-import { fetchBusinessesByCoordinates } from './business_actions';
-
 export const UPDATE_FILTER = 'UPDATE_FILTER';
 
 export const changeFilter = (filters, value) => ({

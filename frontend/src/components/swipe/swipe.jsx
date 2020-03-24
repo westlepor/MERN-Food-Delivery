@@ -9,10 +9,6 @@ import { faCheck, faTimes, faSignOutAlt } from '@fortawesome/free-solid-svg-icon
 import _ from 'lodash';
 
 class Swipe extends React.Component {
-  componentDidMount(){
-    this.props.fetchBusinesses();
-  }
-
   constructor(props) {
     super(props);
   }
@@ -34,9 +30,6 @@ class Swipe extends React.Component {
               <Link to="/home">⌘</Link>
             </div>
             <h2 className="welcome-swipe">Hi Henry!</h2>
-            {/* <h1>⌘</h1>
-          <h2>gather</h2> */}
-            {/* <div className="welcome-swipe">{props.currentUser.username}</div> */}
             <div className="logout-container">
               <Link
                 className="logout-logo"
@@ -77,4 +70,3 @@ class Swipe extends React.Component {
 };
 
 export default Swipe;
-

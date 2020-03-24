@@ -11,7 +11,7 @@ import { fetchBusinessesByCoordinates } from '../../actions/business_actions';
 
 const mapSTP = (state) => ({
     user: state.session.user,
-    users: Object.values(state.entities.users),
+    users: state.entities.users,
     foodRestrictions: state.entities.foodRestrictions,
     selectedFoodRestrictions: state.ui.selectedFoodRestrictions,
     businesses: state.entities.businesses,

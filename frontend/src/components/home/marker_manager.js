@@ -35,9 +35,20 @@ export default class MarkerManager {
                 .setPopup(
                     new mapboxgl.Popup({ offset: 25 })
                         .setHTML(
-                            "<h3>" +
-                            marker.businessName +
-                            "</h3><p>"
+                            '<div class="' + "home-map-popup" + '">' +
+                            '<img src="' + marker.photos[0] + '" style="' + "height:200px; width:200px; object-fit:cover; border-radius: 4px" + '"/>' +
+                            '<div class="' + "home-map-popup-title" + '">' + marker.businessName.split("_").join(" ") + "</div>" +
+                            '<div class="' + "home-map-popup-price-span" + '">' +
+                            '<span>' + marker.price + '∙' + "</span>" +
+                            '<span>' + marker.categories.map(category => category.name).join(", ") + "</span>" +
+                            "</div>" +
+                            '<div class="' + "home-map-popup-rating" + '">' +
+                            '<span class="' + "home-map-popup-rating-span" + '">' + marker.rating + "</span>" +
+                            " rating out of " +
+                            '<span class="' + "g-map-infowindow-rating-span" + '">' + marker.reviewCount + "</span>"
+                            + " reviews" +
+                            "</div>" +
+                            "<div>"
                         )
                 )
                 .addTo(this.map);

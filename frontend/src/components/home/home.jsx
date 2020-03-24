@@ -1,18 +1,15 @@
-import "./home.css";
 import React from 'react';
 import HomeMap from './home_map';
 import HomeSearch from './home_search';
 import HomeNavContent from './home_nav_content';
 import Modal from "../modal/modal";
+import "./home.css";
 import _ from 'lodash';
 
 class Home extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      map: null
-    }
   }
 
   componentDidMount(){
@@ -29,7 +26,7 @@ class Home extends React.Component {
         <Modal />
         <section className="home-nav-bar">
           <HomeSearch updateZoom={this.props.updateZoom}/>
-          <HomeNavContent user={this.props.user} businesses={this.props.businesses} users={this.props.users} selectedFoodRestrictions={this.props.selectedFoodRestrictions}/>
+          <HomeNavContent user={this.props.user} businesses={this.props.businesses} users={this.props.users} selectedFoodRestrictions={this.props.selectedFoodRestrictions} logout={this.props.logout} openModal={this.props.openModal}/>
         </section>
         <section className="home-map-section">
           <div className="home-map-container">
