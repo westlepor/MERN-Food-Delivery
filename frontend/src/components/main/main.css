@@ -24,7 +24,16 @@
     font-weight: bold;
 }
 
-.splash-content button {
+.main-button-signup {
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    padding: .5vw 4vw;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.main-button-login {
+    /* display: none; */
     background: linear-gradient(262deg, #ff7854, #fd267d);
     padding: .5vw 4vw;
     border-radius: 50px;
@@ -61,13 +70,22 @@
 }
 
 @media only screen and (max-width: 700px) {
-    .splash-content button {
+    .main-button-signup {
         padding-left: 35%;
         padding-right: 35%;
-        font-size: 1.5em;
+        font-size: 1.2em;
         position: absolute;
         top: 80%;
     }
+    
+    .main-button-login {
+        padding-left: 35%;
+        padding-right: 35%;
+        font-size: 1.2em;
+        display:block;
+        position: absolute;
+        top: 86%;
+        }
 
     .splash-content h1 {
         position: absolute;
