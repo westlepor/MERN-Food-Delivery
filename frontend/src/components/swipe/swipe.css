@@ -77,6 +77,37 @@
     margin-left: 2vw;
 }
 
+.swipe-finish-vote {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.swipe-finish-vote .swipe-finish-vote-container {
+    color: white;
+}
+
+.swipe-finish-vote-container{
+    /* border: 1px solid #ff7854; */
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.swipe-finish-vote-span{
+    margin-left: 1rem;
+}
+
+.swipe-finish-vote-msg {
+    margin-top: 0.7rem;
+    font-size: 1rem;
+    color: #fd267d;
+}
+
 
 @media only screen and (max-width: 1000px) {
     .swipe-main {

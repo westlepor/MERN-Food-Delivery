@@ -18,6 +18,11 @@ const GroupSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     }],
+    creator: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
+    ,
     foodRestrictions: [{
         type: Schema.Types.ObjectId,
         ref: "FoodRestriction"
