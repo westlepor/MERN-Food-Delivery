@@ -1,7 +1,7 @@
 import React from 'react';
 import NavContainer from "../nav/nav_container";
 import Modal from "../modal/modal";
-import Main from "./main";
+import MainContainer from "./main_container";
 
 class SplashPage extends React.Component {
     render() {
@@ -9,7 +9,7 @@ class SplashPage extends React.Component {
             <div className="splash-page">
                 <Modal />
                 <NavContainer />
-                <Main />
+                <MainContainer />
             </div>
         );
     }
