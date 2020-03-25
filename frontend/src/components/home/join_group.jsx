@@ -9,6 +9,24 @@ class JoinGrorup extends React.Component {
     
   }
 
+  formatTime(endTime) {
+    const date = endTime.split("T")[0].split('-');
+    const time = endTime.split("T")[1].split(':');
+    const timeOfDay = (parseInt(time[0]) > 12) ? "PM" : "AM" 
+    return (
+        (parseInt(time[0]) % 12)
+        + ":" 
+        + time[1]
+        + timeOfDay
+        + " on "
+        + date[1] 
+        + "/" 
+        + date[2] 
+        + "/" 
+        + date[0]
+      );
+  }
+
   render(){
     return(
       <div className="join-group-form">
@@ -28,7 +46,7 @@ class JoinGrorup extends React.Component {
                 <div >
                   <Link to={`/swipe/${group._id}`} className="join-group-item" >
                     <h2>{group.groupName}</h2>
-                    <h2>{group.endTime}</h2>
+                    <h2>{this.formatTime(group.endTime)}</h2>
                   </Link>
                 </div>
               ))}
