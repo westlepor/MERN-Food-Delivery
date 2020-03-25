@@ -7,7 +7,6 @@ import SplashPage from "./components/main/splash_page";
 import { AuthRoute, ProtectedRoute } from "./util/route_util"; 
 import Register from './components/session/register';
 import SwipeContainer from './components/swipe/swipe_container';
-// TO BE DELETED
 import { Route } from 'react-router-dom';
 
 const Gather = () => {

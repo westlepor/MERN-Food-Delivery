@@ -1,17 +1,17 @@
 .home-search-section {
-    padding: .8% 0;
-    background: linear-gradient(262deg, #ff7854, #fd267d);
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: .8% 0;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    width: 100%;
 }
 
 .home-search-section h1 {
     left: .2%;
     font-size: 2rem;
-    padding-left: 2%;
-    padding-right: .5%;
+    margin-left: 2%;
+    margin-right: .5%;
     color: white;
 }
 

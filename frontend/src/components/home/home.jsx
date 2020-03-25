@@ -25,17 +25,22 @@ class Home extends React.Component {
       <div className="home-page">
         <Modal />
         <section className="home-nav-bar">
-          <HomeSearch updateZoom={this.props.updateZoom}/>
-          <HomeNavContent 
-            history={this.props.history}
-            user={this.props.user} 
-            businesses={this.props.businesses} 
-            users={this.props.users} 
-            selectedFoodRestrictions={this.props.selectedFoodRestrictions} 
-            logout={this.props.logout} 
-            openModal={this.props.openModal} 
-            createGroup={this.props.createGroup}
-          />
+          <section className="home-nav-bar-container">
+            <HomeSearch updateZoom={this.props.updateZoom}/>
+            <HomeNavContent 
+              history={this.props.history}
+              user={this.props.user} 
+              businesses={this.props.businesses} 
+              users={this.props.users} 
+              selectedFoodRestrictions={this.props.selectedFoodRestrictions} 
+              openModal={this.props.openModal} 
+              createGroup={this.props.createGroup}
+            />
+            <div className="home-nav-content-bottom">
+              <h2> Logged in as, {this.props.user.username}</h2>
+              <button className="logout-button" onClick={this.props.logout}>LOGOUT</button>
+            </div>
+          </section>
         </section>
         <section className="home-map-section">
           <div className="home-map-container">
