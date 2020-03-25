@@ -5,23 +5,22 @@ import BizInfo from '../swipe/biz_info/biz_info';
 import LikeOrDislike from './like_or_dislike';
 import SwipeMainMap from './swipe_main_map';
 import SwipeUserInfo from './swipe_user_info';
-import './swipe.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faUserAlt, faUserFriends, faUserCircle, faCompass } from '@fortawesome/free-solid-svg-icons'
 import _ from 'lodash';
+import './swipe.css';
 
 class Swipe extends React.Component {
   constructor(props) {
     super(props);
 
     const pathname = this.props.history.location.pathname.split("/");
-    this.curGroupId = pathname[pathname.length - 1];
-    
+    this.curGroupId = pathname[pathname.length - 1];    
   }
 
   componentDidMount() {
-    this.props.fetchGroup(this.curGroupId).then(()=>{
-      this.props.fetchUser(this.props.user.id);
+    return this.props.fetchGroup(this.curGroupId).then(()=>{
+      return this.props.fetchUser(this.props.user.id);
     })
   }
 
@@ -33,7 +32,6 @@ class Swipe extends React.Component {
         return curBiz;
       }
     }
-
     return null;
   }
   
@@ -54,14 +52,14 @@ class Swipe extends React.Component {
     if (_.isEmpty(this.props.groups) || _.isEmpty(this.props.users)){
       return null;
     }
+    
+    const curBiz = this.findCurBiz();
+    if(curBiz === null){
+      return this.swipeRedirect()
+    }
 
     const curGroup = this.props.groups[this.curGroupId];
     const curBizs = curGroup.businesses;
-    const curBiz = this.findCurBiz();
-    if(curBiz === null){
-      //probably want to redirect to the home page
-      return this.swipeRedirect()
-    }
 
     return (
       <div className="swipe">
@@ -86,16 +84,16 @@ class Swipe extends React.Component {
             </div>
           </div>
           <div className="caroussel">
-            <BizCaroussel />
+            <BizCaroussel curBiz={curBiz}/>
           </div>
           <div className="bisuness-info">
             <BizInfo business={curBiz} />
           </div>
           <SwipeUserInfo foodRestrictions={curGroup.foodRestrictions}/>
-          <LikeOrDislike updateGroup={this.props.updateGroup} curGroup={curGroup} user={this.props.user} curBiz={curBiz}/>
+          <LikeOrDislike updateGroup={this.props.updateGroup} curGroup={curGroup} fetchGroup={this.props.fetchGroup} user={this.props.user} curBiz={curBiz}/>
         </div >
         <div className="swipe-main">
-          <SwipeMainMap businesses={curBizs} />
+          <SwipeMainMap businesses={curBizs} curBiz={curBiz}/>
         </div>
       </div>
     );

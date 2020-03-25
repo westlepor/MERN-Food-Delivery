@@ -114,11 +114,9 @@ router.put("/:id", async (req, res) => {
     return res.status(400).json(errors);
   }
 
-  // console.log(req.body, "reqbody");
-
   Group.findOneAndUpdate({ _id: req.params.id }, req.body, { upsert: true }, function (err, group) {
     if (err) return res.status(500).json(err);
-    // console.log(group, "group")
+
     const populatedGroup = group
       .populate({
         path: "businesses", populate: {
@@ -129,7 +127,7 @@ router.put("/:id", async (req, res) => {
       .populate("creator")
       .populate("users")
       .populate("foodRestrictions").execPopulate();
-    populatedGroup.then(group => res.send(group));
+    return populatedGroup.then(group => res.send(group));
   });
 });
 
