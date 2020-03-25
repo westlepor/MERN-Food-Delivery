@@ -1,0 +1,68 @@
+.likes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    margin-bottom: 2rem;
+    height: auto;
+}
+
+.like-or-dislike {
+    flex-basis: 62.742px;
+    /* background: linear-gradient(262deg, #ff7854, #fd267d); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.like-or-dislike-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5rem;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box;        
+}
+
+.like-or-dislike-container .like, .like-or-dislike-container .dislike {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	height: 3rem;
+	border-radius: 3%;
+    border: 1px solid #3434;
+    box-shadow: 0.5px 0.5px  #3434 ;
+    font-size: 1rem;
+    padding: 1.2rem;
+    cursor: pointer;
+}
+
+.like-or-dislike-container .like{
+	color: #343434;
+}
+
+.like-or-dislike-container .like:hover{
+	background-color: rgba(0,150,136 ,0.1);
+}
+
+.like-or-dislike-container .dislike{
+    color: #343434;
+}
+
+.like-or-dislike-container .dislike:hover{
+    background-color: rgba(255,82,82 ,0.1);
+}
+
+.like-or-dislike-container .like div, .like-or-dislike-container .dislike div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.like-or-dislike-container .like, .like-or-dislike-container .dislike span{
+    font-size: 0.7rem;
+    line-height: 0.9rem;
+}

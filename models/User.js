@@ -23,11 +23,11 @@ const UserSchema = new Schema({
   },
   foodRestriction: [{
       type: Schema.Types.ObjectId,
-      ref: "foodRestrictions"
+      ref: "FoodRestriction"
   }],
   groups: [{
       type: Schema.Types.ObjectId,
-      ref: "groups"
+      ref: "Group"
   }],
   monetaryRestriction: {
       type: String, 

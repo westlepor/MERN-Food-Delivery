@@ -21,11 +21,28 @@
 
 .swipe-aside-nav {
     display: flex;
-    flex-basis: 80px;
+    flex-basis: 62.742px;
     justify-content: space-between;
     align-items: center;
     color: white;
     background: linear-gradient(262deg, #ff7854, #fd267d);
+}
+
+.welcome-swipe {
+    font-size: 0.8rem;
+    width: 100%;
+    font-weight: bolder;
+}
+.welcome-swipe div:first-child{
+    margin-bottom: 3px;;
+}
+.welcome-swipe > div > svg, .welcome-swipe > div > span {
+    margin-right: 1rem;
+}
+
+.swipe-logout svg {
+    font-size: 1.4rem;
+    margin-top: 1.2rem;
 }
 
 .swipe-main {
@@ -48,66 +65,18 @@
 .logout-container {
     display: flex;
     font-weight: bolder;
-    margin-right: 2vw;
+    margin-right: 1vw;
 }
 
-.likes {
-    display: flex;
-    justify-content: space-between;
-    margin-top: auto;
-    margin-bottom: 2rem;
-    height: auto;
-}
 
-.like-or-dislike {
-    flex: 0 0 80px;
-    background: linear-gradient(262deg, #ff7854, #fd267d);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.like-or-dislike-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px;
-    margin-top: auto;
-}
-
-.like {
-    display: flex;
-    justify-content: center;
-    width: 46%;
-    cursor: pointer;
-    border: 1px solid white;
-    padding: 10px 0;
-    border-radius: 5px;
-    margin: 0 10px;
-}
-
-.dislike {
-    display: flex;
-    justify-content: center;
-    width: 46%;
-    cursor: pointer;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding: 10px 0;
-    margin: 0 10px;
-}
 
 .nav-logo {
     display: flex;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     margin-left: 2vw;
 }
 
-.welcome-swipe {
-    font-size: 2rem;
-}
 
 @media only screen and (max-width: 1000px) {
     .swipe-main {
@@ -127,7 +96,8 @@
     .swipe-aside {
         width: 100%;
     }
-
+    
+/* 
     .like-or-dislike-container {
     padding: 0;
     margin-top: auto;
@@ -150,5 +120,5 @@
     .logout-logo {
         font-size: .75em;
         margin-right: 4vw;
-    }
+    } */
 }

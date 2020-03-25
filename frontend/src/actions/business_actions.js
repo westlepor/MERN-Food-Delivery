@@ -17,6 +17,11 @@ export const fetchBusiness = (businessId) => dispatch => (
         .then((business) => dispatch(receiveBusiness(business)))
 );
 
+export const fetchBusinessesByCoordinates = (bounds) => dispatch => (
+    APIUtil.fetchBusinessesByCoordinates(bounds)
+        .then((businesses) => dispatch(receiveBusinesses(businesses)))
+)
+
 export const fetchBusinesses = () => dispatch => (
     APIUtil.fetchBusinesses()
         .then((businesses) => dispatch(receiveBusinesses(businesses)))

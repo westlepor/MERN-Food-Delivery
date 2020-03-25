@@ -180,7 +180,7 @@
 
 }
 
-.input-field{
+.login-form .input-field{
     background-color: #f6f7fa;
     caret-color: #40acf8;
     width: 100%;
@@ -194,7 +194,7 @@
     margin-right: auto;
 }
 
-.input-field-container{
+.login-form .input-field-container{
     margin-top: 10px;
     margin-bottom: 10px;
     position: relative;
@@ -204,7 +204,7 @@
 }
 
 
-.input-icon{
+.login-form .input-icon{
     position: absolute;
     left: 14px;
     top: 12px;

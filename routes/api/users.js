@@ -12,15 +12,17 @@ const fs = require("fs");
 router.get("/", (req, res) => {
   User
     .find()
-    .then(users => {
+    .populate({ path: "foodRestriction", select: "restriction" })
+    .exec(function (err, users) {
+      if (err) return res.json(err);
       const userObj = {};
-      users.map((user) => {
+      users.map(user => {
         userObj[user.id] = user;
-      })
+      });
       res.json(userObj);
-    })
-    .catch(err => res.status(404).json({ nousersfound: "No users found" }));
+    });
 });
+
 
 router.get("/seed", async (req, res) => {
   const arr = JSON.parse(fs.readFileSync("seed/users.json"));
@@ -52,11 +54,14 @@ router.get("/deleteAll", async (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  User.findById(req.params.id)
-    .then(user => res.json(user))
-    .catch(err =>
-      res.status(404).json({ nouserfound: "No user found with that id" })
-    );
+  User
+    .findById(req.params.id)
+    .populate({ path: "foodRestriction", select: "restriction" })
+    .populate({ path: "groups" })
+    .exec(function (err, user) {
+      if (err) return res.status(404).json({ nouserfound: "No user found with that id" });
+      res.json(user);
+    });
 });
 
 
@@ -95,7 +100,8 @@ router.post("/signup", (req, res) => {
               const payload = {
                 id: user.id,
                 username: user.username,
-                email: user.email
+                email: user.email,
+                groups: user.groups
               };
 
               jwt.sign(
@@ -128,7 +134,11 @@ router.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  User.findOne({ email }).then(user => {
+  User.findOne({ email })
+    .populate("groups")
+    .exec(function (err, user) {
+    if (err) return handleError(err);
+
     if (!user) {
       return res.status(404).json({ email: "The user with the email address does not exist." });
     }
@@ -138,7 +148,9 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           handle: user.handle,
-          email: user.email
+          email: user.email,
+          username: user.username,
+          groups: user.groups
         };
 
         jwt.sign(
