@@ -33,8 +33,11 @@ const GroupSchema = new Schema({
         type: Boolean,
         default: true
     },
-    votedBusinesses: {
+    likedBusinesses: {
         type: Object
+    },
+    dislikedBusinesses: {
+        type: Object,
     },
     createdAt: {
         type: Date,

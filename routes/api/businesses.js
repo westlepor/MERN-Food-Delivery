@@ -11,7 +11,7 @@ router.get(
       .limit(20)
       .populate({ path: "categories", select: "name" })
       .exec(function(err, businesses) {
-        if (err) return handleError(err);
+        if (err) return res.json(err);
         const businessObj = {};
         businesses.map(business => {
           businessObj[business.id] = business;
@@ -34,7 +34,7 @@ router.get(
       .limit(20)
       .populate({ path: "categories", select: "name" })
       .exec(function (err, businesses) {
-        if (err) return handleError(err);
+        if (err) return res.json(err);
         const businessObj = {};
         
         businesses.map(business => {
@@ -106,7 +106,6 @@ router.get("/deleteAll", async (req, res) => {
     });
   });
 })
-
 
 router.get(
   "/:id",
