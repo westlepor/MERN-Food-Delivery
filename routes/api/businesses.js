@@ -115,4 +115,5 @@ router.get(
       .catch(err => res.status(404).json({ nobusinessfound: "No business found with that id" }))
   }
 );
+
 module.exports = router;

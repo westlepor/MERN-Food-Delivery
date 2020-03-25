@@ -39,6 +39,10 @@ class HomeNavContent extends React.Component{
       businesses={this.props.businesses}
     />
 
+    console.log(this.state.form, "group selection")
+    const createBtId = (this.state.form === "create group") ? `selected-button` : `unselected-button`;
+    const joinBtId = (this.state.form === "join group") ? `selected-button` : `unselected-button`;
+
     return (
       <div className="home-nav-content">
         <div className="home-nav-content-top">
@@ -46,23 +50,15 @@ class HomeNavContent extends React.Component{
             <h3>GET STARTED</h3>
             <div className="get-started-bar"></div>
           </div>
-          <div>
+          <div className="get-started-explanation">
             "Get started by filtering results by neighborhood and costs"
           </div>
           <div className="home-button-container">
-            <button id={this.state.form === "create group" ? `selected-button` : null }
-              onClick={this.handleChangeForm}
-            >Start a Group</button>
-            <button id={this.state.form === "join group" ? `selected-button` : null }
-              onClick={this.handleChangeForm}
-            >Join a Group</button>
+            <button id={createBtId} onClick={this.handleChangeForm} > Start a Group </button>
+            <button id={joinBtId} onClick={this.handleChangeForm}> Join a Group </button>
           </div>
         </div>
         {currentTab}
-        <div className="home-nav-content-bottom">
-          <h2> Logged in as, {this.props.user.username}</h2>
-          <button className="logout-button" onClick={this.props.logout}>LOGOUT</button>
-        </div>
       </div>
     )
   }

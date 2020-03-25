@@ -99,7 +99,7 @@ router.post("/", async (req, res) => {
     isSplit: req.body.isSplit
   });
 
-  const curUsers = req.body.users;
+  const curUsers = req.body.users; //userid
 
   for (let i = 0; i < curUsers.length; i++){
     const curUser = curUsers[i];
