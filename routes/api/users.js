@@ -101,7 +101,6 @@ router.post("/signup", (req, res) => {
                 id: user.id,
                 username: user.username,
                 email: user.email,
-                groups: user.groups
               };
 
               jwt.sign(
@@ -150,7 +149,6 @@ router.post("/login", (req, res) => {
           handle: user.handle,
           email: user.email,
           username: user.username,
-          groups: user.groups
         };
 
         jwt.sign(
