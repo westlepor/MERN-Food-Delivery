@@ -41,9 +41,9 @@ class JoinGrorup extends React.Component {
               <h2>Group Name</h2>
               <h2>Decide By</h2>
             </div>
-            <div>
-              {this.props.user.groups.map((group) => (
-                <div >
+            <div className="my-group-body">
+              {this.props.user.groups.map((group,index) => (
+                <div className={`group-list-item ${(index%2 === 0)? 'even-index' : 'odd-index'}`}>
                   <Link to={`/swipe/${group._id}`} className="join-group-item" >
                     <h2>{group.groupName}</h2>
                     <h2>{this.formatTime(group.endTime)}</h2>
