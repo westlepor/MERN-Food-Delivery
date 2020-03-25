@@ -28,7 +28,7 @@ class HomeNavContent extends React.Component{
     }
 
     const currentTab = (this.state.form === "join group") 
-    ? <JoinGroup /> 
+      ? <JoinGroup users={this.props.users} user={this.props.user} fetchUser={this.props.fetchUser}/> 
     : <CreateGroup 
       history={this.props.history}
       user={this.props.user}
@@ -50,7 +50,7 @@ class HomeNavContent extends React.Component{
             <div className="get-started-bar"></div>
           </div>
           <div className="get-started-explanation">
-            "Get started by filtering results by neighborhood and costs"
+            <span>Start by creating or joining a group. You can filter results by neihborhood and/or costs.</span>
           </div>
           <div className="home-button-container">
             <button id={createBtId} onClick={this.handleChangeForm} onClick={this.handleChangeForm} > Start a Group </button>

@@ -35,6 +35,7 @@ class Home extends React.Component {
               selectedFoodRestrictions={this.props.selectedFoodRestrictions} 
               openModal={this.props.openModal} 
               createGroup={this.props.createGroup}
+              fetchUser={this.props.fetchUser}
             />
             <div className="home-nav-content-bottom">
               <h2> Logged in as, {this.props.user.username}</h2>

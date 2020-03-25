@@ -39,6 +39,10 @@
     margin-bottom: 0.5rem;
 }
 
+.get-started-explanation span {
+    text-align: center;
+}
+
 .home-nav-content .get-started-bar {
     height: 3px;
     width: 35%;
