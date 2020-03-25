@@ -4,18 +4,38 @@ import { faTimes, faUtensils } from '@fortawesome/free-solid-svg-icons';
 import './like_or_dislike.css';
 
 class LikeOrDislike extends React.Component{
+  constructor(props){
+    super(props);
+    this.clickButton = this.clickButton.bind(this);
+  }
+
+  clickButton(type){
+    return () => {
+      if(type === "like"){
+        // this.props.curGroup.likedBusinesses
+        const curGroup = this.props.curGroup;
+        curGroup.likedBusinesses[this.props.curBiz._id].push(this.props.user.id)
+        this.props.updateGroup(curGroup)
+      } else if (type === "dislike"){
+        const curGroup = this.props.curGroup;
+        curGroup.dislikedBusinesses[this.props.curBiz._id].push(this.props.user.id)
+        this.props.updateGroup(curGroup)
+      }
+    }
+  }
+
   render(){
     return(
       <div className="like-or-dislike">
         <div className="like-or-dislike-container">
-          <span className="like">
+          <span className="like" onClick={this.clickButton("like")} >
             <FontAwesomeIcon icon={faUtensils} color="rgba(0,150,136 ,1)" size="2x" />
             <div>
               <span>Vote for</span>
               <span>Fog Harbor Fish House</span>
             </div>
           </span>
-          <span className="dislike">
+          <span className="dislike" onClick={this.clickButton("dislike")} >
             <FontAwesomeIcon icon={faTimes} color="rgba(255,82,82 ,0.8)" size="2x" />
             <div>
               <span>Pass</span>

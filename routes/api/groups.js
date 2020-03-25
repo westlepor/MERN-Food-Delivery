@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Group = require("../../models/Group");
 const validateGroupInput = require("../../validation/group");
+const _ = require('lodash');
 
 router.get("/", (req, res) => {
   Group.find()
@@ -17,33 +18,13 @@ router.get("/", (req, res) => {
     );
 });
 
-
 router.get("/seed", async (req, res) => {
-
-  // var dt = new Date();
-  // dt.setHours(dt.getHours() + 2);
-
-  // let newGroup = {
-  //   groupName: "firstMatch",
-  //   startTime: new Date(), 
-  //   endTime: dt,
-  //   users: ["5e76d6f78ea8ea572008161b", "5e76d6f78ea8ea572008161e"],
-  //   foodRestrictions: ["5e76c1bc81306b4c825bf208", "5e76c1bc81306b4c825bf209"],
-  //   monetaryRestriction: "$$",
-  //   isSplit: true,
-  //   votedBusinesses: {
-  //     "5e76c0146513aa4aaf0cbe55": 0,
-  //   }
-  // };
-
   let group = new Group(newGroup);
   await groups.save();
 
   Group.find().then(groups => {
     res.json(groups);
   });
-
-
 });
 
 router.get("/deleteAll", async (req, res) => {
@@ -55,7 +36,6 @@ router.get("/deleteAll", async (req, res) => {
   });
 });
 
-
 router.get("/:id", (req, res) => {
   Group.findById(req.params.id)
     .populate({ path: "businesses", populate: {
@@ -63,6 +43,7 @@ router.get("/:id", (req, res) => {
       model: "Category"
     }})
     .populate("users")
+    .populate("creator")
     .populate("foodRestrictions")
     .exec(function (err, group) {
       if (err) return res.json(err);;
@@ -91,6 +72,7 @@ router.post("/", async (req, res) => {
     startTime: req.body.startTime,
     endTime: req.body.endTime,
     users: req.body.users,
+    creator: req.body.creator,
     foodRestrictions: req.body.foodRestrictions,
     monetaryRestriction: req.body.monetaryRestriction,
     businesses: req.body.businesses,
@@ -117,6 +99,7 @@ router.post("/", async (req, res) => {
           path: "categories",
           model: "Category"
         }})
+        .populate("creator")
         .populate("users")
         .populate("foodRestrictions").execPopulate();
       populatedGroup.then(group => res.send(group));
@@ -125,34 +108,29 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  Group.findOne({
-    groupName: req.body.groupName
-  }).then(group => {
-    group.delete;
-  });
-
+  
   const { errors, isValid } = validateGroupInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
-  const newGroup = await new Group({
-    groupName: req.body.groupName,
-    startTime: req.body.startTime,
-    endTime: req.body.endTime,
-    users: req.body.users,
-    foodRestrictions: req.body.foodRestrictions,
-    monetaryRestriction: req.body.monetaryRestriction,
-    businesses: req.body.businesses,
-    likedBusinesses: req.body.likedBusinesses,
-    dislikedBusinesses: req.body.dislikedBusinesses,
-    isSplit: req.body.isSplit
-  });
+  // console.log(req.body, "reqbody");
 
-  await newGroup
-    .save()
-    .then(group => res.send(group))
-    .catch(err => res.send(err));
+  Group.findOneAndUpdate({ _id: req.params.id }, req.body, { upsert: true }, function (err, group) {
+    if (err) return res.status(500).json(err);
+    // console.log(group, "group")
+    const populatedGroup = group
+      .populate({
+        path: "businesses", populate: {
+          path: "categories",
+          model: "Category"
+        }
+      })
+      .populate("creator")
+      .populate("users")
+      .populate("foodRestrictions").execPopulate();
+    populatedGroup.then(group => res.send(group));
+  });
 });
 
 module.exports = router;

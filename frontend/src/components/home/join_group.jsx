@@ -32,8 +32,6 @@ class JoinGroup extends React.Component {
   }
 
   render(){
-    console.log(this.props.users[this.props.user.id].groups, "groups")
-
     if (this.props.users[this.props.user.id].groups.length > 0 && typeof this.props.users[this.props.user.id].groups[0] === "string"){
       return null;
     }
@@ -53,7 +51,7 @@ class JoinGroup extends React.Component {
             </div>
             <div className="my-group-body">
               {this.props.users[this.props.user.id].groups.map((group, index) => (
-                <div className={`group-list-item ${(index%2 === 0)? 'even-index' : 'odd-index'}`}>
+                <div key={index} className={`group-list-item ${(index%2 === 0)? 'even-index' : 'odd-index'}`}>
                   <Link to={`/swipe/${group._id}`} className="join-group-item" >
                     <h2>{group.groupName}</h2>
                     <h2>{this.formatTime(group.endTime)}</h2>

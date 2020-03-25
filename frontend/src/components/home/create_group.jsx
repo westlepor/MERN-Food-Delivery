@@ -61,7 +61,8 @@ class CreateGroup extends React.Component{
     e.preventDefault();
     const likedBusinesses = _.mapValues(this.props.businesses, () => []);
     const dislikedBusinesses = _.mapValues(this.props.businesses, () => []);
-
+    const creator = this.props.user.id;
+    
     const newGroup = {
       groupName: this.state.groupName,
       startTime: new Date,
@@ -72,7 +73,8 @@ class CreateGroup extends React.Component{
       isSplit: this.state.isSplit,
       businesses: Object.keys(this.props.businesses),
       likedBusinesses,
-      dislikedBusinesses
+      dislikedBusinesses,
+      creator
     }
 
     this.props.createGroup(newGroup).then((res)=>{

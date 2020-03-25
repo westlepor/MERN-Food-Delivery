@@ -24,7 +24,7 @@ class HomeNavContent extends React.Component{
 
   render(){
     if (_.isEmpty(this.props.businesses)){
-      return null;
+      return <div style={{ display: "flex", justifyContent: "center", width: "100%" }}><img src="loading2.gif" style={{ width: "auto", height: "300px",}}/></div>;;
     }
 
     const currentTab = (this.state.form === "join group") 

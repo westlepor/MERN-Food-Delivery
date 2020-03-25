@@ -7,34 +7,67 @@ import SwipeMainMap from './swipe_main_map';
 import SwipeUserInfo from './swipe_user_info';
 import './swipe.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faUserAlt, faUserFriends, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faSignOutAlt, faUserAlt, faUserFriends, faUserCircle, faCompass } from '@fortawesome/free-solid-svg-icons'
 import _ from 'lodash';
 
 class Swipe extends React.Component {
   constructor(props) {
     super(props);
+
+    const pathname = this.props.history.location.pathname.split("/");
+    this.curGroupId = pathname[pathname.length - 1];
+    
   }
 
   componentDidMount() {
-    const pathname = this.props.history.location.pathname.split("/");
-    const groupId = pathname[pathname.length-1];
-    this.props.fetchGroup(groupId)
+    this.props.fetchGroup(this.curGroupId).then(()=>{
+      this.props.fetchUser(this.props.user.id);
+    })
+  }
+
+  findCurBiz (){
+    const curGroup = this.props.groups[this.curGroupId];
+    for (let i = 0; i < curGroup.businesses.length; i++){
+      const curBiz = curGroup.businesses[i];
+      if (!curGroup.likedBusinesses[curBiz._id].includes(this.props.user.id) && !curGroup.dislikedBusinesses[curBiz._id].includes(this.props.user.id)){
+        return curBiz;
+      }
+    }
+
+    return null;
+  }
+  
+  swipeRedirect(){
+    setTimeout(() => this.props.history.push("/home"), 6000);
+    return (
+      <div className="swipe-finish-vote">
+        <div className="swipe-finish-vote-container">
+          <FontAwesomeIcon icon={faCompass} color="white" size="1x" />
+          <span className="swipe-finish-vote-span">You finished your vote for this event!</span>
+        </div>
+        <span className="swipe-finish-vote-msg">redirect to the home page in 5 seconds.</span>
+      </div>
+    )
   }
   
   render() {
-    if (_.isEmpty(this.props.groups)){
+    if (_.isEmpty(this.props.groups) || _.isEmpty(this.props.users)){
       return null;
     }
 
-    const groups = Object.values(this.props.groups)[0]
-    const businesses = groups.businesses;
+    const curGroup = this.props.groups[this.curGroupId];
+    const curBizs = curGroup.businesses;
+    const curBiz = this.findCurBiz();
+    if(curBiz === null){
+      //probably want to redirect to the home page
+      return this.swipeRedirect()
+    }
 
     return (
       <div className="swipe">
         <div className="swipe-aside">
           <div className="swipe-aside-nav">
             <div className="nav-logo">
-              {/* <Link to="/home">⌘</Link> */}
             </div>
               <div className="welcome-swipe">
                 <div>
@@ -43,7 +76,7 @@ class Swipe extends React.Component {
                 </div>
                 <div>
                   <FontAwesomeIcon icon={faUserFriends} color="white" size="1x" />
-                <span>{groups.groupName} [ {groups.users.map((user) => <span> <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
+                <span>{curGroup.groupName} [ {curGroup.users.map((user, idx) => <span key={idx} > <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
                 </div>
               </div>
             <div className="logout-container">
@@ -56,13 +89,13 @@ class Swipe extends React.Component {
             <BizCaroussel />
           </div>
           <div className="bisuness-info">
-            <BizInfo business={businesses[0]} />
+            <BizInfo business={curBiz} />
           </div>
-          <SwipeUserInfo foodRestrictions={groups.foodRestrictions}/>
-          <LikeOrDislike/>
+          <SwipeUserInfo foodRestrictions={curGroup.foodRestrictions}/>
+          <LikeOrDislike updateGroup={this.props.updateGroup} curGroup={curGroup} user={this.props.user} curBiz={curBiz}/>
         </div >
         <div className="swipe-main">
-          <SwipeMainMap businesses={businesses} />
+          <SwipeMainMap businesses={curBizs} />
         </div>
       </div>
     );
