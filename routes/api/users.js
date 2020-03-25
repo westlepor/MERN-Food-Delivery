@@ -135,7 +135,10 @@ router.post("/login", (req, res) => {
   const password = req.body.password;
 
   User.findOne({ email })
-  .then(user => {
+    .populate("groups")
+    .exec(function (err, user) {
+    if (err) return handleError(err);
+
     if (!user) {
       return res.status(404).json({ email: "The user with the email address does not exist." });
     }
