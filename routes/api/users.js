@@ -97,7 +97,8 @@ router.post("/signup", (req, res) => {
               const payload = {
                 id: user.id,
                 username: user.username,
-                email: user.email
+                email: user.email,
+                groups: user.groups
               };
 
               jwt.sign(
@@ -130,7 +131,10 @@ router.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  User.findOne({ email }).then(user => {
+  User.findOne({ email })
+    .populate("groups")
+    .exec(function (err, user) {
+    if (err) return handleError(err);
     if (!user) {
       return res.status(404).json({ email: "The user with the email address does not exist." });
     }
@@ -141,7 +145,8 @@ router.post("/login", (req, res) => {
           id: user.id,
           handle: user.handle,
           email: user.email,
-          username: user.username
+          username: user.username,
+          groups: user.groups
         };
 
         jwt.sign(

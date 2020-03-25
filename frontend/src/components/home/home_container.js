@@ -8,6 +8,7 @@ import { createGroup } from "../../actions/group_actions"
 import { updateFilter } from "../../actions/filter_action";
 import { updateZoom } from "../../actions/zoom_actions";
 import { fetchBusinessesByCoordinates } from '../../actions/business_actions';
+import { fetchGroups } from '../../actions/group_actions' 
 
 const mapSTP = (state) => ({
     user: state.session.user,

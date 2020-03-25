@@ -27,7 +27,7 @@ const UserSchema = new Schema({
   }],
   groups: [{
       type: Schema.Types.ObjectId,
-      ref: "groups"
+      ref: "Group"
   }],
   monetaryRestriction: {
       type: String, 
