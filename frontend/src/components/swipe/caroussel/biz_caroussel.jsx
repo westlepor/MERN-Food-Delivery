@@ -17,30 +17,11 @@ class BizCaroussel extends React.Component {
         return(
             <div className="biz-caroussel">
                 <div className="biz-caroussel-gallery">
-                    <div className="biz-caroussel-cell">
-                        <img className="caroussel-picture" src="http://localhost:3000/images/carousel-1.jpg" alt="" />
-                    </div>
-                    <div className="biz-caroussel-cell">
-                        <img className="caroussel-picture" src="http://localhost:3000/images/carousel-2.jpg" alt="" />
-                    </div>
-                    <div className="biz-caroussel-cell">
-                        <img className="caroussel-picture" src="http://localhost:3000/images/carousel-3.jpg" alt="" />
-                    </div>
-                    <div className="biz-caroussel-cell">
-                        <img className="caroussel-picture" src="http://localhost:3000/images/carousel-4.jpg" alt="" />
-                    </div>
-                    <div className="biz-caroussel-cell">
-                        <img className="caroussel-picture" src="http://localhost:3000/images/carousel-5.jpg" alt="" />
-                    </div>
-                    <div className="biz-caroussel-cell">
-                        <img className="caroussel-picture" src="http://localhost:3000/images/carousel-6.jpg" alt="" />
-                    </div>
-                    <div className="biz-caroussel-cell">
-                        <img className="caroussel-picture" src="http://localhost:3000/images/carousel-8.jpg" alt="" />
-                    </div>
-                    <div className="biz-caroussel-cell">
-                        <img className="caroussel-picture" src="http://localhost:3000/images/carousel-9.jpg" alt="" />
-                    </div>
+                    {this.props.curBiz.photos.map((photoUrl, idx)=>(
+                        <div className="biz-caroussel-cell" key={idx}>
+                            <img className="caroussel-picture" src={photoUrl}/>
+                        </div>
+                    ))}
                 </div>
             </div>
         )

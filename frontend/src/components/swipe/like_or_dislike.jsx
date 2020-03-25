@@ -12,14 +12,17 @@ class LikeOrDislike extends React.Component{
   clickButton(type){
     return () => {
       if(type === "like"){
-        // this.props.curGroup.likedBusinesses
         const curGroup = this.props.curGroup;
         curGroup.likedBusinesses[this.props.curBiz._id].push(this.props.user.id)
-        this.props.updateGroup(curGroup)
+        return this.props.updateGroup(curGroup).then(()=>{
+          return this.props.fetchGroup(this.props.curGroup._id)
+        })
       } else if (type === "dislike"){
         const curGroup = this.props.curGroup;
         curGroup.dislikedBusinesses[this.props.curBiz._id].push(this.props.user.id)
-        this.props.updateGroup(curGroup)
+        return this.props.updateGroup(curGroup).then(() => {
+          return this.props.fetchGroup(this.props.curGroup._id)
+        })
       }
     }
   }
