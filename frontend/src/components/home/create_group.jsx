@@ -59,8 +59,9 @@ class CreateGroup extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    const votedBusinesses = _.mapValues(this.props.businesses, () => 0);
-  
+    const likedBusinesses = _.mapValues(this.props.businesses, () => []);
+    const dislikedBusinesses = _.mapValues(this.props.businesses, () => []);
+
     const newGroup = {
       groupName: this.state.groupName,
       startTime: new Date,
@@ -70,10 +71,12 @@ class CreateGroup extends React.Component{
       monetaryRestriction: this.state.monetaryRestriction,
       isSplit: this.state.isSplit,
       businesses: Object.keys(this.props.businesses),
-      votedBusinesses
+      likedBusinesses,
+      dislikedBusinesses
     }
 
     this.props.createGroup(newGroup).then((res)=>{
+      console.log(res);
       return this.props.history.push(`/swipe/${res.group._id}`);
     });
   }

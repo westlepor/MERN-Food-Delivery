@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
     .find()
     .populate({ path: "foodRestriction", select: "restriction" })
     .exec(function (err, users) {
-      if (err) return handleError(err);
+      if (err) return res.json(err);
       const userObj = {};
       users.map(user => {
         userObj[user.id] = user;
@@ -54,11 +54,14 @@ router.get("/deleteAll", async (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  User.findById(req.params.id)
-    .then(user => res.json(user))
-    .catch(err =>
-      res.status(404).json({ nouserfound: "No user found with that id" })
-    );
+  User
+    .findById(req.params.id)
+    .populate({ path: "foodRestriction", select: "restriction" })
+    .populate({ path: "groups" })
+    .exec(function (err, user) {
+      if (err) return res.status(404).json({ nouserfound: "No user found with that id" });
+      res.json(user);
+    });
 });
 
 
@@ -135,6 +138,7 @@ router.post("/login", (req, res) => {
     .populate("groups")
     .exec(function (err, user) {
     if (err) return handleError(err);
+
     if (!user) {
       return res.status(404).json({ email: "The user with the email address does not exist." });
     }
