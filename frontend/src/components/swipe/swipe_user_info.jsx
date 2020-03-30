@@ -8,7 +8,12 @@ class SwipeUserInfo extends React.Component {
   render() {
     return (
       <div className="swipe-user-info">
-        Users in your group has the following restrictions: {this.props.foodRestrictions.map((fr) => { return fr.restriction}).join(', ')}
+        <h2>Users in your group has the following food restrictions:</h2>
+          {this.props.foodRestrictions.map((fr) => (
+            <li>
+              {fr.restriction}
+            </li>
+          ))}
       </div>
     )
   }

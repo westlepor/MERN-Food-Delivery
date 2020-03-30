@@ -9,15 +9,18 @@
     height: 100vh;
     display: flex;
     flex-direction: row;
+    overflow: hidden;
 }
 
 .swipe-aside{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 30%;
+    min-width: 480px;
     height: 100%;
     justify-content: space-between;
 }
+
 
 .swipe-aside-nav {
     display: flex;
@@ -25,7 +28,18 @@
     justify-content: space-between;
     align-items: center;
     color: white;
+    height: 8vh;
     background: linear-gradient(262deg, #ff7854, #fd267d);
+    overflow: scroll;
+    min-height: 64px;
+}
+
+.navOpen {
+    width: 250px;
+}
+
+.navClosed {
+    width: 0px;
 }
 
 .welcome-swipe {
@@ -47,14 +61,25 @@
 
 .swipe-main {
     display: flex;
-    width: 60%;
+    width: 70%;
     height: 100vh;
+}
+
+.swipe-footer {
+    height: 10vh;
+    min-height: 82px;
+}
+
+.swipe-body {
+    height: 82vh;
+    overflow: scroll;
 }
 
 .caroussel {
     flex-basis: calc(100vh/4);
     background-color: white;
     margin-bottom: 2rem;
+    height: 25vh;
 }
 
 .business-info {
@@ -95,6 +120,10 @@
 
     .swipe-aside {
         width: 100%;
+    }
+
+    .swipe-aside-nav, .swipe-body, .swipe-footer {
+        width: 100vw;
     }
     
 /* 

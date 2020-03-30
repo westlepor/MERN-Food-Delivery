@@ -13,6 +13,9 @@ import _ from 'lodash';
 class Swipe extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      navOpen: false
+    }
   }
 
   componentDidMount() {
@@ -25,41 +28,48 @@ class Swipe extends React.Component {
     if (_.isEmpty(this.props.groups)){
       return null;
     }
-
+    
     const groups = Object.values(this.props.groups)[0]
     const businesses = groups.businesses;
 
+    
     return (
       <div className="swipe">
         <div className="swipe-aside">
-          <div className="swipe-aside-nav">
-            <div className="nav-logo">
-              {/* <Link to="/home">⌘</Link> */}
-            </div>
-              <div className="welcome-swipe">
-                <div>
-                  <FontAwesomeIcon icon={faUserAlt} color="white" size="1x" />
-                  <span>{this.props.user.username}</span>
-                </div>
-                <div>
-                  <FontAwesomeIcon icon={faUserFriends} color="white" size="1x" />
-                <span>{groups.groupName} [ {groups.users.map((user) => <span> <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
+          <section className="swipe-aside-nav">
+            <div id="mySideNav" className="nav-logo">⌘
+              <div className={`swipe-dropdown ${this.state.navOpen ? "navOpen" : "navClosed"}`}>
+                <a href="javascript:void(0)" class="closebtn">X</a>
+                <div className="welcome-swipe">
+                  <div>
+                    <FontAwesomeIcon icon={faUserAlt} color="white" size="1x" />
+                    <span>{this.props.user.username}</span>
+                  </div>
+                  <div>
+                    <FontAwesomeIcon icon={faUserFriends} color="white" size="1x" />
+                    <span>{groups.groupName} [ {groups.users.map((user) => <span> <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
+                  </div>
                 </div>
               </div>
+            </div>
             <div className="logout-container">
               <Link className="logout-logo swipe-logout" onClick={this.props.logout} to="/">
                 <FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x"/>
               </Link>
             </div>
-          </div>
-          <div className="caroussel">
-            <BizCaroussel />
-          </div>
-          <div className="bisuness-info">
-            <BizInfo business={businesses[0]} />
-          </div>
-          <SwipeUserInfo foodRestrictions={groups.foodRestrictions}/>
-          <LikeOrDislike/>
+          </section>
+          <section className="swipe-body">
+            <div className="caroussel">
+              <BizCaroussel />
+            </div>
+            <div className="bisuness-info">
+              <BizInfo business={businesses[0]} />
+            </div>
+            <SwipeUserInfo foodRestrictions={groups.foodRestrictions}/>
+          </section>
+          <section className="swipe-footer">
+            <LikeOrDislike/>
+          </section>
         </div >
         <div className="swipe-main">
           <SwipeMainMap businesses={businesses} />
