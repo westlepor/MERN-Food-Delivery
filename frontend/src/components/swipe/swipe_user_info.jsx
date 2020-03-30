@@ -9,8 +9,8 @@ class SwipeUserInfo extends React.Component {
     return (
       <div className="swipe-user-info">
         <h2>Users in your group has the following food restrictions:</h2>
-          {this.props.foodRestrictions.map((fr) => (
-            <li>
+          {this.props.foodRestrictions.map((fr, idx) => (
+            <li key={idx}>
               {fr.restriction}
             </li>
           ))}

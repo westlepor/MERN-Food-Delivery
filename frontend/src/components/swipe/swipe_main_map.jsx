@@ -14,7 +14,6 @@ class SwipeMainMap extends React.Component {
       zoom: 14
     };
     this.addCurrentPopup = this.addCurrentPopup.bind(this);
-    console.log(this.props.curBiz)
   }
 
   componentDidMount() {
