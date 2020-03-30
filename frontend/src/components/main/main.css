@@ -24,12 +24,25 @@
     font-weight: bold;
 }
 
-.splash-content button {
+.main-button-signup {
     background: linear-gradient(262deg, #ff7854, #fd267d);
     padding: .5vw 4vw;
     border-radius: 50px;
     cursor: pointer;
     white-space: nowrap;
+}
+
+.main-button-signup:hover {
+    background: white;
+    color: #fd267d;
+    padding: .5vw 4vw;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.main-button-login {
+    display: none;
 }
 
 .splash-content h4{
@@ -61,25 +74,59 @@
 }
 
 @media only screen and (max-width: 700px) {
-    .splash-content button {
-        padding-left: 35%;
-        padding-right: 35%;
-        font-size: 1.5em;
+    .main-button-signup {
+        font-size: 1.2rem;
         position: absolute;
-        top: 80%;
+        top: 66%;
+        background: linear-gradient(262deg, #ff7854, #fd267d);
+        padding: .5vw 10vw;
+        border-radius: 50px;
+        cursor: pointer;
+        white-space: nowrap;
+        z-index: 8;
+    }
+
+    .main-button-signup:hover {
+        background: white;
+        color: #fd267d;
+        padding: .5vw 10vw;
+        border-radius: 50px;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+    
+    .main-button-login {
+        display:block;
+        font-size: 1.2rem;
+        position: absolute;
+        top: 71%;
+        background: linear-gradient(262deg, #ff7854, #fd267d);
+        padding: .5vw 10vw;
+        border-radius: 50px;
+        cursor: pointer;
+        white-space: nowrap;
+        z-index: 8;
+    }
+
+    .main-button-login:hover {
+        background: white;
+        color: #fd267d;
+        padding: .5vw 10vw;
+        border-radius: 50px;
+        cursor: pointer;
+        white-space: nowrap;
     }
 
     .splash-content h1 {
         position: absolute;
-        bottom: 70%;
+        bottom: 50%;
     }
 
     .splash-content h4 {
         position: absolute;
-        top: 60%;
+        top: 50%;
         font-size: 2.5vw;
-        margin: 1vw 1vw;
-        width: 100%;
+        width: 90%;
     }
     
 }

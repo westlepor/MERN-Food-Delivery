@@ -5,10 +5,10 @@ import BizInfo from '../swipe/biz_info/biz_info';
 import LikeOrDislike from './like_or_dislike';
 import SwipeMainMap from './swipe_main_map';
 import SwipeUserInfo from './swipe_user_info';
-import './swipe.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faUserAlt, faUserFriends, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faSignOutAlt, faUserAlt, faUserFriends, faUserCircle, faCompass } from '@fortawesome/free-solid-svg-icons'
 import _ from 'lodash';
+import './swipe.css';
 
 class Swipe extends React.Component {
   constructor(props) {
@@ -16,26 +16,62 @@ class Swipe extends React.Component {
     this.state = {
       navOpen: false
     }
+
+    const pathname = this.props.history.location.pathname.split("/");
+    this.curGroupId = pathname[pathname.length - 1];    
+
   }
 
   componentDidMount() {
-    const pathname = this.props.history.location.pathname.split("/");
-    const groupId = pathname[pathname.length-1];
-    this.props.fetchGroup(groupId)
+    return this.props.fetchGroup(this.curGroupId).then(()=>{
+      return this.props.fetchUser(this.props.user.id);
+    })
+  }
+
+  findCurBiz (){
+    const curGroup = this.props.groups[this.curGroupId];
+    for (let i = 0; i < curGroup.businesses.length; i++){
+      const curBiz = curGroup.businesses[i];
+      if (!curGroup.likedBusinesses[curBiz._id].includes(this.props.user.id) && !curGroup.dislikedBusinesses[curBiz._id].includes(this.props.user.id)){
+        return curBiz;
+      }
+    }
+    return null;
+  }
+  
+  swipeRedirect(){
+    setTimeout(() => this.props.history.push("/home"), 6000);
+    return (
+      <div className="swipe-finish-vote">
+        <div className="swipe-finish-vote-container">
+          <FontAwesomeIcon icon={faCompass} color="white" size="1x" />
+          <span className="swipe-finish-vote-span">You finished your vote for this event!</span>
+        </div>
+        <span className="swipe-finish-vote-msg">redirect to the home page in 5 seconds.</span>
+      </div>
+    )
   }
   
   render() {
-    if (_.isEmpty(this.props.groups)){
+    if (_.isEmpty(this.props.groups) || _.isEmpty(this.props.users)){
       return null;
     }
     
-    const groups = Object.values(this.props.groups)[0]
-    const businesses = groups.businesses;
+
+    const curBiz = this.findCurBiz();
+    if(curBiz === null){
+      return this.swipeRedirect()
+    }
+
+    const curGroup = this.props.groups[this.curGroupId];
+    const curBizs = curGroup.businesses;
+
 
     
     return (
       <div className="swipe">
         <div className="swipe-aside">
+
           <section className="swipe-aside-nav">
             <div id="mySideNav" className="nav-logo">⌘
               <div className={`swipe-dropdown ${this.state.navOpen ? "navOpen" : "navClosed"}`}>
@@ -72,7 +108,7 @@ class Swipe extends React.Component {
           </section>
         </div >
         <div className="swipe-main">
-          <SwipeMainMap businesses={businesses} />
+          <SwipeMainMap businesses={curBizs} curBiz={curBiz}/>
         </div>
       </div>
     );

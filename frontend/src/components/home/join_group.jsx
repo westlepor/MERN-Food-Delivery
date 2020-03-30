@@ -3,7 +3,7 @@ import _ from 'lodash';
 import './join_group.css'
 import { Link } from "react-router-dom"
 
-class JoinGrorup extends React.Component {
+class JoinGroup extends React.Component {
   constructor(props) {
     super(props);
     
@@ -27,7 +27,15 @@ class JoinGrorup extends React.Component {
       );
   }
 
+  componentDidMount(){
+    this.props.fetchUser(this.props.user.id);
+  }
+
   render(){
+    if (this.props.users[this.props.user.id].groups.length > 0 && typeof this.props.users[this.props.user.id].groups[0] === "string"){
+      return null;
+    }
+
     return(
       <div className="join-group-form">
         <div className="join-group-content">
@@ -42,8 +50,8 @@ class JoinGrorup extends React.Component {
               <h2>Decide By</h2>
             </div>
             <div className="my-group-body">
-              {this.props.user.groups.map((group,index) => (
-                <div className={`group-list-item ${(index%2 === 0)? 'even-index' : 'odd-index'}`}>
+              {this.props.users[this.props.user.id].groups.map((group, index) => (
+                <div key={index} className={`group-list-item ${(index%2 === 0)? 'even-index' : 'odd-index'}`}>
                   <Link to={`/swipe/${group._id}`} className="join-group-item" >
                     <h2>{group.groupName}</h2>
                     <h2>{this.formatTime(group.endTime)}</h2>
@@ -58,4 +66,4 @@ class JoinGrorup extends React.Component {
   }
 }
 
-export default JoinGrorup;
+export default JoinGroup;

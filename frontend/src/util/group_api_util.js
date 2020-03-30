@@ -9,7 +9,7 @@ export const deleteGroup = (groupId) => {
 };
 
 export const updateGroup = group => {
-    return axios.patch(`/api/groups/${group.id}`, group);
+    return axios.put(`/api/groups/${group._id}`, group);
 };
 
 export const fetchGroup = (groupId) => {

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Home from './home';
-import { fetchUsers } from "../../actions/user_actions"
+import { fetchUsers, fetchUser } from "../../actions/user_actions"
 import { logout } from "../../actions/session_actions";
 import { openModal } from "../../actions/modal_actions"
 import { fetchBusinesses } from "../../actions/business_actions"
@@ -21,6 +21,7 @@ const mapSTP = (state) => ({
 
 const mapDTP = (dispatch) => ({
     fetchUsers: () => dispatch(fetchUsers()),
+    fetchUser: (userId)=>dispatch(fetchUser(userId)),
     logout: () => dispatch(logout()),
     openModal: modal => dispatch(openModal(modal)),
     fetchBusinesses: () => dispatch(fetchBusinesses()),

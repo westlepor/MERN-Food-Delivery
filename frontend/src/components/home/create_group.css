@@ -122,7 +122,7 @@
 .added-users{
     display: flex;
     flex-direction: column;
-    height: 20vh;
+    height: 10vh;
     width: 100%;
     overflow: scroll;
     justify-content: flex-start;

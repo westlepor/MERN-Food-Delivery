@@ -1,16 +1,22 @@
 .home-nav-bar {
-    background-color: #f5f7fa;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
     width: 30%;
-    color: black;
     align-items: center;
     min-width: 580px;
 }
 
+.home-nav-bar-container {
+    background-color: #f5f7fa;
+    color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .home-page {
-    position: absolute;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,6 +33,16 @@
     justify-content: center;
 }
 
+.get-started-explanation{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.get-started-explanation span {
+    text-align: center;
+}
+
 .home-nav-content .get-started-bar {
     height: 3px;
     width: 35%;
@@ -36,12 +52,13 @@
 }
 
 .home-nav-content {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    width: 100%;
+    /* height: 100%; */
     justify-content: space-between;
     align-items: center;
+    flex: 1 1 62.742px;
 }
 
 .home-nav-content-top {
@@ -53,6 +70,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    flex: 0 0 62.742px;
 }
 
 .logout-button {
@@ -74,10 +92,11 @@
 .home-button-container {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    
 }
 
 .home-button-container button {
+    flex-grow: 1;
     background-color: lightgrey;
     padding: 1% 14.5%;
     border-top-left-radius: 10px;
@@ -91,10 +110,11 @@
 }
 
 #selected-button {
+    flex-grow: 1;
    background-color: white;
-   position: relative;
    z-index: 2;
    top: 1px;
+   position: relative;
 }
 
 .optional-divider {
@@ -201,16 +221,16 @@
 
 /* Map Section */
 
-.home-map-container {
-    height: 100%;
-    width: 70%;
-}
-
-.home-map-section {
+.home-map-container,.home-map-section {
+    display: flex;
     height: 100%;
     width: 100%;
 }
 
+.home-map {
+    display: flex;
+    width: 100%;
+}
 
 
 

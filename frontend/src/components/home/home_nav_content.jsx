@@ -24,13 +24,11 @@ class HomeNavContent extends React.Component{
 
   render(){
     if (_.isEmpty(this.props.businesses)){
-      return null;
+      return <div style={{ display: "flex", justifyContent: "center", width: "100%" }}><img src="loading2.gif" style={{ width: "auto", height: "300px",}}/></div>;;
     }
 
     const currentTab = (this.state.form === "join group") 
-    ? <JoinGroup 
-      user={this.props.user}
-    /> 
+      ? <JoinGroup users={this.props.users} user={this.props.user} fetchUser={this.props.fetchUser}/> 
     : <CreateGroup 
       history={this.props.history}
       user={this.props.user}
@@ -41,6 +39,9 @@ class HomeNavContent extends React.Component{
       businesses={this.props.businesses}
     />
 
+    const createBtId = (this.state.form === "create group") ? `selected-button` : `unselected-button`;
+    const joinBtId = (this.state.form === "join group") ? `selected-button` : `unselected-button`;
+
     return (
       <div className="home-nav-content">
         <div className="home-nav-content-top">
@@ -48,24 +49,15 @@ class HomeNavContent extends React.Component{
             <h3>GET STARTED</h3>
             <div className="get-started-bar"></div>
           </div>
-          <div>
-            Start by creating or joining a group. 
-            You can filter results by neighborhood and/or costs
+          <div className="get-started-explanation">
+            <span>Start by creating or joining a group. You can filter results by neihborhood and/or costs.</span>
           </div>
           <div className="home-button-container">
-            <button id={this.state.form === "create group" ? `selected-button` : null }
-              onClick={this.handleChangeForm}
-            >Start a Group</button>
-            <button id={this.state.form === "join group" ? `selected-button` : null }
-              onClick={this.handleChangeForm}
-            >Join a Group</button>
+            <button id={createBtId} onClick={this.handleChangeForm} onClick={this.handleChangeForm} > Start a Group </button>
+            <button id={joinBtId} onClick={this.handleChangeForm} onClick={this.handleChangeForm}> Join a Group </button>
           </div>
         </div>
         {currentTab}
-        <div className="home-nav-content-bottom">
-          <h2> Logged in as, {this.props.user.username}</h2>
-          <button className="logout-button" onClick={this.props.logout}>LOGOUT</button>
-        </div>
       </div>
     )
   }
