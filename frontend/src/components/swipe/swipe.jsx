@@ -75,7 +75,7 @@ class Swipe extends React.Component {
           <section className="swipe-aside-nav">
             <div id="mySideNav" className="nav-logo">⌘
               <div className={`swipe-dropdown ${this.state.navOpen ? "navOpen" : "navClosed"}`}>
-                <a href="javascript:void(0)" class="closebtn">X</a>
+                {/* <a href="javascript:void(0)" className="closebtn">X</a> */}
                 <div className="welcome-swipe">
                   <div>
                     <FontAwesomeIcon icon={faUserAlt} color="white" size="1x" />
@@ -83,7 +83,7 @@ class Swipe extends React.Component {
                   </div>
                   <div>
                     <FontAwesomeIcon icon={faUserFriends} color="white" size="1x" />
-                    <span>{groups.groupName} [ {groups.users.map((user) => <span> <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
+                    <span>{curGroup.groupName} [ {curGroup.users.map((user, idx) => <span key={idx}> <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
                   </div>
                 </div>
               </div>
@@ -96,15 +96,15 @@ class Swipe extends React.Component {
           </section>
           <section className="swipe-body">
             <div className="caroussel">
-              <BizCaroussel />
+              <BizCaroussel curBiz={curBiz}/>
             </div>
             <div className="bisuness-info">
-              <BizInfo business={businesses[0]} />
+              <BizInfo business={curBiz} />
             </div>
-            <SwipeUserInfo foodRestrictions={groups.foodRestrictions}/>
+            <SwipeUserInfo foodRestrictions={curGroup.foodRestrictions}/>
           </section>
           <section className="swipe-footer">
-            <LikeOrDislike/>
+            <LikeOrDislike user={this.props.user} curGroup={curGroup} updateGroup={this.props.updateGroup} fetchGroup={this.props.fetchGroup} curBiz={curBiz}/>
           </section>
         </div >
         <div className="swipe-main">
