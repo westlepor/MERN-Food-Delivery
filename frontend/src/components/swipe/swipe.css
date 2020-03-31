@@ -18,6 +18,9 @@
     width: 30%;
     min-width: 480px;
     height: 100%;
+    background-color: transparent;
+    position: absolute;
+    z-index: 100;
 }
 
 
@@ -31,6 +34,14 @@
     background: linear-gradient(262deg, #ff7854, #fd267d);
     overflow: scroll;
     min-height: 64px;
+    border-bottom-right-radius: 8px;
+    margin-right: 2vw;
+
+}
+
+.swipe-aside-nav h2 {
+    margin-left: 6vw;
+    font-size: 1.3rem;
 }
 
 .navOpen {
@@ -46,9 +57,6 @@
     width: 100%;
     font-weight: bolder;
 }
-.welcome-swipe div:first-child{
-    margin-bottom: 3px;;
-}
 .welcome-swipe > div > svg, .welcome-swipe > div > span {
     margin-right: 1rem;
 }
@@ -60,7 +68,7 @@
 
 .swipe-main {
     display: flex;
-    width: 70%;
+    width: 100%;
     height: 100vh;
 }
 
@@ -72,6 +80,10 @@
 .swipe-body {
     height: 82vh;
     overflow: scroll;
+    margin: 2vw 2vw 1vw 2vw;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 6px 6px 5px grey;
 }
 
 .caroussel {
@@ -99,13 +111,26 @@
     height: 100%;
     width: 100%;
     max-width: 350px;
-    background-color: white;
-    z-index: 11;
+    background-color: transparent;
+    z-index: 111;
     box-sizing: border-box;
-    padding: 2vw;
+    /* padding: 2vw; */
     color: black;
     margin-left: -350px;
     transition: margin 200ms ease-in-out;
+}
+
+.inner-swipe-header {
+    height: 65px;
+    background-color: #fd267d;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.inner-swipe-body {
+    background-color: #ffffff;
+    padding: 2vw;
+    height: 100vw;
 }
 
 .side-menu.nav-open {
@@ -119,24 +144,29 @@
     top: 0;
     width: 65px;
     height: 65px;
-    background-color: white;
+    background-color: #fd267d;
     color: black;
     line-height: 65px;
     text-decoration: none;
     text-align: center;
     border-bottom-right-radius: 5px;
     box-shadow: 2px 0 3px grey;
+    border: solid lightgray 1px;
+    border-left: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-toggle:before {
-    content: "\2192";
+    /* content: "\2192"; */
     font-weight: 600;
     color: black;
     font-size: 1.8rem;
 }
 
 .side-menu.nav-open .nav-toggle:before {
-    content: "\2190";
+    /* content: "\2190"; */
 }
 
 .nav-logo {

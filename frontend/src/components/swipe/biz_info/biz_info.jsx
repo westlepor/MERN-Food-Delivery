@@ -51,7 +51,7 @@ class BizInfo extends React.Component {
             <div className="biz-location">
               {/* <FontAwesomeIcon icon={faDirections} color="#999" size="1x"/> */}
               <div>
-                {this.props.business.address1}, {this.props.business.address2}, {this.props.business.address3}, {this.props.business.city}, {this.props.business.state}, {this.props.business.zipcode}
+              {this.props.business.address1}{this.props.business.address2 ? `, ${this.props.business.address2}` : null}{this.props.business.address3 ? `, ${this.props.business.address3}` : null}, {this.props.business.city}, {this.props.business.state}, {this.props.business.zipcode}
               </div>
             </div>
 

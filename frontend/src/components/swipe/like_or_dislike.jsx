@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faUtensils } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faHeart, faPoll } from '@fortawesome/free-solid-svg-icons';
 import './like_or_dislike.css';
 
 class LikeOrDislike extends React.Component{
@@ -31,19 +31,14 @@ class LikeOrDislike extends React.Component{
     return(
       <div className="like-or-dislike">
         <div className="like-or-dislike-container">
-          <span className="like" onClick={this.clickButton("like")} >
-            <FontAwesomeIcon icon={faUtensils} color="rgba(0,150,136 ,1)" size="2x" />
-            <div>
-              <span>Vote for</span>
-              <span>Fog Harbor Fish House</span>
-            </div>
-          </span>
           <span className="dislike" onClick={this.clickButton("dislike")} >
-            <FontAwesomeIcon icon={faTimes} color="rgba(255,82,82 ,0.8)" size="2x" />
-            <div>
-              <span>Pass</span>
-              <span>Fog Harbor Fish House</span>
-            </div>
+            <FontAwesomeIcon icon={faTimes} color="#ff3f3f" size="2x" />
+          </span>
+          <span className="results" >
+            <FontAwesomeIcon icon={faPoll} color="#3ca4ff" size="2x" />
+          </span>
+          <span className="like" onClick={this.clickButton("like")} >
+            <FontAwesomeIcon icon={faHeart} color="#01df8a" size="2x" />
           </span>
         </div>
       </div>

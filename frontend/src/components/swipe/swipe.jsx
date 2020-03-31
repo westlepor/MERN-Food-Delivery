@@ -6,7 +6,7 @@ import LikeOrDislike from './like_or_dislike';
 import SwipeMainMap from './swipe_main_map';
 import SwipeUserInfo from './swipe_user_info';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faUserAlt, faUserFriends, faUserCircle, faCompass } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faUserAlt, faUserFriends, faUserCircle, faCompass } from '@fortawesome/free-solid-svg-icons'
 import _ from 'lodash';
 import './swipe.css';
 
@@ -83,24 +83,33 @@ class Swipe extends React.Component {
           <div id="mySideNav" className={`side-menu ${(this.state.navOpen === true) ? "nav-open" : null }`}>
               <div className="swipe-dropdown">
                 <div className="welcome-swipe">
-                  <div>
-                    <FontAwesomeIcon icon={faUserAlt} color="white" size="1x" />
-                    <span>{this.props.user.username}</span>
+                  <div className="inner-swipe-header">
+
                   </div>
-                  <div>
-                    <FontAwesomeIcon icon={faUserFriends} color="white" size="1x" />
-                    <span>{curGroup.groupName} [ {curGroup.users.map((user, idx) => <span key={idx}> <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
+                  <div className="inner-swipe-body">
+                    <div>
+                      <FontAwesomeIcon icon={faUserAlt} color="white" size="1x" />
+                      <span>{this.props.user.username}</span>
+                    </div>
+                    <div>
+                      <FontAwesomeIcon icon={faUserFriends} color="white" size="1x" />
+                      <span>{curGroup.groupName} [ {curGroup.users.map((user, idx) => <span key={idx}> <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <a href="#" onClick={this.handleClick} className={`nav-toggle `}></a>
+            <a href="#" onClick={this.handleClick} className={`nav-toggle `}>
+              {this.state.navOpen ? <FontAwesomeIcon icon={faChevronLeft} color="white" size="1x" /> : 
+              <img src="chicken_logo_3.png" style={{ width: "3.2rem", height: "3.2rem", color: "black" }} />}
+            </a>
             </div>
           <section className="swipe-aside-nav">
-            <div className="logout-container">
+            <h2>{curGroup.groupName}</h2>
+            {/* <div className="logout-container">
               <Link className="logout-logo swipe-logout" onClick={this.props.logout} to="/">
                 <FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x"/>
               </Link>
-            </div>
+            </div> */}
           </section>
           <section className="swipe-body">
             <div className="caroussel">
