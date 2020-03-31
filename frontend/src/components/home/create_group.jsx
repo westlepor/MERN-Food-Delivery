@@ -175,7 +175,7 @@ class CreateGroup extends React.Component{
 
     return (
       <div className="create-group-form">
-        <HomeSearch updateZoom={this.props.updateZoom} coordinates={this.props.coordinates}/>
+        <HomeSearch businesses={this.props.businesses} updateZoom={this.props.updateZoom} coordinates={this.props.coordinates}/>
         <form onSubmit={this.handleSubmit}>
           <div className="groupname">
             <div className="groupname-container">
