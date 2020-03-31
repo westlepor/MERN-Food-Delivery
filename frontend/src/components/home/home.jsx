@@ -26,7 +26,8 @@ class Home extends React.Component {
         <Modal />
         <section className="home-nav-bar">
           <section className="home-nav-bar-container">
-            <HomeSearch updateZoom={this.props.updateZoom}/>
+            {/* <HomeSearch updateZoom={this.props.updateZoom}/> */}
+
             <HomeNavContent 
               history={this.props.history}
               user={this.props.user} 
@@ -36,7 +37,9 @@ class Home extends React.Component {
               openModal={this.props.openModal} 
               createGroup={this.props.createGroup}
               fetchUser={this.props.fetchUser}
-            />
+              updateZoom={this.props.updateZoom} 
+              coordinates={this.props.coordinates}
+              />
             <div className="home-nav-content-bottom">
               <h2> Logged in as, {this.props.user.username}</h2>
               <button className="logout-button" onClick={this.props.logout}>LOGOUT</button>

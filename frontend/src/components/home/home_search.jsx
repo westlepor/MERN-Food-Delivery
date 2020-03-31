@@ -1,8 +1,9 @@
 import React from 'react';
 import './home_search.css';
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faInfo, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Zipcode } from './zipcode';
+import "balloon-css";
 
 class HomeSearch extends React.Component{
     constructor(props){
@@ -56,22 +57,70 @@ class HomeSearch extends React.Component{
             </div>
         )
     }
+
+    currentCenter (){
+        const curLng = this.props.coordinates._sw.lng + this.props.coordinates._ne.lng / 2;
+        const curLat = this.props.coordinates._sw.lat + this.props.coordinates._ne.lat / 2;
+
+        this.curCoordinates = {
+            lng: curLng,
+            lat: curLat
+        }
+        const zipcodeKeys = Object.values(Zipcode);
+        console.log(Zipcode);
+
+    }   
     
     render(){
+        console.log(this.props, "props in home search");
+        console.log(this.props.coordinates, "props in home search");
+        this.currentCenter();
+
+        const neighborhoodList = "The List of Neighborhoods in SF \n - " + Zipcode.map(
+          zipcode => zipcode.neighborhood
+        ).join("\n - ");
+
         return (
-            <form className="home-search-section" onSubmit={this.handleSubmit}>
-                <h1><img src="chicken_logo_3.png"/></h1>
-                <div className="home-search-bar">
-                    <input type="search" placeholder="Filter by neighborhood" onChange={this.inputChange} value={this.state.searchText} />
-                    <div className="auto-complete-options">
-                        {this.renderOptions()}
-                    </div>
+          <form className="home-search-section" onSubmit={this.handleSubmit}>
+            <div className="home-search-section-title">
+              <span>Search by neighborhood</span>
+              <span
+                data-balloon-break
+                aria-label={neighborhoodList}
+                data-balloon-pos="down"
+              >
+                <FontAwesomeIcon
+                  icon={faInfoCircle}
+                  style={{ color: "lightgray" }}
+                />
+              </span>
+            </div>
+            <div className="home-search-bar">
+              <div className="home-search-bar-container">
+                <input
+                  type="search"
+                  placeholder="Filter by neighborhood"
+                  onChange={this.inputChange}
+                  value={this.state.searchText}
+                />
+                <div className="auto-complete-options">
+                  {this.renderOptions()}
                 </div>
-                <button className="home-search-icon" onSubmit={this.handleSubmit}>
-                    <FontAwesomeIcon icon={faSearch} style={{ color: 'black' }} />
-                </button>
-            </form>
-        )
+              </div>
+              <button className="home-search-icon" onSubmit={this.handleSubmit}>
+                <FontAwesomeIcon icon={faSearch} style={{ color: "black" }} />
+              </button>
+            </div>
+
+            <div className="home-search-selection">
+              <div className="home-search-bounds">
+                  Current Coordinate: {}
+                  Near Neighborhood: 
+                </div>
+              <div className="home-search-selected-restaurants">Number of Selcted Businesses: </div>
+            </div>
+          </form>
+        );
     }
 }
 

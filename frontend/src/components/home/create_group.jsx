@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faUserPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
+import HomeSearch from './home_search'
 import _ from 'lodash';
 import './create_group.css'
 
@@ -174,6 +175,7 @@ class CreateGroup extends React.Component{
 
     return (
       <div className="create-group-form">
+        <HomeSearch updateZoom={this.props.updateZoom} coordinates={this.props.coordinates}/>
         <form onSubmit={this.handleSubmit}>
           <div className="groupname">
             <div className="groupname-container">

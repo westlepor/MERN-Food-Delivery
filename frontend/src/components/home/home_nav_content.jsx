@@ -2,12 +2,14 @@ import React from 'react';
 import CreateGroup from './create_group';
 import JoinGroup from './join_group';
 import _ from 'lodash';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faLock, faTimes, faUser } from "@fortawesome/free-solid-svg-icons";
 
 class HomeNavContent extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      form: "join group"
+      form: "create group"
     }
     
     this.handleChangeForm = this.handleChangeForm.bind(this);
@@ -32,6 +34,7 @@ class HomeNavContent extends React.Component{
     const currentTab = (this.state.form === "join group") 
       ? <JoinGroup users={this.props.users} user={this.props.user} fetchUser={this.props.fetchUser}/> 
     : <CreateGroup 
+      updateZoom={this.props.updateZoom}
       history={this.props.history}
       user={this.props.user}
       users={this.props.users} 
@@ -39,6 +42,7 @@ class HomeNavContent extends React.Component{
       openModal={this.props.openModal} 
       createGroup={this.props.createGroup} 
       businesses={this.props.businesses}
+      coordinates={this.props.coordinates}
     />
 
     const createBtId = (this.state.form === "create group") ? `selected-button` : `unselected-button`;
@@ -47,16 +51,21 @@ class HomeNavContent extends React.Component{
     return (
       <div className="home-nav-content">
         <div className="home-nav-content-top">
-          <div className="get-started-container">
-            <h3>GET STARTED</h3>
-            <div className="get-started-bar"></div>
-          </div>
-          <div className="get-started-explanation">
-            <span>Start by creating or joining a group.</span>
-          </div>
-          <div className="home-button-container">
-            <button id={joinBtId} onClick={this.handleChangeForm("join group")}> Join a Group </button>
-            <button id={createBtId} onClick={this.handleChangeForm("create group")}> Start a Group </button>
+          <div className="home-nav-content-top-container">
+            <div className="home-nav-logo">
+              <h1><img src="chicken_logo_3.png"/></h1>
+            </div>
+            <div className="home-button-container">
+              <button id={joinBtId} onClick={this.handleChangeForm("join group")}> Join a Group </button>
+              <button id={createBtId} onClick={this.handleChangeForm("create group")}> Start a Group </button>
+            </div>
+
+            <div className="home-nav-logo">
+              <FontAwesomeIcon icon={faUser}
+                color="white"
+                size="sm"
+              />
+            </div>
           </div>
         </div>
         {currentTab}
