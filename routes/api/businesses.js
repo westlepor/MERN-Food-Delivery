@@ -30,7 +30,7 @@ router.get(
     const north = _ne.lng;
     const east = _ne.lat;
 
-    Business.find({ longitude: { $gt: south, $lt: north }})
+    Business.find({ longitude: { $gt: south, $lt: north }, latitude: { $gt: west, $lt: east }})
       .limit(20)
       .populate({ path: "categories", select: "name" })
       .exec(function (err, businesses) {
@@ -38,9 +38,7 @@ router.get(
         const businessObj = {};
         
         businesses.map(business => {
-          if(business.latitude > west && business.latitude < east){
-            businessObj[business.id] = business;
-          }
+          businessObj[business.id] = business;
         });
         res.json(businessObj);
       });
