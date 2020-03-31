@@ -17,38 +17,48 @@
 
 .like-or-dislike-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
-    padding: 1.5rem;
+    padding: 0 1.5rem;
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box;    
-    box-sizing: border-box;        
+    box-sizing: border-box;  
+    align-items: center;      
 }
 
-.like-or-dislike-container .like, .like-or-dislike-container .dislike {
+.like-or-dislike-container .like, .like-or-dislike-container .dislike, .like-or-dislike-container .results {
     display: flex;
     justify-content: center;
     align-items: center;
-	height: 3rem;
-	border-radius: 3%;
+    height: 4.5rem;
+    width: 4.5rem;
+	border-radius: 300%;
     border: 1px solid #3434;
-    box-shadow: 0.5px 0.5px  #3434 ;
-    font-size: 1rem;
-    padding: 1.2rem;
+    box-shadow: 6px 6px 5px  #3434;
+    padding: 1.2rem 1rem;
     cursor: pointer;
+    background-color: white;
+    margin: 0 2vw;
+    z-index: 101;
 }
 
-.like-or-dislike-container .like{
-	color: #343434;
+.like-or-dislike-container .results {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.like {
+    font-size: 2rem;
+}
+
+.dislike {
+    font-size: 1rem;
 }
 
 .like-or-dislike-container .like:hover{
 	background-color: rgba(0,150,136 ,0.1);
 }
 
-.like-or-dislike-container .dislike{
-    color: #343434;
-}
 
 .like-or-dislike-container .dislike:hover{
     background-color: rgba(255,82,82 ,0.1);
