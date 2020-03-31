@@ -52,7 +52,7 @@ class HomeNavContent extends React.Component{
             <div className="get-started-bar"></div>
           </div>
           <div className="get-started-explanation">
-            <span>Start by creating or joining a group. You can filter results by neihborhood and/or costs.</span>
+            <span>Start by creating or joining a group.</span>
           </div>
           <div className="home-button-container">
             <button id={joinBtId} onClick={this.handleChangeForm("join group")}> Join a Group </button>

@@ -31,7 +31,7 @@ class HomeSearch extends React.Component{
         const value = e.target.value;
         let options = [];
         if (value.length > 0) {
-            const regex = new RegExp(`^${value.toLowerCase()}`, 'i');
+            const regex = new RegExp(`${value.toLowerCase()}`, 'i');
             options = this.state.neighborhoods.sort().filter(nh => regex.test(nh.toLowerCase()));
         }
         this.setState({
@@ -60,7 +60,7 @@ class HomeSearch extends React.Component{
     render(){
         return (
             <form className="home-search-section" onSubmit={this.handleSubmit}>
-                <h1>⌘</h1>
+                <h1><img src="chicken_logo_3.png"/></h1>
                 <div className="home-search-bar">
                     <input type="search" placeholder="Filter by neighborhood" onChange={this.inputChange} value={this.state.searchText} />
                     <div className="auto-complete-options">

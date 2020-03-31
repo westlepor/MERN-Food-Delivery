@@ -20,7 +20,7 @@ class Nav extends React.Component {
         <div className="header-logo">
 
           {/* <h1><Link to="/"><FontAwesomeIcon icon={faFeatherAlt} color="white" size="1x" /></Link></h1> */}
-          <h1><Link to="/"><img src="chicken_logo_3.png" style={{ width: "3.2rem", height:"3.2rem"}}/></Link></h1>
+          <h1><Link to="/"><img src="chicken_logo_3.png" style={{ width: "2rem", height:"2.2rem"}}/></Link></h1>
           <h2><Link to="/">chicken tinder</Link></h2>
 
         </div>
