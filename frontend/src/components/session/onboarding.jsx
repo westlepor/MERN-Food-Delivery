@@ -125,7 +125,7 @@ class Onboarding extends React.Component {
       <div className="onboarding">
         <form onSubmit={this.handleSubmit}>
           <div className="onboarding-title">
-            <h1>CREATE ACCOUNT</h1>
+            <h1 className='create-title'>CREATE ACCOUNT</h1>
           </div>
           <div className="onboarding-row">
             <div className="username">
@@ -134,10 +134,10 @@ class Onboarding extends React.Component {
                   Username
                 </label>
                 <div className="input-field-container">
-                  <input required minLength="2" maxLength="15" onChange={this.handleChange("username")} className="input-field" type="text" value={this.state.username} placeholder="username"/>
                   <span className="input-icon">
                     <FontAwesomeIcon icon={faUserAlt} color="#2c2c2c30" size="sm"/>
                   </span>
+                  <input required minLength="2" maxLength="15" onChange={this.handleChange("username")} className="input-field" type="text" value={this.state.username} placeholder="username"/>
                 </div>
               </div>
             </div>
@@ -147,10 +147,10 @@ class Onboarding extends React.Component {
                   Email
                 </label>
                 <div className="input-field-container">
-                  <input required onChange={this.handleChange("email")} className="input-field" type="email" value={this.state.email} placeholder="email"/>
                   <span className="input-icon">
                     <FontAwesomeIcon icon={faEnvelope} color="#2c2c2c30" size="sm"/>
                   </span>
+                  <input required onChange={this.handleChange("email")} className="input-field" type="email" value={this.state.email} placeholder="email"/>
                 </div>
               </div>
             </div>
@@ -162,10 +162,10 @@ class Onboarding extends React.Component {
                   Password
                 </label>
                 <div className="input-field-container">
-                  <input required minLength="6" onChange={this.handleChange("password")} className="input-field" type="password" placeholder="password" />
                   <span className="input-icon">
                     <FontAwesomeIcon icon={faLock} color="#2c2c2c30" size="sm"/>
                   </span>
+                  <input required minLength="6" onChange={this.handleChange("password")} className="input-field" type="password" placeholder="password" />
                 </div>
               </div>
             </div>
@@ -175,10 +175,10 @@ class Onboarding extends React.Component {
                   Confirm Password
                 </label>
                 <div className="input-field-container">
-                  <input required minLength="6" onChange={this.handleChange("password2")} className="input-field" type="password" placeholder="password"/>
                   <span className="input-icon">
                     <FontAwesomeIcon icon={faLock} color="#2c2c2c30" size="sm"/>
                   </span>
+                  <input required minLength="6" onChange={this.handleChange("password2")} className="input-field" type="password" placeholder="password"/>
                 </div>
               </div>
             </div>
@@ -190,10 +190,10 @@ class Onboarding extends React.Component {
                   Zipcode
                 </label>
                 <div className="input-field-container">
-                  <input required minLength="5" onChange={this.handleChange("zipcode")} className="input-field" type="text" placeholder="Zipcode"/>
                   <span className="input-icon">
                     <FontAwesomeIcon icon={faHome} color="#2c2c2c30" size="sm"/>
                   </span>
+                  <input required minLength="5" onChange={this.handleChange("zipcode")} className="input-field" type="text" placeholder="Zipcode"/>
                 </div>
               </div>
             </div>
