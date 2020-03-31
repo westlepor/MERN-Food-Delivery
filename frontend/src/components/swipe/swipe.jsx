@@ -19,7 +19,7 @@ class Swipe extends React.Component {
 
     const pathname = this.props.history.location.pathname.split("/");
     this.curGroupId = pathname[pathname.length - 1];    
-
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -51,12 +51,21 @@ class Swipe extends React.Component {
       </div>
     )
   }
+
+  handleClick(e) {
+    e.preventDefault();
+    console.log(this.state.navOpen)
+    if (this.state.navOpen === false) {
+      this.setState({ navOpen: true })
+    } else if (this.state.navOpen === true){
+      this.setState({ navOpen: false})
+    }
+  }
   
   render() {
     if (_.isEmpty(this.props.groups) || _.isEmpty(this.props.users)){
       return null;
     }
-    
 
     const curBiz = this.findCurBiz();
     if(curBiz === null){
@@ -71,11 +80,8 @@ class Swipe extends React.Component {
     return (
       <div className="swipe">
         <div className="swipe-aside">
-
-          <section className="swipe-aside-nav">
-            <div id="mySideNav" className="nav-logo">⌘
-              <div className={`swipe-dropdown ${this.state.navOpen ? "navOpen" : "navClosed"}`}>
-                {/* <a href="javascript:void(0)" className="closebtn">X</a> */}
+          <div id="mySideNav" className={`side-menu ${(this.state.navOpen === true) ? "nav-open" : null }`}>
+              <div className="swipe-dropdown">
                 <div className="welcome-swipe">
                   <div>
                     <FontAwesomeIcon icon={faUserAlt} color="white" size="1x" />
@@ -87,7 +93,9 @@ class Swipe extends React.Component {
                   </div>
                 </div>
               </div>
+              <a href="#" onClick={this.handleClick} className={`nav-toggle `}></a>
             </div>
+          <section className="swipe-aside-nav">
             <div className="logout-container">
               <Link className="logout-logo swipe-logout" onClick={this.props.logout} to="/">
                 <FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x"/>
