@@ -7,18 +7,20 @@ class HomeNavContent extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      form: "create group"
+      form: "join group"
     }
     
     this.handleChangeForm = this.handleChangeForm.bind(this);
   }
 
-  handleChangeForm(e) {
-    e.preventDefault();
-    if (this.state.form === "create group") {
-      this.setState({ form: "join group" })
-    } else if (this.state.form === "join group") {
-      this.setState({ form: "create group" })
+  handleChangeForm(type) {
+    return (e)=>{
+      e.preventDefault();
+      if (type === "create group") {
+        this.setState({ form: "create group" })
+      } else if (type === "join group") {
+        this.setState({ form: "join group" })
+      }
     }
   };
 
@@ -53,8 +55,8 @@ class HomeNavContent extends React.Component{
             <span>Start by creating or joining a group. You can filter results by neihborhood and/or costs.</span>
           </div>
           <div className="home-button-container">
-            <button id={createBtId} onClick={this.handleChangeForm} onClick={this.handleChangeForm} > Start a Group </button>
-            <button id={joinBtId} onClick={this.handleChangeForm} onClick={this.handleChangeForm}> Join a Group </button>
+            <button id={joinBtId} onClick={this.handleChangeForm("join group")}> Join a Group </button>
+            <button id={createBtId} onClick={this.handleChangeForm("create group")}> Start a Group </button>
           </div>
         </div>
         {currentTab}

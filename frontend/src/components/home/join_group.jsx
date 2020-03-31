@@ -39,7 +39,20 @@ class JoinGroup extends React.Component {
     return(
       <div className="join-group-form">
         <div className="join-group-content">
-          <div>
+          <div className="join-group-completed">
+            <div className="optional-divider">
+              <div className="get-started-bar"></div>
+              <h2>Completed Group Event</h2>
+              <div className="get-started-bar"></div>
+            </div>
+            <div className="join-group-headers">
+              <h2>Group Name</h2>
+              <h2>Creator</h2>
+              <h2>Decide By</h2>
+            </div>
+            
+          </div>
+          <div className="join-group-completed">
             <div className="optional-divider">
               <div className="get-started-bar"></div>
               <h2>My Groups</h2>
@@ -47,11 +60,12 @@ class JoinGroup extends React.Component {
             </div>
             <div className="join-group-headers">
               <h2>Group Name</h2>
+              <h2>Creator</h2>
               <h2>Decide By</h2>
             </div>
             <div className="my-group-body">
               {this.props.users[this.props.user.id].groups.map((group, index) => (
-                <div key={index} className={`group-list-item ${(index%2 === 0)? 'even-index' : 'odd-index'}`}>
+                <div key={index} className={`group-list-item ${(index % 2 === 0) ? 'even-index' : 'odd-index'}`}>
                   <Link to={`/swipe/${group._id}`} className="join-group-item" >
                     <h2>{group.groupName}</h2>
                     <h2>{this.formatTime(group.endTime)}</h2>
