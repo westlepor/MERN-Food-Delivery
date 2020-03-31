@@ -1,8 +1,7 @@
 import React from 'react';
 import HomeMap from './home_map';
-import HomeSearch from './home_search';
 import HomeNavContent from './home_nav_content';
-import Modal from "../modal/modal";
+import HomeModal from './home_modal';
 import "./home.css";
 import _ from 'lodash';
 
@@ -10,6 +9,9 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      openModal: true
+    }
   }
 
   componentDidMount(){
@@ -23,11 +25,8 @@ class Home extends React.Component {
 
     return (
       <div className="home-page">
-        <Modal />
         <section className="home-nav-bar">
           <section className="home-nav-bar-container">
-            {/* <HomeSearch updateZoom={this.props.updateZoom}/> */}
-
             <HomeNavContent 
               history={this.props.history}
               user={this.props.user} 
@@ -51,6 +50,7 @@ class Home extends React.Component {
             <HomeMap fetchBusinessesByCoordinates={this.props.fetchBusinessesByCoordinates} zoom={this.props.zoom} businesses={this.props.businesses} updateFilter={this.props.updateFilter}/>  
           </div>
         </section>
+        {this.state.openModal === true ? <HomeModal openModal={this.state.openModal}/> : null}
       </div>
     );
   }};
