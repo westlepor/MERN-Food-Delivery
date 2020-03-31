@@ -84,7 +84,7 @@ class SwipeMainMap extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if ((this.props.curBiz._id !== prevProps.curBiz._id)) {
       this.map.flyTo({
-        center: [this.props.curBiz.longitude, this.props.curBiz.latitude],
+        center: [this.props.curBiz.longitude - .011, this.props.curBiz.latitude],
         zoom: 14,
         bearing: 0,
         speed: 1,
