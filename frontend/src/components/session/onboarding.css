@@ -5,6 +5,10 @@
     margin-right: auto;
 }
 
+.register h1 {
+            filter: brightness(0);
+        }
+
 .onboarding form {
     display: flex;
     flex-direction: column;
@@ -356,6 +360,11 @@
 }
 
 @media only screen and (max-width: 800px) {
+        
+        
+        .register h2{
+            font-size: 1.8rem;
+        }
 
         .onboarding-row{
             flex-direction: column;
@@ -388,7 +397,7 @@
             margin-bottom: 0px;
         }
 
-        .username, .email, .password, .password-confirm, .zipcode{
+        .username, .email, .password, .password-confirm, .zipcode, .monetary-restriction, .food-restriction, .birthday{
             width: 80%;
         }
 
@@ -440,25 +449,9 @@
         .FR-item-container{
             padding: 10px 0 10px 0;
         }
-        .food-restriction-modal button{
-    
-        }
 
         .form-bottom{
             margin: 0;
-
-        }
-
-        .food-restriction-container {
-        
-        }
-
-        .food-restriction-items{
-       
-        }
-
-        .food-restriction-item{
-        
         }
 
 

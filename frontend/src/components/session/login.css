@@ -206,9 +206,47 @@
 
 .login-form .input-icon{
     position: absolute;
-    left: 14px;
-    top: 12px;
+    /* left: 14px;
+    top: 12px; */
 }
+
+
+
+@media only screen and (max-width: 800px) {
+    .login-form {
+    height: 400px;
+    width: 300px;
+    padding: 0;
+    }
+
+    .login-form .form-top{
+        font-size: 0.8rem;
+        align-items: center;
+        width: 95%;
+    }
+
+    .login-form .form-title{
+        font-size: 1rem;
+    }
+
+    .login-form .instead{
+        font-size: 0.8rem;
+        width: 95%;
+    }
+
+    .demo-user-button{
+        width: 80px;
+    }
+
+    .login-button {
+        width: 80px;
+    }
+}
+
+
+
+
+
 
 
 
