@@ -6,6 +6,7 @@
     padding: .8% 0;
     /* background: linear-gradient(262deg, #ff7854, #fd267d); */
     width: 100%;
+    margin-bottom: 1rem;
 }
 
 .home-search-section-title{
@@ -98,4 +99,22 @@
 .auto-complete-options-container li:hover {
     font-weight: bold;
     text-decoration: underline;
+}
+
+
+.home-search-selected-restaurants{
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.home-search-numbiz{
+    font-weight: bolder;
+    color: #fd267d;
+    margin-right: 0.3rem;
+}
+
+.home-search-curNH{
+    font-weight: bolder;
+    color: #fd267d;
+    margin-left: 0.3rem;
 }

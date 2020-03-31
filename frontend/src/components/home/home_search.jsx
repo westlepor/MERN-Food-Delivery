@@ -58,24 +58,36 @@ class HomeSearch extends React.Component{
         )
     }
 
-    currentCenter (){
-        const curLng = this.props.coordinates._sw.lng + this.props.coordinates._ne.lng / 2;
-        const curLat = this.props.coordinates._sw.lat + this.props.coordinates._ne.lat / 2;
+    findCurNeighborhood (){
+        const curLng = (this.props.coordinates._sw.lng + this.props.coordinates._ne.lng) / 2;
+        const curLat = (this.props.coordinates._sw.lat + this.props.coordinates._ne.lat) / 2;
 
         this.curCoordinates = {
             lng: curLng,
             lat: curLat
         }
-        const zipcodeKeys = Object.values(Zipcode);
-        console.log(Zipcode);
 
+        const zipcodeValues = Object.values(Zipcode);
+        let shortestDistance;
+        for (let i = 0; i < zipcodeValues.length; i++){
+            const curNH = zipcodeValues[i];            
+            const curDistance = (curLng - curNH.longitude)**2 + (curLng - curNH.longitude)**2;
+            if (this.curNeighborhood === undefined || shortestDistance === undefined){
+                shortestDistance = curDistance;
+                this.curNeighborhood = zipcodeValues[0].neighborhood;
+                continue;
+            }
+
+            if (shortestDistance > curDistance) {
+              shortestDistance = curDistance;
+              this.curNeighborhood = zipcodeValues[i].neighborhood;
+            }
+        }
     }   
     
     render(){
-        console.log(this.props, "props in home search");
-        console.log(this.props.coordinates, "props in home search");
-        this.currentCenter();
-
+        this.findCurNeighborhood();
+        const curNumOfBizs = Object.keys(this.props.businesses).length;
         const neighborhoodList = "The List of Neighborhoods in SF \n - " + Zipcode.map(
           zipcode => zipcode.neighborhood
         ).join("\n - ");
@@ -112,12 +124,17 @@ class HomeSearch extends React.Component{
               </button>
             </div>
 
-            <div className="home-search-selection">
-              <div className="home-search-bounds">
-                  Current Coordinate: {}
-                  Near Neighborhood: 
-                </div>
-              <div className="home-search-selected-restaurants">Number of Selcted Businesses: </div>
+            <div className="home-search-selected">
+              <div className="home-search-selected-restaurants">
+                <span>Currently, </span>
+                <span className="home-search-numbiz">{curNumOfBizs}</span>
+                <span>
+                  {curNumOfBizs !== 1 ? "restaurants are" : "restaurants are"}{" "}
+                  selected
+                </span>
+                <span> near</span>
+                <span className="home-search-curNH">{this.curNeighborhood}</span>
+              </div>
             </div>
           </form>
         );
