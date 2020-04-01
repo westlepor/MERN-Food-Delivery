@@ -64,6 +64,7 @@ router.delete("/:id", (req, res) => {
 router.post("/", async (req, res) => {
   const { errors, isValid } = validateGroupInput(req.body);
   if (!isValid) {
+    console.log(errors);
     return res.status(400).json(errors);
   }
   
