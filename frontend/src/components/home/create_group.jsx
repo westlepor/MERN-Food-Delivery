@@ -87,6 +87,8 @@ class CreateGroup extends React.Component {
     this.props.createGroup(newGroup).then(res => {
       return this.props.history.push(`/swipe/${res.group._id}`);
     });
+
+    //need .catch here for error
   }
 
   handleRandomSubmit(e){
