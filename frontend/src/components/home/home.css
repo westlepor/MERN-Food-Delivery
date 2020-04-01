@@ -14,6 +14,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .home-page {
@@ -57,15 +58,17 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+    height: calc(100vh - 65px);
 }
 
 .home-nav-content-top {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 65px;
     padding-top: 1rem;
     background: linear-gradient(262deg, #ff7854, #fd267d);
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .home-nav-content-top-container{
@@ -154,9 +157,8 @@
 }
 
 .optional-divider h2 {
-    padding: 0 2%;
-    margin-top: 0;
-
+  padding: 0 2px;
+  margin-top: 0;
 }
 
 .endtime-container label, .is-split-container {
@@ -245,13 +247,12 @@
 
 
 /* Home Bottom */
-
 .home-nav-content-bottom {
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    flex: 0 0 62.742px;
+    height: 65px;
 }
 
 .logout-button {

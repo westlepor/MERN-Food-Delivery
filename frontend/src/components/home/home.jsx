@@ -10,7 +10,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      openModal: true
+      openModal: false
     }
   }
 
@@ -39,10 +39,10 @@ class Home extends React.Component {
               updateZoom={this.props.updateZoom} 
               coordinates={this.props.coordinates}
               />
-            <div className="home-nav-content-bottom">
+            {/* <div className="home-nav-content-bottom">
               <h2> Logged in as, {this.props.user.username}</h2>
               <button className="logout-button" onClick={this.props.logout}>LOGOUT</button>
-            </div>
+            </div> */}
           </section>
         </section>
         <section className="home-map-section">
