@@ -3,13 +3,13 @@ import CreateGroup from './create_group';
 import JoinGroup from './join_group';
 import _ from 'lodash';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faLock, faTimes, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 class HomeNavContent extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      form: "create group"
+      form: "join group"
     }
     
     this.handleChangeForm = this.handleChangeForm.bind(this);
