@@ -19,12 +19,16 @@ module.exports = function validateGroupInput(data) {
     errors.groupName = "Group name field is required.";
   }
 
-  // if (!Validator.islength(data.groupName, { min: 2, max: 30 })) {
-  //   errors.groupName = "Group name must be between 2 and 30 characters."
-  // }
+  if (!Validator.isLength(data.groupName, { min: 2, max: 30 })) {
+    errors.groupName = "Group name must be between 2 and 30 characters."
+  }
 
   if (data.users.length < 2) {
     errors.users = "Invite users to your group!"
+  }
+
+  if (data.endTime < data.startTime) {
+    errors.endTime = "Choose a valid end time."
   }
 
   if (data.businesses.length <= 1) {
