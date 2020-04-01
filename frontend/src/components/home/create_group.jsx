@@ -79,8 +79,11 @@ class CreateGroup extends React.Component{
     }
 
     this.props.createGroup(newGroup).then((res)=>{
+      console.log(res);
       return this.props.history.push(`/swipe/${res.group._id}`);
     });
+
+    //need .catch here for error
   }
 
   handleChange(type) {
