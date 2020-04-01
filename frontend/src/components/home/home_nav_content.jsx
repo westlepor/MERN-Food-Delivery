@@ -60,7 +60,7 @@ class HomeNavContent extends React.Component{
               <button id={createBtId} onClick={this.handleChangeForm("create group")}> Start a Group </button>
             </div>
 
-            <div className="home-nav-logo">
+            <div className="home-nav-logo" onClick={()=>this.props.handleModal()}>
               <FontAwesomeIcon icon={faUser}
                 color="white"
                 size="sm"

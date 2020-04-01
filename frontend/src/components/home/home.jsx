@@ -10,7 +10,21 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      openModal: true
+      openModal: false
+    }
+
+    this.handleModal = this.handleModal.bind(this);
+  }
+
+  handleModal() {
+    if (this.state.openModal === false) {
+      this.setState({
+        openModal: true
+      })
+    } else {
+      this.setState({
+        openModal: false
+      })
     }
   }
 
@@ -33,7 +47,7 @@ class Home extends React.Component {
               businesses={this.props.businesses} 
               users={this.props.users} 
               selectedFoodRestrictions={this.props.selectedFoodRestrictions} 
-              openModal={this.props.openModal} 
+              handleModal={this.handleModal} 
               createGroup={this.props.createGroup}
               fetchUser={this.props.fetchUser}
               updateZoom={this.props.updateZoom} 
@@ -50,7 +64,7 @@ class Home extends React.Component {
             <HomeMap fetchBusinessesByCoordinates={this.props.fetchBusinessesByCoordinates} zoom={this.props.zoom} businesses={this.props.businesses} updateFilter={this.props.updateFilter}/>  
           </div>
         </section>
-        {this.state.openModal === true ? <HomeModal openModal={this.state.openModal}/> : null}
+        {this.state.openModal === true ? <HomeModal handleModal={this.handleModal}/> : null}
       </div>
     );
   }};
