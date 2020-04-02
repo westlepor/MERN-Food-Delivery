@@ -12,10 +12,23 @@ class Home extends React.Component {
     this.state = {
       form: "join group",
       openModal: false
-    };
+    }
 
+    this.handleModal = this.handleModal.bind(this);
     this.handleChangeForm = this.handleChangeForm.bind(this);
   }
+  
+  handleModal() {
+    if (this.state.openModal === false) {
+      this.setState({
+        openModal: true
+      })
+    } else {
+      this.setState({
+        openModal: false
+      })
+    }
+  };
 
   componentDidMount() {
     this.props.fetchUsers();
@@ -49,10 +62,12 @@ class Home extends React.Component {
               businesses={this.props.businesses}
               users={this.props.users}
               selectedFoodRestrictions={this.props.selectedFoodRestrictions}
+              handleModal={this.handleModal} 
               createGroup={this.props.createGroup}
               fetchUser={this.props.fetchUser}
               updateZoom={this.props.updateZoom}
               coordinates={this.props.coordinates}
+              errors={this.props.errors}
               fetchGroup={this.props.fetchGroup}
               clearGroups={this.props.clearGroups}
             />
@@ -88,9 +103,7 @@ class Home extends React.Component {
             )}
           </div>
         </section>
-        {this.state.openModal === true ? (
-          <HomeModal openModal={this.state.openModal} />
-        ) : null}
+        {this.state.openModal === true ? <HomeModal handleModal={this.handleModal}/> : null}
       </div>
     );
   }

@@ -1,11 +1,136 @@
-.home-modal {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.609);
-    z-index: 100;
+.modal-child *{
+    /* border: 1px solid black; */
 }
 
-.home-modal {
-    
+.tuto-modal{
+    height: 600px;
+    width: 800px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tuto-main{
+    display: flex;
+    height: 95%;
+}
+
+.tuto-footer{
+    display: flex;
+    height: 15%;
+    justify-content: space-between;
+}
+
+.tuto-slide{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tuto-slide-text-container{
+    display: flex;
+    height: 25%;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.tuto-slide-text-container p{
+    font-size: 16px;
+}
+
+.tuto-slide-text-container{
+    font-size: 1.5rem;
+    text-transform: ;
+
+}
+
+.tuto-slide-gif-container{
+    display: flex;
+    height: 400px%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.tuto-gif{
+   /* height: inherit;
+   max-width: 100%;
+   max-height: 100%;
+   display: block; */
+
+   object-fit: cover;
+
+}
+
+.tuto-skip-container{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tuto-prev-next-container{
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.tuto-button-skip{
+    border: 2px solid darkgray;
+    border-radius: 5px;
+    background-color: darkgray;
+    color: white;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.tuto-button-prev{
+    border: 2px solid darkgray;
+    border-radius: 5px;
+    background-color: darkgray;
+    color: white;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.tuto-button-next{
+    border: 2px solid darkgray;
+    border-radius: 5px;
+    background-color: darkgray;
+    color: white;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.tuto-button-skip:hover {
+    border: 2px solid #5c5c5c;
+    background-color: #5c5c5c;
+}
+.tuto-button-prev:hover {
+    border: 2px solid #5c5c5c;
+    background-color: #5c5c5c;
+}
+.tuto-button-next:hover {
+    border: 2px solid #5c5c5c;
+    background-color: #5c5c5c;
 }

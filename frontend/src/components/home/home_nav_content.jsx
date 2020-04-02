@@ -46,6 +46,7 @@ class HomeNavContent extends React.Component{
           createGroup={this.props.createGroup}
           businesses={this.props.businesses}
           coordinates={this.props.coordinates}
+          errors={this.props.errors}
         />
       );
 
@@ -63,7 +64,7 @@ class HomeNavContent extends React.Component{
               <button id={joinBtId} onClick={this.props.handleChangeForm("join group")}> Join a Group </button>
               <button id={createBtId} onClick={this.props.handleChangeForm("create group")}> Start a Group </button>
             </div>
-            <div className="home-nav-logo">
+            <div className="home-nav-logo" onClick={()=>this.props.handleModal()}>
               <FontAwesomeIcon icon={faUser}
                 color="white"
                 size="sm"
