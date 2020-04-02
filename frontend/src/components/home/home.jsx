@@ -38,6 +38,7 @@ class Home extends React.Component {
               fetchUser={this.props.fetchUser}
               updateZoom={this.props.updateZoom} 
               coordinates={this.props.coordinates}
+              errors={this.props.errors}
               />
             <div className="home-nav-content-bottom">
               {/* <h2> Logged in as, {this.props.user.username}</h2> */}

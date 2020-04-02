@@ -17,7 +17,8 @@ const mapSTP = (state) => ({
     selectedFoodRestrictions: state.ui.selectedFoodRestrictions,
     businesses: state.entities.businesses,
     zoom: state.ui.zoom,
-    coordinates: state.ui.filters
+    coordinates: state.ui.filters,
+    errors: state.errors.group
 })
 
 const mapDTP = (dispatch) => ({

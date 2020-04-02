@@ -24,7 +24,7 @@ module.exports = function validateGroupInput(data) {
   }
 
   if (data.users.length < 2) {
-    errors.users = "Invite users to your group!"
+    errors.users = "You must invite at least one user to your group."
   }
 
   if (data.endTime < data.startTime) {
