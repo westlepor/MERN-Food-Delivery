@@ -37,7 +37,9 @@ class JoinGroupMap extends React.Component {
     if (_.isEmpty(this.curGroup)){
       return null;
     }
-    this.joinMarkerManager.updateMarkers(this.businesses);
+    this.findTopThree(this.businesses)
+
+    this.joinMarkerManager.updateMarkers(this.first, this.second, this.third, this.businesses);
     // this.map.flyTo({
     //   center: [this.curGroup.longitude, this.curGroup.latitude],
     //   zoom: 14,
@@ -49,6 +51,33 @@ class JoinGroupMap extends React.Component {
     //   },
     //   essential: true
     // });
+  }
+
+  findTopThree(group) {
+    const bizsValues = Object.values(group.businesses);
+    const likedBizs = group.likedBusinesses;
+    this.first = 0;
+    this.second = 0;
+    this.third = 0;
+    for (let i = 0; i < bizsValues.length; i++) {
+      const curBizId = bizsValues[i]._id;
+      if (likedBizs[curBizId].length >= this.first) {
+        this.third = this.second;
+        this.thirdBiz = this.secondBiz;
+        this.second = this.first;
+        this.secondBiz = this.firstBiz;
+        this.first = likedBizs[curBizId].length;
+        this.firstBiz = bizsValues[i];
+      } else if (likedBizs[curBizId].length >= this.second) {
+        this.third = this.second;
+        this.thirdBiz = this.secondBiz;
+        this.second = likedBizs[curBizId].length;
+        this.secondBiz = bizsValues[i];
+      } else if (likedBizs[curBizId].length >= this.third) {
+        this.third = likedBizs[curBizId].length;
+        this.thirdBiz = bizsValues[i];
+      }
+    }
   }
 
   render() {

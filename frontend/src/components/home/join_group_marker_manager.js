@@ -6,7 +6,7 @@ export default class MarkerManager {
     this.markers = [];
   }
 
-  updateMarkers(businesses) {
+  updateMarkers(first, second, third, businesses) {
     for (let i = 0; i < this.markers.length; i++) {
       this.markers[i].remove();
     }
@@ -15,7 +15,17 @@ export default class MarkerManager {
       const curBiz = businesses[i];
       let el = document.createElement("div");
       let childEl = document.createElement("div");
-      childEl.className = "marker";
+
+      if (curBiz === first) {
+        childEl.className = "first-marker";
+      } else if (curBiz === second) {
+        childEl.className = "second-marker";
+      } else if (curBiz === third) {
+        childEl.className = "third-marker";
+      } else {
+        childEl.className = "marker";
+      }
+      
       el.appendChild(childEl);
 
       let newMarker = new mapboxgl.Marker(el)
