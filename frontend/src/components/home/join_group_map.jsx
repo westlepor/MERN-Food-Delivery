@@ -37,7 +37,7 @@ class JoinGroupMap extends React.Component {
     if (_.isEmpty(this.curGroup)){
       return null;
     }
-    this.findTopThree(this.businesses)
+    this.findTopThree(this.curGroup)
 
     this.joinMarkerManager.updateMarkers(this.first, this.second, this.third, this.businesses);
     // this.map.flyTo({
@@ -54,7 +54,7 @@ class JoinGroupMap extends React.Component {
   }
 
   findTopThree(group) {
-    const bizsValues = Object.values(group.businesses);
+    const bizsValues = Object.values(this.businesses);
     const likedBizs = group.likedBusinesses;
     this.first = 0;
     this.second = 0;
