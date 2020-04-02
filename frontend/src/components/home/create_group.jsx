@@ -44,6 +44,8 @@ class CreateGroup extends React.Component {
   handleTextChange(e) {
     const value = e.target.value;
     let candidates = [];
+    if (value.charCodeAt(0) === 92) return null;
+
     if (value.length > 0) {
       const regex = new RegExp(`${value}`, "i");
       candidates = this.state.users.filter(

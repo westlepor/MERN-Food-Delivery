@@ -47,16 +47,16 @@ class JoinGroup extends React.Component {
     return gruopEndTime.getTime() < currentTime.getTime();
   }
 
-  finishedVotes(curGroup) {
-    let count;
-    Object.values(curGroup.likedBusinesses).forEach(el => {
-      if(el.length !== 0) count++; 
-    })
-    Object.values(curGroup.likedBusinesses).forEach(el => {
-      if(el.length !== 0) count++; 
-    })
-    return (curGroup.businesses.length === count)
-  }
+  // finishedVotes(curGroup) {
+  //   let count;
+  //   Object.values(curGroup.likedBusinesses).forEach(el => {
+  //     if(el.length !== 0) count++; 
+  //   })
+  //   Object.values(curGroup.likedBusinesses).forEach(el => {
+  //     if(el.length !== 0) count++; 
+  //   })
+  //   return (curGroup.businesses.length === count)
+  // }
 
   categorizeGroups() {
     const groups = this.props.users[this.props.user.id].groups;
