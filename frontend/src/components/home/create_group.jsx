@@ -94,21 +94,13 @@ class CreateGroup extends React.Component {
       creator
     };
 
-    // debugger 
-
     this.props.createGroup(newGroup).then(res => {
-      // console.log(res)
       if (res.type === "RECEIVE_GROUP_ERRORS") {
-        console.log("error")
+        return null;
       } else if (res.type === "RECEIVE_GROUP") {
         return this.props.history.push(`/swipe/${res.group._id}`);
       }
     })
-    // .catch(err => {
-    //   console.log(err);
-    // });
-
-    //need .catch here for error
   }
 
   handleRandomSubmit(e){
@@ -238,9 +230,6 @@ class CreateGroup extends React.Component {
     });
   }
 
-  // document.getElementById("elemID").scrollIntoView({ 
-  //   behavior: 'smooth' 
-  // });
 
   renderErrors() {
     if (!_.isEmpty(this.props.errors)) {
@@ -284,7 +273,7 @@ class CreateGroup extends React.Component {
                       className="input-field"
                       type="text"
                       value={this.state.groupName}
-                      placeholder="group name"
+                      placeholder="Group Name"
                     />
                     <span className="inputicon">
                       <FontAwesomeIcon

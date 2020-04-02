@@ -31,11 +31,16 @@ module.exports = function validateGroupInput(data) {
     errors.endTime = "Choose a valid end time."
   }
 
+  if (data.endTime === null) {
+    errors.endTime = "Year must be 4 digits."
+  }
+
   if (data.businesses.length <= 1) {
     errors.businesses = "Choose a location with more than 1 valid business."
   }
 
-  //ask about start and end time validation
+  //add validation for 5 digit year
+
   if (!Validator.isLength(data.monetaryRestriction, { min: 1, max: 4 })) {
     errors.monetaryRestriction = "Input must be between $ and $$$$.";
   }
