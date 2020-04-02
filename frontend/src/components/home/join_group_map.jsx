@@ -38,8 +38,7 @@ class JoinGroupMap extends React.Component {
       return null;
     }
     this.findTopThree(this.curGroup)
-
-    this.joinMarkerManager.updateMarkers(this.first, this.second, this.third, this.businesses);
+    this.joinMarkerManager.updateMarkers(this.firstBiz, this.secondBiz, this.thirdBiz, this.businesses);
     // this.map.flyTo({
     //   center: [this.curGroup.longitude, this.curGroup.latitude],
     //   zoom: 14,
