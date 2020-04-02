@@ -33,6 +33,14 @@ class CreateGroup extends React.Component {
     this.handleRandomSubmit = this.handleRandomSubmit.bind(this);
   }
 
+  componentDidUpdate() {
+    if (this.errorUl != undefined) {
+      this.errorUl.scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+  }
+
   handleTextChange(e) {
     const value = e.target.value;
     let candidates = [];
@@ -84,9 +92,19 @@ class CreateGroup extends React.Component {
       creator
     };
 
+    // debugger 
+
     this.props.createGroup(newGroup).then(res => {
-      return this.props.history.push(`/swipe/${res.group._id}`);
-    });
+      // console.log(res)
+      if (res.type === "RECEIVE_GROUP_ERRORS") {
+        console.log("error")
+      } else if (res.type === "RECEIVE_GROUP") {
+        return this.props.history.push(`/swipe/${res.group._id}`);
+      }
+    })
+    // .catch(err => {
+    //   console.log(err);
+    // });
 
     //need .catch here for error
   }
@@ -216,6 +234,26 @@ class CreateGroup extends React.Component {
       selectedFoodRestrictions,
       foodRestrictions
     });
+  }
+
+  // document.getElementById("elemID").scrollIntoView({ 
+  //   behavior: 'smooth' 
+  // });
+
+  renderErrors() {
+    if (!_.isEmpty(this.props.errors)) {
+      return (
+        <ul className="errors" ref={el => this.errorUl = el}>
+          {Object.values(this.props.errors).map((error, idx) => (
+            <li className="error" key={idx}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      )
+    } else {
+      return null;
+    }
   }
 
   render() {
@@ -442,6 +480,9 @@ class CreateGroup extends React.Component {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="group-errors">
+                {this.renderErrors()}
             </div>
           </div>
           <div className="submit-container">

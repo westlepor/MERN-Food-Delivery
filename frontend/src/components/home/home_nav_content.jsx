@@ -47,6 +47,7 @@ class HomeNavContent extends React.Component{
           createGroup={this.props.createGroup}
           businesses={this.props.businesses}
           coordinates={this.props.coordinates}
+          errors={this.props.errors}
         />
       );
 

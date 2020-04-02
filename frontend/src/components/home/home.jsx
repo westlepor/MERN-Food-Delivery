@@ -54,6 +54,7 @@ class Home extends React.Component {
               fetchUser={this.props.fetchUser}
               updateZoom={this.props.updateZoom}
               coordinates={this.props.coordinates}
+              errors={this.props.errors}
               fetchGroup={this.props.fetchGroup}
               clearGroups={this.props.clearGroups}
             />

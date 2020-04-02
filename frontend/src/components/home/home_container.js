@@ -17,6 +17,7 @@ const mapSTP = (state) => ({
     businesses: state.entities.businesses,
     zoom: state.ui.zoom,
     coordinates: state.ui.filters,
+    errors: state.errors.group,
     groups: state.entities.groups
 })
 
