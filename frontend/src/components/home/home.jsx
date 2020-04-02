@@ -39,8 +39,10 @@ class Home extends React.Component {
       e.preventDefault();
       if (type === "create group") {
         this.setState({ form: "create group" });
+        this.props.clearGroups();
       } else if (type === "join group") {
         this.setState({ form: "join group" });
+        this.props.clearGroups();
       }
     };
   }
@@ -84,6 +86,7 @@ class Home extends React.Component {
           <div className="home-map-container">
             {this.state.form === "join group" ? (
               <JoinGroupMap
+
                 form={this.state.form}
                 zoom={this.props.zoom}
                 businesses={this.props.businesses}

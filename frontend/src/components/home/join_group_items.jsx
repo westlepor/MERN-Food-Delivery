@@ -157,7 +157,7 @@ class JoinGroupItems extends React.Component {
 
       if (this.props.type === "Completed Group Event") {
         return completeGroupEventDiv;
-      } else if (this.isCompleted(group)) {
+      } else if (this.finishedVotes(group)) {
         return alreadyVotedDiv;
       } else {
         return ongoingDiv;;

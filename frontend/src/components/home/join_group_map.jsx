@@ -37,6 +37,7 @@ class JoinGroupMap extends React.Component {
     if (_.isEmpty(this.curGroup)){
       return null;
     }
+    this.joinMarkerManager.updateMarkers(this.businesses);
     // this.map.flyTo({
     //   center: [this.curGroup.longitude, this.curGroup.latitude],
     //   zoom: 14,
@@ -48,8 +49,6 @@ class JoinGroupMap extends React.Component {
     //   },
     //   essential: true
     // });
-
-    this.joinMarkerManager.updateMarkers(this.businesses);
   }
 
   render() {
@@ -60,7 +59,7 @@ class JoinGroupMap extends React.Component {
       this.curGroup = {};
       this.businesses = [];
     }
-    
+
     this.markerRender();
 
     return (
