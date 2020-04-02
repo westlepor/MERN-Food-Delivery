@@ -54,7 +54,6 @@ class Swipe extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    console.log(this.state.navOpen)
     if (this.state.navOpen === false) {
       this.setState({ navOpen: true })
     } else if (this.state.navOpen === true){

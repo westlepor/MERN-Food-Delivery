@@ -25,7 +25,6 @@ class HomeModal extends React.Component{
     }
 
     render(){
-        console.log(this.props, "props in home_modal");
         return (
             <>
 

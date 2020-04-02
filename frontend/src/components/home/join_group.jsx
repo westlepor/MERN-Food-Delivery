@@ -30,9 +30,7 @@ class JoinGroup extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.user.id).then((res)=>{
-      // console.log(res, "res")
-    });
+    this.props.fetchUser(this.props.user.id);
   }
 
   isExpired(endTime) {
