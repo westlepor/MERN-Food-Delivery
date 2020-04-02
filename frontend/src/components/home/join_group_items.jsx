@@ -31,12 +31,8 @@ class JoinGroupItems extends React.Component {
   }
 
   renderItems(){
-    // const curUserId = this.props.user.id;
-    // const curGroups = this.props.users[curUserId].groups;
-    // console.log(curGroups[0].endTime);
     const curGroups = this.props.groups;
-    // const that = this;
-    console.log(this.props)
+    
     return curGroups.map((group, idx) => { 
       const curClass = `join-group-content-item ${(idx % 2) === 0 ? "even-index" : "odd-index"}`;
       // to={`/swipe/${group._id}`}
