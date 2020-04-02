@@ -94,7 +94,7 @@ class CreateGroup extends React.Component {
     const likedBusinesses = _.mapValues(this.props.businesses, () => []);
     const dislikedBusinesses = _.mapValues(this.props.businesses, () => []);
     const creator = this.props.user.id;
-
+    //[bizids];
     const newGroup = {
       groupName: this.state.groupName,
       startTime: new Date(),
@@ -217,6 +217,10 @@ class CreateGroup extends React.Component {
   }
 
   render() {
+    if (_.isEmpty(this.props.businesses)){
+      return <div style={{ display: "flex", justifyContent: "center", width: "100%" }}><img src="loading2.gif" style={{ width: "auto", height: "300px",}}/></div>;;
+    }
+    
     return (
       <div className="create-group-form">
         <HomeSearch

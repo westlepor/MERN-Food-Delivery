@@ -1,7 +1,8 @@
 import * as APIUtil from '../util/group_api_util';
 export const RECEIVE_GROUP = 'RECEIVE_GROUP';
 export const RECEIVE_GROUPS = 'RECEIVE_GROUPS';
-export const REMOVE_GROUP = 'REMOVE_GROUP';
+export const REMOVE_GROUP = "REMOVE_GROUP";
+export const REMOVE_ALL_GROUPS = "REMOVE_ALL_GROUPS";
 export const RECEIVE_GROUP_ERRORS = 'RECEIVE_GROUP_ERRORS';
 
 const receiveGroup = payload => ({
@@ -19,10 +20,16 @@ const removeGroup = (payload) => ({
     group: payload.data
 });
 
+const removeAllGroups = () => ({
+  type: REMOVE_ALL_GROUPS
+});
+
 const receiveGroupErrors = errors => ({
     type: RECEIVE_GROUP_ERRORS,
     errors
 })
+
+export const clearGroups = () => dispatch => dispatch(removeAllGroups());
 
 export const createGroup = group => dispatch => (
     APIUtil.createGroup(group)
