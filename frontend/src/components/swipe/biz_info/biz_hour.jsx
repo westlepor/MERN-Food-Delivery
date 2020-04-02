@@ -10,7 +10,7 @@ class BizHour extends React.Component {
         const start = hour.slice(0, 2);
         const suffix = (parseInt(start) >= 12) ? 'pm' : 'am';
         const end = hour.slice(2);
-        return `${start}:${end} ${suffix}`
+        return `${start >= 12 ? start % 12: start}:${end} ${suffix}`
     }
 
     isOpen() {

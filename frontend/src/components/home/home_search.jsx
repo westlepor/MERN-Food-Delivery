@@ -4,6 +4,7 @@ import { faSearch, faInfo, faInfoCircle } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Zipcode } from './zipcode';
 import "balloon-css";
+import _ from "lodash";
 
 class HomeSearch extends React.Component{
     constructor(props){
@@ -86,6 +87,11 @@ class HomeSearch extends React.Component{
     }   
     
     render(){
+
+      if (_.isEmpty(this.props.businesses)){
+        return <div style={{ display: "flex", justifyContent: "center", width: "100%" }}><img src="loading2.gif" style={{ width: "auto", height: "300px",}}/></div>;;
+      }
+
         this.findCurNeighborhood();
         const curNumOfBizs = Object.keys(this.props.businesses).length;
         const neighborhoodList = "The List of Neighborhoods in SF \n - " + Zipcode.map(

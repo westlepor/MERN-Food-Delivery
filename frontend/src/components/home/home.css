@@ -312,7 +312,10 @@
     width: 100%;
 }
 
-
+.join-group-map{
+    display: flex;
+    width: 100%;
+}
 
 /* this one needs to be fixed
 @media only screen and (max-width: 800px) {

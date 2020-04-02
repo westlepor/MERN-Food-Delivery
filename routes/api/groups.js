@@ -47,7 +47,7 @@ router.get("/:id", (req, res) => {
     .populate("foodRestrictions")
     .exec(function (err, group) {
       if (err) return res.json(err);;
-      res.json(group);
+      return res.json(group);
     });
 });
 

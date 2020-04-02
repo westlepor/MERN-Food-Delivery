@@ -4,11 +4,10 @@ import { fetchUsers, fetchUser } from "../../actions/user_actions"
 import { logout } from "../../actions/session_actions";
 import { openModal } from "../../actions/modal_actions"
 import { fetchBusinesses } from "../../actions/business_actions"
-import { createGroup } from "../../actions/group_actions"
 import { updateFilter } from "../../actions/filter_action";
 import { updateZoom } from "../../actions/zoom_actions";
 import { fetchBusinessesByCoordinates } from '../../actions/business_actions';
-import { fetchGroups } from '../../actions/group_actions' 
+import { createGroup, fetchGroup, clearGroups } from "../../actions/group_actions";
 
 const mapSTP = (state) => ({
     user: state.session.user,
@@ -18,7 +17,8 @@ const mapSTP = (state) => ({
     businesses: state.entities.businesses,
     zoom: state.ui.zoom,
     coordinates: state.ui.filters,
-    errors: state.errors.group
+    errors: state.errors.group,
+    groups: state.entities.groups
 })
 
 const mapDTP = (dispatch) => ({
@@ -28,9 +28,11 @@ const mapDTP = (dispatch) => ({
     openModal: modal => dispatch(openModal(modal)),
     fetchBusinesses: () => dispatch(fetchBusinesses()),
     createGroup: group => dispatch(createGroup(group)),
+    fetchGroup: id => dispatch(fetchGroup(id)),
     updateFilter: (filters, value) => dispatch(updateFilter(filters, value)),
     updateZoom: (value) => dispatch(updateZoom(value)),
-    fetchBusinessesByCoordinates: (value) => dispatch(fetchBusinessesByCoordinates(value))
+    fetchBusinessesByCoordinates: (value) => dispatch(fetchBusinessesByCoordinates(value)),
+    clearGroups: () => dispatch(clearGroups())
 })
 
 export default connect(mapSTP, mapDTP)(Home);
