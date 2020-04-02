@@ -94,21 +94,13 @@ class CreateGroup extends React.Component {
       creator
     };
 
-    // debugger 
-
     this.props.createGroup(newGroup).then(res => {
-      // console.log(res)
       if (res.type === "RECEIVE_GROUP_ERRORS") {
         console.log("error")
       } else if (res.type === "RECEIVE_GROUP") {
         return this.props.history.push(`/swipe/${res.group._id}`);
       }
     })
-    // .catch(err => {
-    //   console.log(err);
-    // });
-
-    //need .catch here for error
   }
 
   handleRandomSubmit(e){
@@ -116,9 +108,9 @@ class CreateGroup extends React.Component {
     const likedBusinesses = _.mapValues(this.props.businesses, () => []);
     const dislikedBusinesses = _.mapValues(this.props.businesses, () => []);
     const creator = this.props.user.id;
-    //[bizids];
+
     const newGroup = {
-      groupName: this.state.groupName,
+      groupName: "",
       startTime: new Date(),
       endTime: new Date(this.state.endTime),
       users: [...this.state.addUsers, this.props.user.id],

@@ -9,7 +9,7 @@ class JoinGroupItems extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: 0
+      selected: null
     };
   }
 
@@ -55,6 +55,10 @@ class JoinGroupItems extends React.Component {
     )}
   }
 
+  componentDidMount(){
+    this.fetchGroup(this.props.groups[0]._id, 0);
+  }
+
   finishedVotes(group) {
     let count = 0;
     Object.values(group.likedBusinesses).forEach(el => {
@@ -68,9 +72,9 @@ class JoinGroupItems extends React.Component {
 
   isCompleted(group) {
     if (this.finishedVotes(group)) {
-      return null;
-    } else {
       return <FontAwesomeIcon icon={faCheck} size="2x" />;
+    } else {
+      return null;
     }
   }
 
@@ -110,6 +114,7 @@ class JoinGroupItems extends React.Component {
         second: this.secondBiz,
         third: this.thirdBiz
       }
+
       const completeGroupEventDiv = (
         <Fragment key={idx}>
           <div className="join-group-content-items" onClick={() => this.fetchGroup(group._id, idx)}>
@@ -120,7 +125,8 @@ class JoinGroupItems extends React.Component {
             <div className={curClass1}>{this.formatTime(group.endTime)}</div>
             <div className={curClass2}>{this.isCompleted(group)}</div>
           </div>
-          {(this.state.selected === idx && this.first !== 0) ? <JoinGroupModal topThree={topThree}/> : null }
+          {/* {(this.state.selected === idx && this.first !== undefined) ? <JoinGroupModal topThree={topThree}/> : null } */}
+          {(this.state.selected === idx) ? <JoinGroupModal group={group} topThree={topThree}/> : null }
         </Fragment>
       )
 
