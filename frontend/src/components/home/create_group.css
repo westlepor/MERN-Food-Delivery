@@ -229,6 +229,18 @@
 .home-nav-content .monetary-restriction{
     margin-right: 3rem;
 }
+
+.group-errors {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-errors ul li {
+    text-align: center;
+}
+
 /* 
 .input-field-container{
     margin-top: 10px;
