@@ -49,7 +49,6 @@ class Home extends React.Component {
               businesses={this.props.businesses}
               users={this.props.users}
               selectedFoodRestrictions={this.props.selectedFoodRestrictions}
-              openModal={this.props.openModal}
               createGroup={this.props.createGroup}
               fetchUser={this.props.fetchUser}
               updateZoom={this.props.updateZoom}

@@ -43,7 +43,6 @@ class HomeNavContent extends React.Component{
           user={this.props.user}
           users={this.props.users}
           selectedFoodRestrictions={this.props.selectedFoodRestrictions}
-          openModal={this.props.openModal}
           createGroup={this.props.createGroup}
           businesses={this.props.businesses}
           coordinates={this.props.coordinates}
