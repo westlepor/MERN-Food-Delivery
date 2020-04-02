@@ -16,7 +16,7 @@
 .join-group-items {
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
+    padding: 1rem 0;
 }
 
 .join-group-title {
@@ -47,13 +47,26 @@
 }
 
 .join-group-content-item {
-    width: 33.33%;
+    width: 30%;
     box-sizing: border-box;
     padding: 0.2rem 0.5rem 0 0.5rem;
-    /* padding-bottom: ; */
     font-size: 0.85rem;
     text-transform: capitalize;
     margin-bottom: 0.1rem;
+}
+
+.join-group-content-item-last{
+    width: 10%;
+    box-sizing: border-box;
+    padding: 0.2rem 0.5rem 0 0.5rem;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    margin-bottom: 0.1rem;
+    display: flex;
+    justify-content: center;
+}
+.join-group-content-item-last svg {
+    font-size: 1rem;
 }
 
 .join-group-content-items {
@@ -71,11 +84,15 @@
     color: white;
     border-radius: 3px 0 0 3px;
 }
+
 .join-group-content-items:hover div:last-child{
     background: #ff7854;
     color: white;
     border-radius: 0 3px 3px 0;
 }
+
+
+
 
 /* THIS IS NOT */
 

@@ -56,13 +56,11 @@ class JoinGroup extends React.Component {
       if(el.length !== 0) count++; 
     })
     return (curGroup.businesses.length === count)
-    
   }
 
   categorizeGroups() {
     const groups = this.props.users[this.props.user.id].groups;
     const completedGroups = [];
-    const finishedGroups = [];
     const ongoingGroups = [];
 
     for (let i = 0; i < groups.length; i++) {
@@ -76,19 +74,15 @@ class JoinGroup extends React.Component {
 
       if (gruopEndTime.getTime() > currentTime.getTime()) {
         completedGroups.push(curGroup);
-      } else if (this.finishedVotes(curGroup)) {
-        finishedGroups.push(curGroup);
       } else {
         ongoingGroups.push(curGroup);
       }
       this.completedGroups = completedGroups;
-      this.finishedGroups = finishedGroups;
       this.ongoingGroups = ongoingGroups;
     }
   }
 
   render() {
-    console.log(this.props)
     if (
       this.props.users[this.props.user.id].groups.length > 0 &&
       typeof this.props.users[this.props.user.id].groups[0] === "string"
@@ -118,28 +112,6 @@ class JoinGroup extends React.Component {
             fetchGroup={this.props.fetchGroup}
             clearGroups={this.props.clearGroups}
           />
-
-          <JoinGroupItems
-            type="Group Event You Finished Voting"
-            users={this.props.users}
-            user={this.props.user}
-            groups={this.finishedGroups}
-            fetchGroup={this.props.fetchGroup}
-            clearGroups={this.props.clearGroups}
-          />
-
-          <div className="join-group-completed">
-            <div className="optional-divider">
-              <div className="get-started-bar"></div>
-              <h2>My Groups</h2>
-              <div className="get-started-bar"></div>
-            </div>
-            <div className="join-group-headers">
-              <h2>Group Name</h2>
-              <h2>Creator</h2>
-              <h2>Decide By</h2>
-            </div>
-          </div>
         </div>
       </div>
     );
