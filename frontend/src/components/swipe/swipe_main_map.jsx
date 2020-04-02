@@ -21,7 +21,7 @@ class SwipeMainMap extends React.Component {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [this.state.lng, this.state.lat],
+      center: [this.state.lng - .011, this.state.lat],
       zoom: this.state.zoom
     });
 
