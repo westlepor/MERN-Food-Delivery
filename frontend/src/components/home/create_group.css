@@ -27,7 +27,7 @@
 
 .create-group-form-details{
     height: calc(87vh - 226px);
-    overflow: scroll;
+    overflow: auto;
     
 }
 
@@ -144,7 +144,7 @@
     flex-direction: column;
     height: 15vh;
     width: 100%;
-    overflow: scroll;
+    overflow: auto;
     justify-content: flex-start;
     align-items: flex-start;
 }
