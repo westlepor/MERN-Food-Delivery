@@ -14,6 +14,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .home-page {
@@ -57,15 +58,17 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+    height: calc(100vh - 65px);
 }
 
 .home-nav-content-top {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 65px;
     padding-top: 1rem;
     background: linear-gradient(262deg, #ff7854, #fd267d);
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .home-nav-content-top-container{
@@ -89,6 +92,7 @@
 .home-nav-logo:first-child {
     margin-right: 4rem;
 }
+
 .home-nav-logo:last-child {
     margin-left: 4rem;
 }
@@ -96,12 +100,6 @@
 .home-nav-logo img{
     height: 1.1rem;
     width: 1.1rem;
-}
-
-.home-nav-bar h2, .home-nav-bar h3{
-    padding-top: 2%;
-    margin-bottom: 0;
-    margin-top: 1.5%;
 }
 
 .home-button-container {
@@ -154,9 +152,8 @@
 }
 
 .optional-divider h2 {
-    padding: 0 2%;
-    margin-top: 0;
-
+  padding: 0 2px;
+  margin-top: 0;
 }
 
 .endtime-container label, .is-split-container {
@@ -221,19 +218,50 @@
 
 .submit-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: center;
     width: 100%;
+    margin-top: 1rem;
 }
-.create-group-form .submit-button {
+
+.create-group-form .submit-create-group {
     align-self: center;
-    padding: 1.6% 4%;
-    background: linear-gradient(262deg, #ff7854, #fd267d);
-    color: white;
-    margin: 1%;
+    padding: 0.3rem 1rem;
+    margin: 3px;
     border-radius: 50px;
     cursor: pointer;
     margin-top: 2%;
+}
+.create-group-form .submit-create-random-group {
+    padding: 0.2rem 0.6rem;
+    margin: 3px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.create-group-form .submit-create-group {
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    border: 1px solid #fd267d;
+    color: white;
+}
+
+.create-group-form .submit-create-random-group{
+    border: 1px solid #fd267d;
+    background: white;
+    color: black;
+}
+
+.create-group-form .submit-create-group:hover {
+    border: 1px solid #fd267d;
+    background: white;
+    color: black;
+}
+
+.create-group-form .submit-create-random-group:hover {
+    border: 1px solid #fd267d;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    color: white;
 }
 
 .drop-down{
@@ -245,20 +273,26 @@
 
 
 /* Home Bottom */
-
 .home-nav-content-bottom {
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    flex: 0 0 62.742px;
+    box-sizing: border-box;
+    height: 65px;
+}
+
+.home-nav-content-bottom-container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .logout-button {
-    padding: 1.5% 40%;
+    padding: 0.3rem 1rem;
     background-color: white;
     color: black;
-    margin: 2%;
     border-radius: 50px;
     border: black 1px solid;
     cursor: pointer;
@@ -278,7 +312,10 @@
     width: 100%;
 }
 
-
+.join-group-map{
+    display: flex;
+    width: 100%;
+}
 
 /* this one needs to be fixed
 @media only screen and (max-width: 800px) {

@@ -6,7 +6,7 @@ import LikeOrDislike from './like_or_dislike';
 import SwipeMainMap from './swipe_main_map';
 import SwipeUserInfo from './swipe_user_info';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faUserAlt, faUserFriends, faUserCircle, faCompass } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faUserAlt, faUserFriends, faUserCircle, faCompass, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import _ from 'lodash';
 import './swipe.css';
 
@@ -84,32 +84,35 @@ class Swipe extends React.Component {
               <div className="swipe-dropdown">
                 <div className="welcome-swipe">
                   <div className="inner-swipe-header">
-
                   </div>
                   <div className="inner-swipe-body">
-                    <div>
-                      <FontAwesomeIcon icon={faUserAlt} color="white" size="1x" />
-                      <span>{this.props.user.username}</span>
+                    <div className="logout-container">
+                      <Link className="logout-logo swipe-logout" to="/home">
+                        <FontAwesomeIcon icon={faHome} color="black" size="3x" />
+                      </Link>
+                      <Link className="logout-logo swipe-logout" onClick={this.props.logout} to="/">
+                        <FontAwesomeIcon icon={faSignOutAlt} color="black" size="2x" />
+                      </Link>
                     </div>
-                    <div>
-                      <FontAwesomeIcon icon={faUserFriends} color="white" size="1x" />
-                      <span>{curGroup.groupName} [ {curGroup.users.map((user, idx) => <span key={idx}> <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
+                    <div className="swipe-group-info">
+                      <div>
+                        <FontAwesomeIcon icon={faUserAlt} color="black" size="1x" />
+                        <span>{this.props.user.username}</span>
+                      </div>
+                      <div>
+                        <FontAwesomeIcon icon={faUserFriends} color="black" size="1x" />
+                        <span>{curGroup.groupName} [ {curGroup.users.map((user, idx) => <span key={idx}> <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             <a href="#" onClick={this.handleClick} className={`nav-toggle `}>
-              {this.state.navOpen ? <FontAwesomeIcon icon={faChevronLeft} color="white" size="1x" /> : 
-              <img src="chicken_logo_3.png" style={{ width: "3.2rem", height: "3.2rem", color: "black" }} />}
+              <img src="chicken_logo_3.png"/>
             </a>
             </div>
           <section className="swipe-aside-nav">
             <h2>{curGroup.groupName}</h2>
-            {/* <div className="logout-container">
-              <Link className="logout-logo swipe-logout" onClick={this.props.logout} to="/">
-                <FontAwesomeIcon icon={faSignOutAlt} color="white" size="2x"/>
-              </Link>
-            </div> */}
           </section>
           <section className="swipe-body">
             <div className="caroussel">

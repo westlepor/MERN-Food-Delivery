@@ -47,7 +47,7 @@ router.get("/:id", (req, res) => {
     .populate("foodRestrictions")
     .exec(function (err, group) {
       if (err) return res.json(err);;
-      res.json(group);
+      return res.json(group);
     });
 });
 
@@ -64,6 +64,7 @@ router.delete("/:id", (req, res) => {
 router.post("/", async (req, res) => {
   const { errors, isValid } = validateGroupInput(req.body);
   if (!isValid) {
+    // console.log(errors);
     return res.status(400).json(errors);
   }
   

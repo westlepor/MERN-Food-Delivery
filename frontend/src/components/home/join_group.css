@@ -1,20 +1,83 @@
-
 .join-group-form {
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 130px);
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 5%;
-    /* border-top: solid black 1px;
-    box-shadow: 0px 0px 3px 0px grey; */
-    z-index: 1;
+    z-index: 1;   
+    overflow: scroll;
 }
 
-.join-group-content {
+.join-group-form-container {
     width: 90%;
 }
+
+.join-group-items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.join-group-title {
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.join-group-title > .line-bar{
+    height: 2.5px;
+    width: 100%;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    margin: 0.8rem;
+}
+
+.join-group-contents {
+    display: flex;
+    flex-direction: column;
+}
+
+.join-group-content-head {
+    display: flex;
+    width: 100%;
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.2rem;
+    border-bottom: 1px solid lightgray;
+}
+
+.join-group-content-item {
+    width: 33.33%;
+    box-sizing: border-box;
+    padding: 0.2rem 0.5rem 0 0.5rem;
+    /* padding-bottom: ; */
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    margin-bottom: 0.1rem;
+}
+
+.join-group-content-items {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+}
+
+.join-group-content-items:hover div{
+    background: #ff7854;
+    color: white;
+}
+.join-group-content-items:hover div:first-child{
+    background: #ff7854;
+    color: white;
+    border-radius: 3px 0 0 3px;
+}
+.join-group-content-items:hover div:last-child{
+    background: #ff7854;
+    color: white;
+    border-radius: 0 3px 3px 0;
+}
+
+/* THIS IS NOT */
 
 .join-group-container > label {
     display: flex;

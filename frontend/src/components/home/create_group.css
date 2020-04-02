@@ -1,27 +1,34 @@
 /* Create Group Section */
 .create-group-form {
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 130px);
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 4%;
-    /* border-top: solid black 1px;
-    box-shadow: 0px 0px 3px 0px grey; */
-    z-index: 1;
+    padding-top: 1rem;
+    z-index: 1;   
 }
 
-.create-group-form form {
-    width: 90%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
+/* 
+    height: calc(87vh - 195px);
+    overflow: scroll;
+ */
 .create-group-form form > div {
     width: 100%;
+}
+
+.create-group-form-main{
+    height: calc(87vh - 162px);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-group-form-details{
+    height: calc(87vh - 226px);
+    overflow: scroll;
+    
 }
 
 .groupname, .groupname-container, .groupname-container input, .add-users, .add-users-container {
@@ -35,10 +42,14 @@
     position: relative;
 }
 
+.groupname-container .input-field {
+    padding: 0.4rem;
+}
+
 .groupname-container .inputicon{
     position: absolute;
     left: 14px;
-    top: 41px;
+    top: 36px;
 }
 
 .groupname-container > label > span, .add-users-container > label > span {
@@ -52,15 +63,19 @@
 }
 
 /* Users */
-.add-users {
+.add-users-container {
 
 }
 
-.add-users-container {
+.add-users-title {
+    margin-bottom: 0.3rem;
+}
+.add-users-title span:first-child {
+    margin-right: 0.5rem;
 }
 
 .add-users-container .inputicon {
-    top: 12px;
+    top: 9px;
     position: absolute;
     left: 14px;
 }
@@ -69,6 +84,11 @@
     position: relative;
     width: 100%;
 }
+
+.add-users-form .input-field{
+    padding: 0.4rem;
+}
+
 
 .auto-complete-users{
     position: absolute;
@@ -122,7 +142,7 @@
 .added-users{
     display: flex;
     flex-direction: column;
-    height: 10vh;
+    height: 15vh;
     width: 100%;
     overflow: scroll;
     justify-content: flex-start;
@@ -165,6 +185,7 @@
 
 .submit-container{
     margin-bottom: 0.5rem;
+    height: 3rem;
 }
 
 .create-group-form-row {
@@ -202,7 +223,7 @@
     border-color: transparent;
     border-style: solid;
     padding-left: 0;
-    padding: 10px;
+    padding: 0.4rem;
 }
 
 .home-nav-content .monetary-restriction{

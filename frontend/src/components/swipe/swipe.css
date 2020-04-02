@@ -34,14 +34,19 @@
     background: linear-gradient(262deg, #ff7854, #fd267d);
     overflow: scroll;
     min-height: 64px;
-    border-bottom-right-radius: 8px;
-    margin-right: 2vw;
-
+    margin: 0 24px 0 88px;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    z-index: 5;
+    border-bottom-right-radius: 5px;
+    box-shadow: 3px 3px 3px grey;
 }
 
-.swipe-aside-nav h2 {
-    margin-left: 6vw;
-    font-size: 1.3rem;
+.logout-logo {
+    margin: 18px 14px;
 }
 
 .navOpen {
@@ -56,14 +61,17 @@
     font-size: 0.8rem;
     width: 100%;
     font-weight: bolder;
+    height: 100%;
+    border-bottom-right-radius: 5px;
+    border: solid grey 1px;
 }
+
 .welcome-swipe > div > svg, .welcome-swipe > div > span {
     margin-right: 1rem;
 }
 
 .swipe-logout svg {
     font-size: 1.4rem;
-    margin-top: 1.2rem;
 }
 
 .swipe-main {
@@ -80,7 +88,7 @@
 .swipe-body {
     height: 82vh;
     overflow: scroll;
-    margin: 2vw 2vw 1vw 2vw;
+    margin: 24px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 6px 6px 5px grey;
@@ -99,74 +107,101 @@
 }
 
 .logout-container {
+    height: 100%;
+    width: 64px;
+    background-color: #f5f7fa;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-weight: bolder;
-    margin-right: 1vw;
+    padding-bottom: 56px;
+    border-right: 1px solid lightgrey;
+}
+
+.swipe-group-info {
+    padding: 18px;
+    width: 367px;
 }
 
 .side-menu {
     position: fixed;
-    left: 0;
     top: 0;
+    margin: 24px;
     height: 100%;
-    width: 100%;
-    max-width: 350px;
+    min-width: 432px;
+    max-height: 200px;
+    width: 433px;
     background-color: transparent;
-    z-index: 111;
+    z-index: 1;
     box-sizing: border-box;
-    /* padding: 2vw; */
     color: black;
-    margin-left: -350px;
+    margin-top: -200px;
     transition: margin 200ms ease-in-out;
+    background-color: white;
+}
+
+.swipe-dropdown {
+    height: 100%;
 }
 
 .inner-swipe-header {
     height: 65px;
-    background-color: #fd267d;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    border-bottom: 1px solid gray;
+    box-shadow: 3px 3px 3px grey;
 }
 
 .inner-swipe-body {
-    background-color: #ffffff;
-    padding: 2vw;
-    height: 100vw;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 3px 3px 3px grey;
+    display: flex;
+    justify-content: space-between;
 }
 
 .side-menu.nav-open {
-    margin-left: 0;
-    box-shadow: 1px 1px 3px grey;
+    margin-top: 0;
 }
 
 .nav-toggle {
     position: absolute;
-    right: -65px;
-    top: 0;
-    width: 65px;
-    height: 65px;
-    background-color: #fd267d;
+    bottom: -64px;
+    width: 64px;
+    height: 64px;
+    background-color: #e0e4e9;
     color: black;
-    line-height: 65px;
+    line-height: 64px;
     text-decoration: none;
     text-align: center;
-    border-bottom-right-radius: 5px;
-    box-shadow: 2px 0 3px grey;
+    border-bottom-left-radius: 5px;
+    /* box-shadow: 2px 0 3px grey; */
     border: solid lightgray 1px;
-    border-left: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 5;
 }
 
 .nav-toggle:before {
-    /* content: "\2192"; */
     font-weight: 600;
     color: black;
     font-size: 1.8rem;
 }
 
-.side-menu.nav-open .nav-toggle:before {
-    /* content: "\2190"; */
+.nav-toggle img {
+    transition: all .7s;
+    transition-timing-function: ease-in-out;
+    filter: brightness(0);
+}
+.invert {filter: invert(100%);}
+
+.nav-toggle:hover img {
+    transform: rotate(360deg);
 }
 
 .nav-logo {
