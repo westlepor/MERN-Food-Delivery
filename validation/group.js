@@ -26,8 +26,8 @@ module.exports = function validateGroupInput(data) {
     errors.endTime = "Year must be 4 digits."
   }
 
-  if (data.businesses.length <= 1) {
-    errors.businesses = "Choose a location with more than 1 valid business."
+  if (data.businesses.length <= 4) {
+    errors.businesses = "Choose a location with more than 4 valid business."
   }
 
   if (!Validator.isLength(data.monetaryRestriction, { min: 1, max: 4 })) {

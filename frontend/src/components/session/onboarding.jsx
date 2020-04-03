@@ -59,6 +59,9 @@ class Onboarding extends React.Component {
       this.listBox.classList.remove("list-box-click")
     } else {
       this.listBox.classList.add("list-box-click")
+      this.listBox.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   }
   

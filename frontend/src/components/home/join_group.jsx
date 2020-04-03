@@ -60,9 +60,9 @@ class JoinGroup extends React.Component {
       const currentTime = new Date();
 
       if (gruopEndTime.getTime() > currentTime.getTime()) {
-        completedGroups.push(curGroup);
-      } else {
         ongoingGroups.push(curGroup);
+      } else {
+        completedGroups.push(curGroup);
       }
       this.completedGroups = completedGroups;
       this.ongoingGroups = ongoingGroups;

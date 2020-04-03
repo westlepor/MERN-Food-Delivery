@@ -41,14 +41,18 @@ class Swipe extends React.Component {
   }
   
   swipeRedirect(){
-    setTimeout(() => this.props.history.push("/home"), 6000);
+    setTimeout(() => {
+      this.props.clearUpData();
+      this.props.history.push("/home")
+    }, 4000);
+    
     return (
       <div className="swipe-finish-vote">
         <div className="swipe-finish-vote-container">
           <FontAwesomeIcon icon={faCompass} color="white" size="1x" />
           <span className="swipe-finish-vote-span">You finished your vote for this event!</span>
         </div>
-        <span className="swipe-finish-vote-msg">redirect to the home page in 5 seconds.</span>
+        <span className="swipe-finish-vote-msg">redirect to the home page in 3 seconds.</span>
       </div>
     )
   }

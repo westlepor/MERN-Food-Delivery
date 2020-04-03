@@ -3,13 +3,14 @@ import Ratings from './ratings';
 import BizHour from './biz_hour';
 import './biz_info.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhoneAlt, faExternalLinkAlt, faMapMarkedAlt, faDirections  } from '@fortawesome/free-solid-svg-icons';
+import { faPhoneAlt, faExternalLinkAlt, faDirections } from '@fortawesome/free-solid-svg-icons';
 import _ from 'lodash';
 
 class BizInfo extends React.Component {
   constructor(props) {
       super(props);
       this.handleCategories = this.handleCategories.bind(this);
+      this.open = false;
   }
   
   handleCategories() {
@@ -22,12 +23,48 @@ class BizInfo extends React.Component {
     )
   }
 
+  isOpen() {
+    if (new Date().getDay() != this.props.hour.day) {
+      return null;
+    }
+    const startHourMin = parseFloat(this.props.hour.start) / 100
+    const endHourMin = parseFloat(this.props.hour.end) / 100
+    const curTime = new Date().getHours() + (new Date().getMinutes() / 100);
+
+    if (curTime > startHourMin && curTime < endHourMin) {
+      return <span className="biz-hour-opened">Open now</span >
+    } else {
+      return <span className="biz-hour-closed"></span >
+    }
+  }
+
   render() {
     if (!this.props.business) {
         return null;
     } 
+    console.log(this.props.business);
 
     const mapLocation = `https://www.google.com/maps?q=${this.props.business.latitude},${this.props.business.longitude}`
+
+    const curHours = this.props.business.hours.map((hour, idx) => {
+      let prevId;
+
+      if (new Date().getDay() != hour.day) {
+        const startHourMin = parseFloat(hour.start) / 100
+        const endHourMin = parseFloat(hour.end) / 100
+        const curTime = new Date().getHours() + (new Date().getMinutes() / 100);
+  
+        if (curTime > startHourMin && curTime < endHourMin) {
+          this.open = true;
+        }
+      }
+
+      if (idx != 0 && this.props.business.hours[idx - 1].day === hour.day) {
+        hour.day = 7;
+      }
+
+      return hour;
+    });
 
     return (
       <div className="biz-info">
@@ -92,13 +129,14 @@ class BizInfo extends React.Component {
                   </div>
                 </div>
               </div>
-              {/* hours and location */}
               <div className="biz-hours">
-                {this.props.business.hours.map((hour, idx) => <BizHour key={idx} hour={hour} />)}
+                {this.open === false ? <div className="biz-hours-closed">Currently Closed</div>
+                : <div className="biz-hours-open">Currently Open</div>
+                }
+                
+                {curHours.map((hour, idx) => <BizHour key={idx} hour={hour} />)}
               </div>
             </div>
-
-            
         </div>
       </div>
     );
@@ -106,4 +144,3 @@ class BizInfo extends React.Component {
 };
 
 export default BizInfo;
-
