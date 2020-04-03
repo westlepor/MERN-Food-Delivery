@@ -131,6 +131,7 @@
 
 .list-box-click {
     display: block;
+    z-index: 2;
 }
 
 .list-box-items {

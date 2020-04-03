@@ -75,7 +75,7 @@ class Onboarding extends React.Component {
     e.preventDefault();
     const birthday = new Date(parseInt(this.state.YYYY), parseInt(this.state.MM) - 1, parseInt(this.state.DD))
 
-    let selectedFoodRestrictions = null;
+    let selectedFoodRestrictions = [];
     
     if (!_.isEmpty(this.props.foodRestrictions)){
       selectedFoodRestrictions = this.state.selectedFoodRestrictions.map((selectedRestriction)=>{

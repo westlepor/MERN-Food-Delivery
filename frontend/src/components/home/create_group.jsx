@@ -67,6 +67,9 @@ class CreateGroup extends React.Component {
       this.listBox.classList.remove("list-box-click");
     } else {
       this.listBox.classList.add("list-box-click");
+      this.listBox.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   }
 
@@ -93,7 +96,8 @@ class CreateGroup extends React.Component {
       dislikedBusinesses,
       creator
     };
-
+    
+    this.props.clearUpData();
     this.props.createGroup(newGroup).then(res => {
       if (res.type === "RECEIVE_GROUP_ERRORS") {
         return null;
@@ -397,12 +401,9 @@ class CreateGroup extends React.Component {
                           className="drop-down-button"
                           onClick={this.moneyHandle}
                         >
-                          Select ▾{" "}
+                          Select ▾
                         </button>
-                        <div
-                          className="list-box"
-                          ref={el => (this.listBox = el)}
-                        >
+                        <div className="list-box" ref={el => (this.listBox = el)}>
                           <ul className="list-box-items">
                             <li className="list-box-item">
                               <label> $ </label>

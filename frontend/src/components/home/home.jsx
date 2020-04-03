@@ -94,7 +94,6 @@ class Home extends React.Component {
           <div className="home-map-container">
             {this.state.form === "join group" ? (
               <JoinGroupMap
-
                 form={this.state.form}
                 zoom={this.props.zoom}
                 businesses={this.props.businesses}

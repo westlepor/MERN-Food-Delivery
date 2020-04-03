@@ -24,6 +24,7 @@ class HomeNavContent extends React.Component{
         />
       ) : (
         <CreateGroup
+          clearUpData={this.props.clearUpData}
           updateZoom={this.props.updateZoom}
           history={this.props.history}
           user={this.props.user}

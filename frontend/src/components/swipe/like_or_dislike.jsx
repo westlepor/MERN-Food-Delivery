@@ -10,7 +10,8 @@ class LikeOrDislike extends React.Component{
   }
 
   clickButton(type){
-    return () => {
+    return (e) => {
+      e.preventDefault()
       if(type === "like"){
         const curGroup = this.props.curGroup;
         curGroup.likedBusinesses[this.props.curBiz._id].push(this.props.user.id)
