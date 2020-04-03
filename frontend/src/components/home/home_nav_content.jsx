@@ -8,24 +8,9 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 class HomeNavContent extends React.Component{
   constructor(props) {
     super(props);    
-    // this.handleChangeForm = this.handleChangeForm.bind(this);
   }
-  // change this!!
-  // handleChangeForm(type) {
-  //   return (e)=>{
-  //     e.preventDefault();
-  //     if (type === "create group") {
-  //       this.setState({ form: "create group" })
-  //     } else if (type === "join group") {
-  //       this.setState({ form: "join group" })
-  //     }
-  //   }
-  // };
 
   render(){
-    // if (_.isEmpty(this.props.businesses)){
-    //   return <div style={{ display: "flex", justifyContent: "center", width: "100%" }}><img src="loading2.gif" style={{ width: "auto", height: "300px",}}/></div>;;
-    // }
 
     const currentTab =
       this.props.form === "join group" ? (
@@ -35,6 +20,7 @@ class HomeNavContent extends React.Component{
           fetchUser={this.props.fetchUser}
           fetchGroup={this.props.fetchGroup}
           clearGroups={this.props.clearGroups}
+          clearUpData={this.props.clearUpData}
         />
       ) : (
         <CreateGroup

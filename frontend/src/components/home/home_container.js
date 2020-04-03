@@ -5,9 +5,11 @@ import { logout } from "../../actions/session_actions";
 import { openModal } from "../../actions/modal_actions"
 import { fetchBusinesses } from "../../actions/business_actions"
 import { updateFilter } from "../../actions/filter_action";
+import { clearUpData } from "../../actions/clear_actions";
 import { updateZoom } from "../../actions/zoom_actions";
 import { fetchBusinessesByCoordinates } from '../../actions/business_actions';
 import { createGroup, fetchGroup, clearGroups } from "../../actions/group_actions";
+
 
 const mapSTP = (state) => ({
     user: state.session.user,
@@ -32,7 +34,8 @@ const mapDTP = (dispatch) => ({
     updateFilter: (filters, value) => dispatch(updateFilter(filters, value)),
     updateZoom: (value) => dispatch(updateZoom(value)),
     fetchBusinessesByCoordinates: (value) => dispatch(fetchBusinessesByCoordinates(value)),
-    clearGroups: () => dispatch(clearGroups())
+    clearGroups: () => dispatch(clearGroups()),
+    clearUpData: () => dispatch(clearUpData())
 })
 
 export default connect(mapSTP, mapDTP)(Home);

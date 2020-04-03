@@ -94,7 +94,7 @@ class Onboarding extends React.Component {
       selectedFoodRestrictions: selectedFoodRestrictions,
       birthday: birthday
     }
-
+    this.props.clearUpData();
     this.props.signup(newUser);
   }
 

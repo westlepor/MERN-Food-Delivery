@@ -149,6 +149,7 @@ class JoinGroupItems extends React.Component {
       const ongoingDiv = (
         <Link
           to={`/swipe/${group._id}`}
+          onClick={this.props.clearUpData}
           className="join-group-content-items"
           key={idx}
         >

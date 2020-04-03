@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     e.stopPropagation();
     const user = Object.assign({}, this.state);
-
+    this.props.clearUpData();
     this.props.login(user).then(
       (res) => {
         if (res.type === "RECEIVE_SESSION_ERRORS") {

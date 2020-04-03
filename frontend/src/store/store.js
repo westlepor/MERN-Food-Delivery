@@ -2,11 +2,11 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-import rootReducer from '../reducers/root_reducer';
+import appReducer from '../reducers/app_reducer';
 
 const configureStore = (preloadedState = {}) => (
     createStore(
-        rootReducer,
+        appReducer,
         preloadedState,
         applyMiddleware(thunk, logger)
     )

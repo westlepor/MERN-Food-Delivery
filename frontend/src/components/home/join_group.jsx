@@ -45,17 +45,6 @@ class JoinGroup extends React.Component {
     return gruopEndTime.getTime() < currentTime.getTime();
   }
 
-  // finishedVotes(curGroup) {
-  //   let count;
-  //   Object.values(curGroup.likedBusinesses).forEach(el => {
-  //     if(el.length !== 0) count++; 
-  //   })
-  //   Object.values(curGroup.likedBusinesses).forEach(el => {
-  //     if(el.length !== 0) count++; 
-  //   })
-  //   return (curGroup.businesses.length === count)
-  // }
-
   categorizeGroups() {
     const groups = this.props.users[this.props.user.id].groups;
     const completedGroups = [];
@@ -100,7 +89,7 @@ class JoinGroup extends React.Component {
             groups={this.completedGroups}
             fetchGroup={this.props.fetchGroup}
             clearGroups={this.props.clearGroups}
-          />
+            />
 
           <JoinGroupItems
             type="Ongoing Group Event"
@@ -109,6 +98,7 @@ class JoinGroup extends React.Component {
             groups={this.ongoingGroups}
             fetchGroup={this.props.fetchGroup}
             clearGroups={this.props.clearGroups}
+            clearUpData={this.props.clearUpData}
           />
         </div>
       </div>

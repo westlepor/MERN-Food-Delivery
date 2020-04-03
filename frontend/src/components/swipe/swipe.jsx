@@ -87,10 +87,10 @@ class Swipe extends React.Component {
                   </div>
                   <div className="inner-swipe-body">
                     <div className="logout-container">
-                      <Link className="logout-logo swipe-logout" to="/home">
+                      <Link onClick={this.props.clearUpData} className="logout-logo swipe-logout" to="/home">
                         <FontAwesomeIcon icon={faHome} color="black" size="3x" />
                       </Link>
-                      <Link className="logout-logo swipe-logout" onClick={this.props.logout} to="/">
+                      <Link onClick={this.props.clearUpData} className="logout-logo swipe-logout" onClick={this.props.logout} to="/">
                         <FontAwesomeIcon icon={faSignOutAlt} color="black" size="2x" />
                       </Link>
                     </div>
