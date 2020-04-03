@@ -62,7 +62,19 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.login-button {
+    box-sizing: content-box;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    padding: .5vw 4vw;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: white;
+    width: 60px;
     margin-bottom: 10px;
+    border: 2px solid #ff7854;
 }
 
 .demo-user-button {
@@ -85,18 +97,7 @@
     border: 2px solid #ff7854;
 }
 
-.login-button {
-    box-sizing: content-box;
-    background: linear-gradient(262deg, #ff7854, #fd267d);
-    padding: .5vw 4vw;
-    border-radius: 50px;
-    cursor: pointer;
-    white-space: nowrap;
-    color: white;
-    width: 60px;
-    margin-bottom: 10px 0 10px 0;
-    border: 2px solid #ff7854;
-}
+
 
 .login-button:hover {
     box-sizing: content-box;

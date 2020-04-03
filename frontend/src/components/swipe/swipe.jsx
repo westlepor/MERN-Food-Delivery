@@ -4,6 +4,7 @@ import BizCaroussel from '../swipe/caroussel/biz_caroussel';
 import BizInfo from '../swipe/biz_info/biz_info';
 import LikeOrDislike from './like_or_dislike';
 import SwipeMainMap from './swipe_main_map';
+import SwipeAsideMap from './swipe_aside_map';
 import SwipeUserInfo from './swipe_user_info';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUserAlt, faUserFriends, faUserCircle, faCompass, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
@@ -120,7 +121,8 @@ class Swipe extends React.Component {
             <div className="bisuness-info">
               <BizInfo business={curBiz} />
             </div>
-            <SwipeUserInfo foodRestrictions={curGroup.foodRestrictions}/>
+            <SwipeUserInfo foodRestrictions={curGroup.foodRestrictions} monetaryRestriction={curGroup.monetaryRestriction}/>
+            <SwipeAsideMap businesses={curBizs} curBiz={curBiz}/>
           </section>
           <section className="swipe-footer">
             <LikeOrDislike user={this.props.user} curGroup={curGroup} updateGroup={this.props.updateGroup} fetchGroup={this.props.fetchGroup} curBiz={curBiz}/>

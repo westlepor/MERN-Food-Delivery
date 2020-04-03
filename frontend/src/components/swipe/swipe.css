@@ -246,8 +246,101 @@
     color: #fd267d;
 }
 
+.swipe-aside-map{
+    display: none;
+}
 
-@media only screen and (max-width: 1000px) {
+.swipe-aside-map .swipe-aside-map{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.swipe-aside-map .map-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.swipe-aside-map .marker {
+    width: 30px;
+    height: 30px;
+    border-radius: 50% 50% 50% 0;
+    background: #fd267d;
+    transform: rotate(-45deg);
+    margin: -20px 0 0 -20px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.swipe-aside-map .marker:after {
+    content: "";
+    width: 14px;
+    height: 12px;
+    margin: 8px 0 0 8px;
+    background: #eeeded;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+}
+
+.swipe-aside-map .mapboxgl-popup {
+    max-width: 200px;
+}
+
+.swipe-aside-map .mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.swipe-aside-map .sidebar-style {
+    display: inline-block; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 12px;
+    background-color: #404040;
+    color: #ffffff;
+    z-index: 1 !important;
+    padding: 6px;
+    font-weight: bold;
+}
+
+.swipe-aside-map .mapboxgl-popup-content{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+.swipe-aside-map .mapboxgl-popup-close-button{
+    right: 10px;
+}
+
+.swipe-aside-map .swipe-map-popup {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.swipe-aside-map .swipe-map-popup-title {
+    width: 200px;
+    font-size: 1rem;
+    margin: 0.3rem 0;
+    flex-wrap: nowrap;
+    font-weight: bold;
+    text-align: start;}
+
+.swipe-map-popup-price-span {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* @media only screen and (max-width: 1000px) {
     .swipe-main {
         width: 50%;
     }
@@ -255,20 +348,67 @@
     .swipe-aside {
         width: 50%;
     }
-}
-@media only screen and (max-width: 700px) {
+} */
+
+@media only screen and (max-width: 736px) {
     .swipe-main {
-        width: 0%;
         display: none;
     }
 
     .swipe-aside {
         width: 100%;
+        min-width: none;
     }
 
     .swipe-aside-nav, .swipe-body, .swipe-footer {
-        width: 100vw;
+        width: 100%;
     }
+
+    .swipe-aside-nav {
+        display: flex;
+        flex-basis: 62.742px;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        height: 8vh;
+        background: linear-gradient(262deg, #ff7854, #fd267d);
+        overflow: auto;
+        min-height: 64px;
+        margin: 0 24px 0 88px;
+        z-index: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+        z-index: 5;
+        border-bottom-right-radius: 0;
+        box-shadow: none;
+    }
+
+    .swipe-body {
+        height: 82vh;
+        overflow: auto;
+        margin: 0;
+        background-color: white;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .inner-swipe-header {
+        box-shadow: none;
+    }
+
+    .inner-swipe-body {  
+        box-shadow: none;
+    }
+
+    .swipe-aside-map{
+        display: flex;
+        width: 100%;
+        min-height: 500px;
+        position: relative;
+    }
+    
     
 /* 
     .like-or-dislike-container {
