@@ -213,7 +213,7 @@
 
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 736px) {
     .login-form {
     height: 400px;
     width: 300px;
