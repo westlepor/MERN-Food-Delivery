@@ -35,7 +35,7 @@ class HomeModal extends React.Component{
                             <HomeSlideShow stage={this.state.stage} />
                             <div className='tuto-footer'>
                                 <div className='tuto-skip-container'>
-                                    <button className='tuto-button-skip' onClick={() => this.props.handleModal()}>SKIP</button>
+                                    <button className='tuto-button-skip' onClick={() => this.props.handleModal()}>SKIP </button>
                                 </div>
                                 <div className='tuto-prev-next-container'>
                                     <button className='tuto-button-prev' onClick={() => this.handleStage(-1)}>PREVIOUS</button>
