@@ -32,7 +32,7 @@ export class Slide2 extends React.Component {
                 <div className='tuto-slide-text-container'>
                     <div className='tuto-slide-text'>
                         <h1>STEP 2: JOIN A GROUP</h1>
-                        <p>If you've been invited to an existing group, go to 'join a group' and look it up.
+                        <p>If you've been invited to an existing group, go to 'My groups' and look it up.
                         </p>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ export class Slide3 extends React.Component {
                 <div className='tuto-slide-text-container'>
                     <div className='tuto-slide-text'>
                         <h1>STEP 3: VOTE FOR YOUR FAVORITE SPOTS</h1>
-                        <p>You can select or discard all the options offered to you by your group the deadline</p>
+                        <p>You can select or discard each one of the options offered to your group.</p>
                     </div>
                 </div>
                 <div className='tuto-slide-gif-container'>

@@ -137,4 +137,51 @@
 
 @media only screen and (max-width: 736px) {
 
+    .tuto-modal{
+    height: 500px;
+    width: 300px;
+    }
+
+    .tuto-slide{
+        justify-content: space-evenly;
+    }
+
+    .tuto-slide-text h1{
+        font-size: 1rem;
+    }
+
+    .tuto-slide-text p{
+        font-size: 0.8rem;
+    }
+
+    .tuto-footer{
+        flex-direction: column-reverse;
+        height: 20%;
+        align-items: center;
+    }
+
+    .tuto-prev-next-container {
+        width: 80%;
+    }
+
+    .tuto-skip-container {
+        width: 80%;
+    }
+
+    .tuto-button-skip{
+    width: 80px;
+    height: 22px;
+    margin: 10px;
+    }
+    .tuto-button-prev{
+    width: 80px;
+    height: 22px;
+    }
+    .tuto-button-next{
+    width: 80px;
+    height: 22px;
+    }
+
+
+
 }
