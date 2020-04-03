@@ -42,7 +42,7 @@
   cursor: pointer;
 }
 
-.join-group-map .marker:after {
+.join-group-map .marker:after, .join-group-map .first-marker:after, .join-group-map .second-marker:after, .join-group-map .third-marker:after {
   content: "";
   width: 14px;
   height: 12px;
@@ -52,6 +52,7 @@
   position: absolute;
   cursor: pointer;
 }
+
 
 .join-group-map .mapboxgl-popup{
   max-width: 200px;
