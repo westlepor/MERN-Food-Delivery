@@ -33,6 +33,7 @@ class HomeSearch extends React.Component{
     inputChange(e){
         const value = e.target.value;
         let options = [];
+        if (value.charCodeAt(0) === 92) return null;
         if (value.length > 0) {
             const regex = new RegExp(`${value.toLowerCase()}`, 'i');
             options = this.state.neighborhoods.sort().filter(nh => regex.test(nh.toLowerCase()));

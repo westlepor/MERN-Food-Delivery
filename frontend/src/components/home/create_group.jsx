@@ -114,12 +114,14 @@ class CreateGroup extends React.Component {
     const creator = this.props.user.id;
 
     const newGroup = {
-      groupName: "",
+      groupName: "Demo Group",
       startTime: new Date(),
-      endTime: new Date(this.state.endTime),
-      users: [...this.state.addUsers, this.props.user.id],
+      endTime: new Date(new Date().getTime() + (10 * 60000)),
+      users: Object.keys(this.props.users).slice(0, 2).map(el => {
+        return this.props.users[el];
+      }),
       foodRestrictions: this.state.foodRestrictions,
-      monetaryRestriction: this.state.monetaryRestriction,
+      monetaryRestriction: "$$$",
       isSplit: this.state.isSplit,
       businesses: Object.keys(this.props.businesses),
       likedBusinesses,
@@ -128,8 +130,12 @@ class CreateGroup extends React.Component {
     };
 
     this.props.createGroup(newGroup).then(res => {
-      return this.props.history.push(`/swipe/${res.group._id}`);
-    });
+      if (res.type === "RECEIVE_GROUP_ERRORS") {
+        return null;
+      } else if (res.type === "RECEIVE_GROUP") {
+        return this.props.history.push(`/swipe/${res.group._id}`);
+      }
+    })
   };
 
   handleChange(type) {
