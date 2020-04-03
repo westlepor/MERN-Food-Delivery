@@ -11,24 +11,6 @@ class JoinGroup extends React.Component {
     this.ongoingGroups = [];
   }
 
-  formatTime(endTime) {
-    const date = endTime.split("T")[0].split("-");
-    const time = endTime.split("T")[1].split(":");
-    const timeOfDay = parseInt(time[0]) > 12 ? "PM" : "AM";
-    return (
-      (parseInt(time[0]) % 12) +
-      ":" +
-      time[1] +
-      timeOfDay +
-      " on " +
-      date[1] +
-      "/" +
-      date[2] +
-      "/" +
-      date[0]
-    );
-  }
-
   componentDidMount() {
     this.props.fetchUser(this.props.user.id);
   }
@@ -52,11 +34,7 @@ class JoinGroup extends React.Component {
 
     for (let i = 0; i < groups.length; i++) {
       const curGroup = groups[i];
-      const date = curGroup.endTime.split("T")[0].split("-");
-      const time = curGroup.endTime.split("T")[1].split(":");
-      const [YYYY, MM, DD] = date;
-      const [Hr, Min, Sec] = time;
-      const gruopEndTime = new Date(YYYY, MM, DD, Hr, Min, Sec.slice(0, 2));
+      const gruopEndTime = new Date(curGroup.endTime);
       const currentTime = new Date();
 
       if (gruopEndTime.getTime() > currentTime.getTime()) {
@@ -69,6 +47,34 @@ class JoinGroup extends React.Component {
     }
   }
 
+  emptySpaceDiv (type){
+    return (
+      <div className="join-group-items">
+        <div className="join-group-title">
+          <div>{type}</div>
+          <div className="line-bar"></div>
+        </div>
+        <div className="join-group-contents">
+          <div className="join-group-content-head">
+            <div className="join-group-content-item">Group Name</div>
+            <div className="join-group-content-item">Creator</div>
+            <div className="join-group-content-item">Decide By</div>
+            <div className="join-group-content-item-last">Voted?</div>
+          </div>
+        </div>
+        <div className="join-group-empty"> 
+          <div>
+            You don't have any <span>{type}</span> yet.
+          </div>  
+          <div>
+            If you have not participated in any group event, please go to <span>Start a Group</span> tab and <span>create a new group</span>.
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+
   render() {
     if (
       this.props.users[this.props.user.id].groups.length > 0 &&
@@ -78,28 +84,38 @@ class JoinGroup extends React.Component {
     }
 
     this.categorizeGroups();
+
+    const completedGroupDiv = ()=>{
+      if (this.completedGroups === undefined) return this.emptySpaceDiv("Completed Group Event");
+      if (this.completedGroups.length === 0) return this.emptySpaceDiv("Completed Group Event");
+      return (<JoinGroupItems
+        type="Completed Group Event"
+        users={this.props.users}
+        user={this.props.user}
+        groups={this.completedGroups}
+        fetchGroup={this.props.fetchGroup}
+        clearGroups={this.props.clearGroups}
+      />)
+    }
+
+    const ongoingGroupDiv = () => {
+      if (this.ongoingGroups === undefined) return this.emptySpaceDiv("Ongoing Group Event");
+      if (this.ongoingGroups.length === 0) return this.emptySpaceDiv("Ongoing Group Event");
+      return (<JoinGroupItems
+        type="Ongoing Group Event"
+        users={this.props.users}
+        user={this.props.user}
+        groups={this.ongoingGroups}
+        fetchGroup={this.props.fetchGroup}
+        clearGroups={this.props.clearGroups}
+      />)
+    }
     
     return (
       <div className="join-group-form">
         <div className="join-group-form-container">
-          <JoinGroupItems
-            type="Completed Group Event"
-            users={this.props.users}
-            user={this.props.user}
-            groups={this.completedGroups}
-            fetchGroup={this.props.fetchGroup}
-            clearGroups={this.props.clearGroups}
-            />
-
-          <JoinGroupItems
-            type="Ongoing Group Event"
-            users={this.props.users}
-            user={this.props.user}
-            groups={this.ongoingGroups}
-            fetchGroup={this.props.fetchGroup}
-            clearGroups={this.props.clearGroups}
-            clearUpData={this.props.clearUpData}
-          />
+          {completedGroupDiv()}
+          {ongoingGroupDiv()}
         </div>
       </div>
     );

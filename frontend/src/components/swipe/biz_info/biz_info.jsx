@@ -42,7 +42,6 @@ class BizInfo extends React.Component {
     if (!this.props.business) {
         return null;
     } 
-    console.log(this.props.business);
 
     const mapLocation = `https://www.google.com/maps?q=${this.props.business.latitude},${this.props.business.longitude}`
 

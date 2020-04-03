@@ -1,9 +1,9 @@
-import React from 'react';
 import CreateGroup from './create_group';
 import JoinGroup from './join_group';
-import _ from 'lodash';
+import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faInfo } from "@fortawesome/free-solid-svg-icons";
+import { faInfo } from "@fortawesome/free-solid-svg-icons";
+import _ from 'lodash';
 
 class HomeNavContent extends React.Component{
   constructor(props) {
@@ -11,18 +11,8 @@ class HomeNavContent extends React.Component{
   }
 
   render(){
-
     const currentTab =
-      this.props.form === "join group" ? (
-        <JoinGroup
-          users={this.props.users}
-          user={this.props.user}
-          fetchUser={this.props.fetchUser}
-          fetchGroup={this.props.fetchGroup}
-          clearGroups={this.props.clearGroups}
-          clearUpData={this.props.clearUpData}
-        />
-      ) : (
+      this.props.form === "create group" ? (
         <CreateGroup
           clearUpData={this.props.clearUpData}
           updateZoom={this.props.updateZoom}
@@ -34,6 +24,15 @@ class HomeNavContent extends React.Component{
           businesses={this.props.businesses}
           coordinates={this.props.coordinates}
           errors={this.props.errors}
+        />
+      ) : (
+        <JoinGroup
+          users={this.props.users}
+          user={this.props.user}
+          fetchUser={this.props.fetchUser}
+          fetchGroup={this.props.fetchGroup}
+          clearGroups={this.props.clearGroups}
+          clearUpData={this.props.clearUpData}
         />
       );
 
@@ -48,8 +47,8 @@ class HomeNavContent extends React.Component{
               <h1><img src="chicken_logo_3.png"/></h1>
             </div>
             <div className="home-button-container">
-              <button id={joinBtId} onClick={this.props.handleChangeForm("join group")}> Join a Group </button>
               <button id={createBtId} onClick={this.props.handleChangeForm("create group")}> Start a Group </button>
+              <button id={joinBtId} onClick={this.props.handleChangeForm("join group")}> My Groups </button>
             </div>
             <div className="home-nav-logo" onClick={()=>this.props.handleModal()}>
               <FontAwesomeIcon icon={faInfo}

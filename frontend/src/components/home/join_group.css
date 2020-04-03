@@ -19,6 +19,17 @@
     padding: 1rem 0;
 }
 
+.join-group-items > .join-group-empty{
+    font-size: 0.85rem;
+    color: black;
+    margin-top: 0.5rem;
+    font-weight: bolder;
+}
+
+.join-group-items > .join-group-empty span {
+    color: #fd267d;
+}
+
 .join-group-title {
     margin-bottom: 0.5rem;
     white-space: nowrap;

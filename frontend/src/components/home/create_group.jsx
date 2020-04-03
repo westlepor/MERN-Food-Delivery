@@ -266,11 +266,7 @@ class CreateGroup extends React.Component {
     }
   }
 
-  render() {
-    if (_.isEmpty(this.props.businesses)){
-      return <div style={{ display: "flex", justifyContent: "center", width: "100%" }}><img src="loading2.gif" style={{ width: "auto", height: "300px",}}/></div>;;
-    }
-    
+  render() {    
     return (
       <div className="create-group-form">
         <HomeSearch
@@ -283,7 +279,6 @@ class CreateGroup extends React.Component {
             <div className="groupname">
               <div className="groupname-container">
                 <label>
-                  {" "}
                   <span>Group Name</span>
                   <div>
                     <input
@@ -365,7 +360,6 @@ class CreateGroup extends React.Component {
               <div className="endtime">
                 <div className="endtime-container">
                   <label>
-                    {" "}
                     End Time
                     <input
                       required
@@ -392,7 +386,6 @@ class CreateGroup extends React.Component {
                     </div>
                   </label>
                   <div className="is-split-explanation">
-                    {" "}
                     {this.state.isSplit
                       ? "Everyone will split."
                       : "Host will pay for this event."}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import JoinGroupModal from './join_group_modal';
+import _ from 'lodash';
 import "balloon-css";
 
 class JoinGroupItems extends React.Component {
@@ -14,30 +15,17 @@ class JoinGroupItems extends React.Component {
   }
 
   formatTime(endTime) {
-    const date = endTime.split("T")[0].split("-");
-    const time = endTime.split("T")[1].split(":");
-    const timeOfDay = parseInt(time[0]) > 12 ? "PM" : "AM";
-    return (
-      (parseInt(time[0]) % 12) +
-      ":" +
-      time[1] +
-      timeOfDay +
-      " on " +
-      date[1] +
-      "/" +
-      date[2] +
-      "/" +
-      date[0]
-    );
+    const curEndTimeArr = new Date(endTime).toString().split(" ");
+    const month = curEndTimeArr[1]
+    const date = curEndTimeArr[2]
+    const year = curEndTimeArr[3]
+    const time = curEndTimeArr[4].slice(0, 5)
+    const stringTime = [month, date, year, time].join("/")
+    return stringTime;
   }
 
   timeValid(endTime) {
-    const date = endTime.split("T")[0].split("-");
-    const time = endTime.split("T")[1].split(":");
-    const [YYYY, MM, DD] = date;
-    const [Hr, Min, Sec] = time;
-
-    const gruopEndTime = new Date(YYYY, MM, DD, Hr, Min, Sec.slice(0, 2));
+    const gruopEndTime = new Date(endTime);
     const currentTime = new Date();
 
     return gruopEndTime.getTime() < currentTime.getTime();
@@ -172,8 +160,7 @@ class JoinGroupItems extends React.Component {
     }));
   }
 
-  render() {
-    
+  render() {    
     return (
       <div className="join-group-items">
         <div className="join-group-title">
