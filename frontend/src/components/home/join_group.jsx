@@ -30,9 +30,7 @@ class JoinGroup extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.user.id).then((res)=>{
-      // console.log(res, "res")
-    });
+    this.props.fetchUser(this.props.user.id);
   }
 
   isExpired(endTime) {
@@ -46,17 +44,6 @@ class JoinGroup extends React.Component {
 
     return gruopEndTime.getTime() < currentTime.getTime();
   }
-
-  // finishedVotes(curGroup) {
-  //   let count;
-  //   Object.values(curGroup.likedBusinesses).forEach(el => {
-  //     if(el.length !== 0) count++; 
-  //   })
-  //   Object.values(curGroup.likedBusinesses).forEach(el => {
-  //     if(el.length !== 0) count++; 
-  //   })
-  //   return (curGroup.businesses.length === count)
-  // }
 
   categorizeGroups() {
     const groups = this.props.users[this.props.user.id].groups;
@@ -73,9 +60,9 @@ class JoinGroup extends React.Component {
       const currentTime = new Date();
 
       if (gruopEndTime.getTime() > currentTime.getTime()) {
-        completedGroups.push(curGroup);
-      } else {
         ongoingGroups.push(curGroup);
+      } else {
+        completedGroups.push(curGroup);
       }
       this.completedGroups = completedGroups;
       this.ongoingGroups = ongoingGroups;
@@ -102,7 +89,7 @@ class JoinGroup extends React.Component {
             groups={this.completedGroups}
             fetchGroup={this.props.fetchGroup}
             clearGroups={this.props.clearGroups}
-          />
+            />
 
           <JoinGroupItems
             type="Ongoing Group Event"
@@ -111,6 +98,7 @@ class JoinGroup extends React.Component {
             groups={this.ongoingGroups}
             fetchGroup={this.props.fetchGroup}
             clearGroups={this.props.clearGroups}
+            clearUpData={this.props.clearUpData}
           />
         </div>
       </div>

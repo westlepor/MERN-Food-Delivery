@@ -23,6 +23,7 @@ class HomeSearch extends React.Component{
 
     handleSubmit(e){    
         e.preventDefault();
+        console.log("handleSubmit")
         const selectedNeighborhood = this.zipcode.filter((zipcode) => zipcode.neighborhood === this.state.searchText)
         if (selectedNeighborhood.length !== 0){
             this.props.updateZoom(selectedNeighborhood[0]);
@@ -43,11 +44,12 @@ class HomeSearch extends React.Component{
         })
     }
 
-    optionSelected(e) {
-        this.setState({
-            searchText: e.nativeEvent.target.innerText,
-            options: []
-        })
+    async optionSelected(e) {
+      await this.setState({
+        searchText: e.nativeEvent.target.innerText,
+        options: []
+      })
+      this.handleSubmit(e);
     }
 
     renderOptions() {

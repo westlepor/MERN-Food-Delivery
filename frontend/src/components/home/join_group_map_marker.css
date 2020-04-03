@@ -9,7 +9,40 @@
   cursor: pointer;
 }
 
-.join-group-map .marker:after {
+.join-group-map .first-marker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #d2e002;
+  transform: rotate(-45deg);
+  margin: -20px 0 0 -20px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.join-group-map .second-marker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #8b8b8b;
+  transform: rotate(-45deg);
+  margin: -20px 0 0 -20px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.join-group-map .third-marker {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  background: #A97142;
+  transform: rotate(-45deg);
+  margin: -20px 0 0 -20px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.join-group-map .marker:after, .join-group-map .first-marker:after, .join-group-map .second-marker:after, .join-group-map .third-marker:after {
   content: "";
   width: 14px;
   height: 12px;
@@ -19,6 +52,7 @@
   position: absolute;
   cursor: pointer;
 }
+
 
 .join-group-map .mapboxgl-popup{
   max-width: 200px;

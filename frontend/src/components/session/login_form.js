@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     e.stopPropagation();
     const user = Object.assign({}, this.state);
-
+    this.props.clearUpData();
     this.props.login(user).then(
       (res) => {
         if (res.type === "RECEIVE_SESSION_ERRORS") {
@@ -116,12 +116,12 @@ class LoginForm extends React.Component {
         {this.renderErrors()}
         <div className="form-bottom">
           <br />
+          <input className="login-button" type="submit" value="LOG IN" />
           <div className="form-bottom-demo">
             <button className="demo-user-button" onClick={this.demoLogin}>
               Demo User
             </button>
           </div>
-          <input className="login-button" type="submit" value="LOG IN" />
           <div className="instead">
             <br />
             <p className="link-form-label">Not a registered user? </p>

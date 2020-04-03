@@ -59,6 +59,9 @@ class Onboarding extends React.Component {
       this.listBox.classList.remove("list-box-click")
     } else {
       this.listBox.classList.add("list-box-click")
+      this.listBox.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   }
   
@@ -75,7 +78,7 @@ class Onboarding extends React.Component {
     e.preventDefault();
     const birthday = new Date(parseInt(this.state.YYYY), parseInt(this.state.MM) - 1, parseInt(this.state.DD))
 
-    let selectedFoodRestrictions = null;
+    let selectedFoodRestrictions = [];
     
     if (!_.isEmpty(this.props.foodRestrictions)){
       selectedFoodRestrictions = this.state.selectedFoodRestrictions.map((selectedRestriction)=>{
@@ -94,7 +97,7 @@ class Onboarding extends React.Component {
       selectedFoodRestrictions: selectedFoodRestrictions,
       birthday: birthday
     }
-
+    this.props.clearUpData();
     this.props.signup(newUser);
   }
 

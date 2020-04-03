@@ -8,7 +8,6 @@ router.get(
   "/",
   (req, res) => {
     Business.find()
-      .limit(20)
       .populate({ path: "categories", select: "name" })
       .exec(function(err, businesses) {
         if (err) return res.json(err);

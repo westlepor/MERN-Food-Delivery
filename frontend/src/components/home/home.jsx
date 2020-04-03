@@ -16,6 +16,7 @@ class Home extends React.Component {
 
     this.handleModal = this.handleModal.bind(this);
     this.handleChangeForm = this.handleChangeForm.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   
   handleModal() {
@@ -47,6 +48,12 @@ class Home extends React.Component {
     };
   }
 
+  handleClick(e) {
+    e.preventDefault();
+    this.props.clearUpData();
+    this.props.logout();
+  }
+
   render() {
     if (_.isEmpty(this.props.users)) {
       return null;
@@ -72,10 +79,11 @@ class Home extends React.Component {
               errors={this.props.errors}
               fetchGroup={this.props.fetchGroup}
               clearGroups={this.props.clearGroups}
+              clearUpData={this.props.clearUpData}
             />
             <div className="home-nav-content-bottom">
               <div className="home-nav-content-bottom-container">
-                <button className="logout-button" onClick={this.props.logout}>
+                <button className="logout-button" onClick={this.handleClick}>
                   LOGOUT
                 </button>
               </div>
@@ -86,7 +94,6 @@ class Home extends React.Component {
           <div className="home-map-container">
             {this.state.form === "join group" ? (
               <JoinGroupMap
-
                 form={this.state.form}
                 zoom={this.props.zoom}
                 businesses={this.props.businesses}

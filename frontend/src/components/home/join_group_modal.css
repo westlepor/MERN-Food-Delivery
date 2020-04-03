@@ -11,16 +11,91 @@
 .join-group-content-items-expand-container{
     width: 100%;
     background-color: white;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     padding: 1rem;
     display: flex;
-    flex-direction: row;
-    /* align-items: center;
-    justify-content: center; */
-    /* z-index: 2; */
-    border: 1px solid black;
+    flex-direction: column;
+    border: 2px solid #dbdcdd;
+    background-color: #d3d3d3;
+    margin: 0 3rem;
 }
 
-.join-group-content-items-expand-item {
-    width: 20%;
+.join-group-content-items-title{
+    font-size: 2.5rem;
+    font-family: cursive;
+    display: flex;
+    justify-content: center;
 }
+
+.join-group-content-items-subtitle{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+}
+
+.join-group-content-items-expand-ranks{
+    font-size: 0.85rem;
+    padding: 0 0.3rem;
+}
+
+.join-group-content-items-expand-photo-1{
+    display: flex;
+    justify-content: space-between;
+}
+.join-group-content-items-expand-photo-2{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.join-group-content-items-expand-photo-1 img{
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0.2rem 0.3rem;
+    /* padding: 0.2rem; */
+    border: 3px solid white;
+}
+
+.join-group-content-items-expand-photo-2 img{
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0.2rem 0.3rem;
+    border: 3px solid white;
+}
+
+.join-group-content-items-expand-photo-1 > .join-group-content-items-expand-text-1{
+    display: flex;
+    padding-top: 1rem;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+
+.join-group-content-items-expand-photo-2 > .join-group-content-items-expand-text-1{
+    display: flex;
+    padding-top: 1rem;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+.join-group-content-items-expand-text-1-details a:hover {
+    color: #ff7854;
+    font-weight: bolder;
+    /* background: linear-gradient(262deg, #ff7854, #fd267d); */
+
+}
+
+.join-group-content-items-expand-text-1-name{
+    font-weight: bolder;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.join-group-content-items-expand-text-1-details  svg{
+    margin-right: 0.5rem;
+}
+

@@ -1,6 +1,7 @@
 .swipe-user-info {
-    padding: 0 1.5rem;
-    font-size: 0.9rem;
+    padding: 1.5rem;
+    padding-top: 0;
+    font-size: 0.8rem;
     color: #fd267d;
     flex-grow: 1;
 }

@@ -10,16 +10,21 @@ class LikeOrDislike extends React.Component{
   }
 
   clickButton(type){
-    return () => {
+    return (e) => {
+      e.preventDefault()
       if(type === "like"){
         const curGroup = this.props.curGroup;
-        curGroup.likedBusinesses[this.props.curBiz._id].push(this.props.user.id)
+        if (!curGroup.likedBusinesses[this.props.curBiz._id].includes(this.props.user.id)){
+          curGroup.likedBusinesses[this.props.curBiz._id].push(this.props.user.id)
+        }
         return this.props.updateGroup(curGroup).then(()=>{
           return this.props.fetchGroup(this.props.curGroup._id)
         })
       } else if (type === "dislike"){
         const curGroup = this.props.curGroup;
-        curGroup.dislikedBusinesses[this.props.curBiz._id].push(this.props.user.id)
+        if (!curGroup.dislikedBusinesses[this.props.curBiz._id].includes(this.props.user.id)) {
+          curGroup.dislikedBusinesses[this.props.curBiz._id].push(this.props.user.id)
+        }
         return this.props.updateGroup(curGroup).then(() => {
           return this.props.fetchGroup(this.props.curGroup._id)
         })

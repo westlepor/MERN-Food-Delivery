@@ -19,7 +19,6 @@ module.exports = function validateHourInput(data) {
         errors.end = "End field is required";
     }
 
-    
     if (Validator.isEmpty(data.day)) {
         errors.day = "Day field is required";
     }
