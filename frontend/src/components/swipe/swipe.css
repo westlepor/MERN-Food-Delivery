@@ -366,11 +366,17 @@
 
     .swipe-aside {
         width: 100%;
-        min-width: none;
+        min-width: 0;
+    }
+
+    .side-menu {
+        min-width: 0;
+        width: 100vw;
+        margin-left: 0;
     }
 
     .swipe-aside-nav, .swipe-body, .swipe-footer {
-        width: 100%;
+        width: 100vw;
     }
 
     .swipe-aside-nav {
@@ -383,7 +389,6 @@
         background: linear-gradient(262deg, #ff7854, #fd267d);
         overflow: auto;
         min-height: 64px;
-        margin: 0 24px 0 88px;
         z-index: 0;
         display: flex;
         justify-content: center;
@@ -392,6 +397,8 @@
         z-index: 5;
         border-bottom-right-radius: 0;
         box-shadow: none;
+        margin: 0 0 0 20vw;
+        width: 80vw;
     }
 
     .swipe-body {
@@ -419,28 +426,4 @@
     }
     
     
-/* 
-    .like-or-dislike-container {
-    padding: 0;
-    margin-top: auto;
-    margin-bottom: auto;
-    }
-
-    .swipe-aside-nav {
-    flex-basis: 60px;
-    }
-
-    .welcome-swipe {
-        font-size: 1.5em;
-    }
-
-    .nav-logo {
-       font-size: 1.5em;
-        margin-left: 4vw;
-    }
-    
-    .logout-logo {
-        font-size: .75em;
-        margin-right: 4vw;
-    } */
 }
