@@ -81,7 +81,7 @@ export class Slide4 extends React.Component {
                 </div>
                 <div className='tuto-slide-gif-container'>
                     <div className='tuto-slide-gif'>
-                        {/* <img className="tuto-gif" src="" /> */}
+                        <img className="tuto-gif" src="results.png" />
                     </div>
                 </div>
             </div>
