@@ -10,7 +10,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      form: "join group",
+      form: "create group",
       openModal: false
     }
 
