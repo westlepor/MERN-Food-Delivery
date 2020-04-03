@@ -9,7 +9,7 @@ import { clearUpData } from "../../actions/clear_actions";
 import { updateZoom } from "../../actions/zoom_actions";
 import { fetchBusinessesByCoordinates } from '../../actions/business_actions';
 import { createGroup, fetchGroup, clearGroups } from "../../actions/group_actions";
-
+import { closeInfo} from '../../actions/info_actions';
 
 const mapSTP = (state) => ({
     user: state.session.user,
@@ -20,7 +20,8 @@ const mapSTP = (state) => ({
     zoom: state.ui.zoom,
     coordinates: state.ui.filters,
     errors: state.errors.group,
-    groups: state.entities.groups
+    groups: state.entities.groups,
+    info: state.ui.info
 })
 
 const mapDTP = (dispatch) => ({
@@ -35,7 +36,8 @@ const mapDTP = (dispatch) => ({
     updateZoom: (value) => dispatch(updateZoom(value)),
     fetchBusinessesByCoordinates: (value) => dispatch(fetchBusinessesByCoordinates(value)),
     clearGroups: () => dispatch(clearGroups()),
-    clearUpData: () => dispatch(clearUpData())
+    clearUpData: () => dispatch(clearUpData()),
+    closeInfo: ()=>dispatch(closeInfo())
 })
 
 export default connect(mapSTP, mapDTP)(Home);

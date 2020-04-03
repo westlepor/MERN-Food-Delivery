@@ -12,8 +12,8 @@
         "monetaryRestriction": "$"
     },
     {
-        "username": "Demo User 2",
-        "email": "stuff@stuff.stuff",
+        "username": "Nick Desai",
+        "email": "desai@nick.come",
         "password": "password",
         "zipcode": "12345",
         "birthday": "1988-2-22",
@@ -127,5 +127,16 @@
             "5e76c1bc81306b4c825bf205"
         ],
         "monetaryRestriction": "$$"
+    },
+    {
+        "username": "zeke",
+        "email": "zeke@gmail.com",
+        "password": "1234569",
+        "zipcode": "95618",
+        "birthday": "1991-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf205"
+        ],
+        "monetaryRestriction": "$$$$"
     }
 ]

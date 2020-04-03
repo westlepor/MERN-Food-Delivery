@@ -5,6 +5,8 @@ const appReducer = (state, action) => {
     }
     const curSession = state.session;
     const uiModal = state.ui.modal;
+    const uiInfo = state.ui.info;
+
     if (action.type === 'CLEAR_UP_DATA') {
         state.entities = {};
         state.session = curSession;
@@ -13,7 +15,9 @@ const appReducer = (state, action) => {
             modal: uiModal,
             selectedFoodRestrictions: [],
             filters: {},
-            zoom: {}};
+            zoom: {},
+            info: uiInfo
+        }
     }
     return rootReducer(state, action)
 }

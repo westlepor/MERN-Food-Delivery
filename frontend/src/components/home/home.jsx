@@ -11,7 +11,7 @@ class Home extends React.Component {
     super(props);
     this.state = {
       form: "join group",
-      openModal: true
+      openModal: false
     }
 
     this.handleModal = this.handleModal.bind(this);
@@ -32,7 +32,12 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    this.props.fetchUsers();
+    this.props.fetchUsers().then(()=>{
+      if (this.props.info === true){
+        this.props.closeInfo();
+        this.setState({openModal: true});
+      }
+    });
   }
 
   handleChangeForm(type) {

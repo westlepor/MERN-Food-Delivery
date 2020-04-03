@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const users = require("./routes/api/users");
-const hours = require("./routes/api/hours");
 const categories = require("./routes/api/categories");
 const businesses = require("./routes/api/businesses");
 const groups = require("./routes/api/groups");
@@ -45,7 +44,6 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api/users", users);
-app.use("/api/hours", hours);
 app.use("/api/categories", categories);
 app.use("/api/businesses", businesses);
 app.use("/api/groups", groups);
