@@ -62,12 +62,6 @@ class HomeMap extends React.Component {
   render() {
     return (
       <div className="home-map">
-        <div>
-          <div className="home-sidebar-style">
-            Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom:{" "}
-            {this.state.zoom}
-          </div>
-        </div>
         <div ref={el => (this.mapContainer = el)} className="map-container" />
       </div>
     );

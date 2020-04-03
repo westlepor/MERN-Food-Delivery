@@ -86,7 +86,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0.5rem;;
+    margin-bottom: 0.5rem;
 }
 
 .home-nav-logo:first-child {
@@ -95,6 +95,7 @@
 
 .home-nav-logo:last-child {
     margin-left: 4rem;
+    cursor: pointer;
 }
 
 .home-nav-logo img{

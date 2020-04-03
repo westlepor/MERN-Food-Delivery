@@ -92,12 +92,6 @@ class JoinGroupMap extends React.Component {
 
     return (
       <div className="join-group-map">
-        <div>
-          <div className="join-group-sidebar-style">
-            Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom:{" "}
-            {this.state.zoom}
-          </div>
-        </div>
         <div
           ref={el => (this.mapContainer = el)}
           className="join-group-map-container"

@@ -45,7 +45,7 @@ class Swipe extends React.Component {
       this.props.clearUpData();
       this.props.history.push("/home")
     }, 4000);
-    
+
     return (
       <div className="swipe-finish-vote">
         <div className="swipe-finish-vote-container">
@@ -105,7 +105,7 @@ class Swipe extends React.Component {
                       </div>
                       <div>
                         <FontAwesomeIcon icon={faUserFriends} color="black" size="1x" />
-                        <span>{curGroup.groupName} [ {curGroup.users.map((user, idx) => <span key={idx}> <FontAwesomeIcon icon={faUserCircle} color="white" size="1x" /> {user.username} </span>)} ]</span>
+                        <span>Users {curGroup.users.map((user, idx) => <div key={idx}>- {user.username}</div> )}</span>
                       </div>
                     </div>
                   </div>

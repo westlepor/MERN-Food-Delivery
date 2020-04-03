@@ -131,10 +131,6 @@ class SwipeMainMap extends React.Component {
   render() {
     return (
       <div className="swipe-main-map">
-        <div className="sidebar-style">
-          Longitude : {this.state.lng} | Latitude : {this.state.lat} | Zoom:{" "}
-          {this.state.zoom}
-        </div>
         <div ref={el => (this.mapContainer = el)} className="map-container" />
       </div>
     );

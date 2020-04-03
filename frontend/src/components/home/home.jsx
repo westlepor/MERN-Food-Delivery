@@ -11,7 +11,7 @@ class Home extends React.Component {
     super(props);
     this.state = {
       form: "join group",
-      openModal: false
+      openModal: true
     }
 
     this.handleModal = this.handleModal.bind(this);

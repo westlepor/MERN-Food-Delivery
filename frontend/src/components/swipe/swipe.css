@@ -126,8 +126,14 @@
 .swipe-group-info {
     padding: 18px;
     width: 367px;
+    overflow: auto;
 }
-
+.swipe-group-info > div{
+    font-size: 1rem;
+}
+.swipe-group-info > div > svg {
+    margin-right: 0.5rem;
+}
 .side-menu {
     position: fixed;
     top: 0;
@@ -198,10 +204,13 @@
 }
 
 .nav-toggle img {
+    width: 2rem;
+    height: 2rem;
     transition: all .7s;
     transition-timing-function: ease-in-out;
     filter: brightness(0);
 }
+
 .invert {filter: invert(100%);}
 
 .nav-toggle:hover img {

@@ -3,7 +3,7 @@ import CreateGroup from './create_group';
 import JoinGroup from './join_group';
 import _ from 'lodash';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faInfo } from "@fortawesome/free-solid-svg-icons";
 
 class HomeNavContent extends React.Component{
   constructor(props) {
@@ -52,7 +52,7 @@ class HomeNavContent extends React.Component{
               <button id={createBtId} onClick={this.props.handleChangeForm("create group")}> Start a Group </button>
             </div>
             <div className="home-nav-logo" onClick={()=>this.props.handleModal()}>
-              <FontAwesomeIcon icon={faUser}
+              <FontAwesomeIcon icon={faInfo}
                 color="white"
                 size="sm"
               />

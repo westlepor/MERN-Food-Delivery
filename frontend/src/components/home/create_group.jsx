@@ -113,15 +113,23 @@ class CreateGroup extends React.Component {
     const dislikedBusinesses = _.mapValues(this.props.businesses, () => []);
     const creator = this.props.user.id;
 
+    const groupNames = ["A Team", "All Stars", "Amigos", "Avengers", "Bannermen", "Best of the Best", "Bosses", "Champions", "Crew", "Dominators", "Dream Team", "Elite", "Force", "Goal Diggers", "Heatwave", "Hot Shots", "Hustle", "Icons", "Justice League", "Legends", "Lightning", "Maniacs", "Masters", "Monarchy", "Naturals", "Ninjas", "Outliers", "Peak Performers", "Power", "Rebels", "Revolution", "Ringmasters", "Rule Breakers", "Shakedown", "Squad", "Titans", "Tribe", "United", "Vikings", "Warriors", "Wolf Pack"];
+
+    const userIds = Object.keys(this.props.users);
+    const usersCandidateIds = userIds.slice(0, Math.floor(Math.random() * userIds.length) + 1).filter(user => user._id !== this.props.user.id);
+    // const addUsers = usersCandidateIds.map(id=>this.props.users[id]);
+    const {
+      foodRestrictions,
+      selectedFoodRestrictions
+    } = this.updateFoodRestrictions(usersCandidateIds);
+
     const newGroup = {
-      groupName: "Demo Group",
+      groupName: groupNames[Math.floor(Math.random() * groupNames.length)],
       startTime: new Date(),
-      endTime: new Date(new Date().getTime() + (10 * 60000)),
-      users: Object.keys(this.props.users).slice(0, 2).map(el => {
-        return this.props.users[el];
-      }),
-      foodRestrictions: this.state.foodRestrictions,
-      monetaryRestriction: "$$$",
+      endTime: new Date(new Date().getTime() + (60*24*30*60000)),
+      users: [this.props.user.id, ...usersCandidateIds],
+      foodRestrictions: foodRestrictions,
+      monetaryRestriction: ["$", "$$", "$$$", "$$$$"][Math.floor(Math.random() * 4)],
       isSplit: this.state.isSplit,
       businesses: Object.keys(this.props.businesses),
       likedBusinesses,
@@ -216,6 +224,7 @@ class CreateGroup extends React.Component {
       foodRestrictions,
       selectedFoodRestrictions
     } = this.updateFoodRestrictions(addUsers);
+    
     this.setState({
       userSearch: "",
       candidates: [],
