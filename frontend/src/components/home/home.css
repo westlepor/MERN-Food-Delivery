@@ -318,6 +318,40 @@
     width: 100%;
 }
 
+@media only screen and (max-width: 736px) {
+
+    .home-nav-bar {
+        width: 100vw;
+        min-width: 0;
+    }
+
+    .home-map-section {
+        display: none;
+    }
+
+    .home-nav-content-top-container {
+        width: 100vw;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .home-nav-logo:first-child {
+        margin-right: 0;
+        margin: 0.5rem;
+    }
+
+    .home-nav-logo:last-child {
+        margin-left: 0;
+        margin: 0.5rem;
+    }
+
+    .home-button-container button {
+        padding: 0.3rem 0;
+    }
+}
+
+
+
 /* this one needs to be fixed
 @media only screen and (max-width: 800px) {
     .home-nav-bar {
@@ -326,9 +360,7 @@
         min-width: 100vw;
     }
 
-    iframe{
-        display: none;
-    }
+
 
     h3 {
         display: none;
