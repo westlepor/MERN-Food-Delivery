@@ -15,17 +15,17 @@ export default class MarkerManager {
       const curBiz = businesses[i];
       let el = document.createElement("div");
       let childEl = document.createElement("div");
-      let rank = null;
+      let rank = "";
 
       if (curBiz === first) {
         childEl.className = "first-marker";
-        rank = "No.1 "
+        rank = "# 1. "
       } else if (curBiz === second) {
         childEl.className = "second-marker";
-        rank = "No.2 "
+        rank = "# 2. "
       } else if (curBiz === third) {
         childEl.className = "third-marker";
-        rank = "No.3 "
+        rank = "# 3. "
       } else {
         childEl.className = "marker";
       }
@@ -83,7 +83,7 @@ export default class MarkerManager {
           )
         )
 
-      if (curBiz === first || curBiz === third || curBiz === second ) {
+      if (curBiz === first ) {
         newMarker.togglePopup();;
       }
       

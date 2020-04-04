@@ -117,7 +117,7 @@ class CreateGroup extends React.Component {
 
     const userIds = Object.keys(this.props.users);
     const usersCandidateIds = userIds.slice(0, Math.floor(Math.random() * userIds.length) + 1).filter(user => user._id !== this.props.user.id);
-    // const addUsers = usersCandidateIds.map(id=>this.props.users[id]);
+
     const {
       foodRestrictions,
       selectedFoodRestrictions

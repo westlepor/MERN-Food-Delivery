@@ -126,7 +126,7 @@ class JoinGroup extends React.Component {
         user={this.props.user}
         groups={this.ongoingGroups}
         clearGroups={this.props.clearGroups}
-        clearUpData3={this.props.clearUpData}
+        clearUpData={this.props.clearUpData}
       />)
     }
     
