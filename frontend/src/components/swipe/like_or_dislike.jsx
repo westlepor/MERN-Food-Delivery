@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faHeart, faPoll } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faHeart, faHome } from '@fortawesome/free-solid-svg-icons';
 import './like_or_dislike.css';
 
 class LikeOrDislike extends React.Component{
@@ -40,7 +41,7 @@ class LikeOrDislike extends React.Component{
             <FontAwesomeIcon icon={faTimes} color="#ff3f3f" size="2x" />
           </span>
           <span className="results" >
-            <FontAwesomeIcon icon={faPoll} color="#3ca4ff" size="2x" />
+            <Link to="/home"><FontAwesomeIcon icon={faHome} color="#3ca4ff" size="2x" /></Link>
           </span>
           <span className="like" onClick={this.clickButton("like")} >
             <FontAwesomeIcon icon={faHeart} color="#01df8a" size="2x" />
