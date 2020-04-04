@@ -12,11 +12,11 @@
         "monetaryRestriction": "$"
     },
     {
-        "username": "Nick Desai",
-        "email": "desai@nick.come",
+        "username": "Neil Desai",
+        "email": "Neil@CT.com",
         "password": "password",
         "zipcode": "12345",
-        "birthday": "1988-2-22",
+        "birthday": "1995-2-22",
         "foodRestriction": [
             "5e76c1bc81306b4c825bf208",
             "5e76c1bc81306b4c825bf20c"
@@ -48,7 +48,7 @@
         "monetaryRestriction": "$"
     },
     {
-        "username": "Arno Thompson",
+        "username": "Arno Cognard",
         "email": "Arno@CT.com",
         "password": "Arnoword3",
         "zipcode": "44444",
@@ -60,7 +60,7 @@
         "monetaryRestriction": "$$$$"
     },
     {
-        "username": "Joe Thebest",
+        "username": "Joe",
         "email": "Joe@Thebest.com",
         "password": "Thebest3Joe",
         "zipcode": "55555",
@@ -72,9 +72,9 @@
         "monetaryRestriction": "$$$$"
     },
     {
-        "username": "Jordan Tom",
+        "username": "Jordan",
         "email": "Jordan@Tom.com",
-        "password": "Thebest3Jordon",
+        "password": "Thebest3Jordan",
         "zipcode": "99812",
         "birthday": "1977-9-22",
         "foodRestriction": [
@@ -95,8 +95,8 @@
         "monetaryRestriction": "$"
     },
     {
-        "username": "Arya",
-        "email": "arya@gmail.com",
+        "username": "Bino",
+        "email": "bino@gmail.com",
         "password": "password",
         "zipcode": "94539",
         "birthday": "1995-4-09",
@@ -106,8 +106,8 @@
         "monetaryRestriction": "$$$$"
     },
     {
-        "username": "Ned",
-        "email": "ned@gmail.com",
+        "username": "Edward",
+        "email": "eddy@gmail.com",
         "password": "password",
         "zipcode": "95035",
         "birthday": "1996-3-12",
@@ -118,8 +118,8 @@
         "monetaryRestriction": "$$$"
     },
     {
-        "username": "Jon",
-        "email": "jon@gmail.com",
+        "username": "Fiona",
+        "email": "fiona@gmail.com",
         "password": "123456",
         "zipcode": "95618",
         "birthday": "1994-2-20",
@@ -129,7 +129,143 @@
         "monetaryRestriction": "$$"
     },
     {
-        "username": "zeke",
+        "username": "Giannis",
+        "email": "giannis@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf205"
+        ],
+        "monetaryRestriction": "$$"
+    },
+    {
+        "username": "Isabella",
+        "email": "isabella@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf208",
+            "5e76c1bc81306b4c825bf209"
+        ],
+        "monetaryRestriction": "$"
+    },
+    {
+        "username": "Klay Thompson",
+        "email": "klay@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf205",
+            "5e76c1bc81306b4c825bf206"
+        ],
+        "monetaryRestriction": "$$$$"
+    },
+    {
+        "username": "Louis",
+        "email": "louis@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf207"
+        ],
+        "monetaryRestriction": "$$$$"
+    },
+    {
+        "username": "Meg",
+        "email": "meg29@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf20a"
+        ],
+        "monetaryRestriction": "$"
+    },
+    {
+        "username": "Oscar",
+        "email": "oscar@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf20b"
+        ],
+        "monetaryRestriction": "$$$"
+    },
+    {
+        "username": "Eric Paschall",
+        "email": "peter45@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf20c"
+        ],
+        "monetaryRestriction": "$$$$"
+    },
+    {
+        "username": "Quentin",
+        "email": "oscar@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf205",
+            "5e76c1bc81306b4c825bf207"
+        ],
+        "monetaryRestriction": "$$$"
+    },
+    {
+        "username": "Roxanne",
+        "email": "rox343@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf206",
+            "5e76c1bc81306b4c825bf208"
+        ],
+        "monetaryRestriction": "$$"
+    },
+    {
+        "username": "Stephen Curry",
+        "email": "curry@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf209"
+        ],
+        "monetaryRestriction": "$$$$"
+    },
+    {
+        "username": "Draymond Green",
+        "email": "dray@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf205"
+        ],
+        "monetaryRestriction": "$$$$"
+    },
+    {
+        "username": "Kevin Durant",
+        "email": "durant@gmail.com",
+        "password": "123456",
+        "zipcode": "95618",
+        "birthday": "1994-2-20",
+        "foodRestriction": [
+            "5e76c1bc81306b4c825bf205"
+        ],
+        "monetaryRestriction": "$$$$"
+    },
+    {
+        "username": "Zeke",
         "email": "zeke@gmail.com",
         "password": "1234569",
         "zipcode": "95618",
