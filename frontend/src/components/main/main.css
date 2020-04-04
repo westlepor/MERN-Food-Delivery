@@ -20,8 +20,9 @@
 
 
 .splash-content h1 {
-    font-size: 12vw;
+    font-size: 8vw;
     font-weight: bold;
+    text-shadow: 0.5px 0.5px gray;
 }
 
 .main-buttons-container{
@@ -55,6 +56,7 @@
 }
 
 .splash-content h4{
+    text-shadow: 0.5px 0.5px gray;
     text-align: center;
     width: 60%;
     font-size: 14px;
@@ -129,6 +131,7 @@
     .splash-content h1 {
         position: absolute;
         bottom: 50%;
+        text-shadow: 0.5px 0.5px gray;
     }
 
     .splash-content h4 {
@@ -136,6 +139,7 @@
         top: 50%;
         font-size: 2.5vw;
         width: 90%;
+        text-shadow: 0.5px 0.5px gray;
     }
     
 }

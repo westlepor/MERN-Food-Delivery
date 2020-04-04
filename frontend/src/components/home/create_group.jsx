@@ -109,46 +109,96 @@ class CreateGroup extends React.Component {
 
   handleRandomSubmit(e){
     e.preventDefault();
+
     const likedBusinesses = _.mapValues(this.props.businesses, () => []);
     const dislikedBusinesses = _.mapValues(this.props.businesses, () => []);
     const creator = this.props.user.id;
-
+    
     const groupNames = ["A Team", "All Stars", "Amigos", "Avengers", "Bannermen", "Best of the Best", "Bosses", "Champions", "Crew", "Dominators", "Dream Team", "Elite", "Force", "Goal Diggers", "Heatwave", "Hot Shots", "Hustle", "Icons", "Justice League", "Legends", "Lightning", "Maniacs", "Masters", "Monarchy", "Naturals", "Ninjas", "Outliers", "Peak Performers", "Power", "Rebels", "Revolution", "Ringmasters", "Rule Breakers", "Shakedown", "Squad", "Titans", "Tribe", "United", "Vikings", "Warriors", "Wolf Pack"];
 
     const userIds = Object.keys(this.props.users);
     const usersCandidateIds = userIds.slice(0, Math.floor(Math.random() * userIds.length) + 1).filter(user => user._id !== this.props.user.id);
 
-    const {
-      foodRestrictions,
-      selectedFoodRestrictions
-    } = this.updateFoodRestrictions(usersCandidateIds);
+    const speed = 100;
+    const curGroupNames = groupNames[Math.floor(Math.random() * groupNames.length)];
 
-    const newGroup = {
-      groupName: groupNames[Math.floor(Math.random() * groupNames.length)],
-      startTime: new Date(),
-      endTime: new Date(new Date().getTime() + (60*24*30*60000)),
-      users: [this.props.user.id, ...usersCandidateIds],
-      foodRestrictions: foodRestrictions,
-      monetaryRestriction: ["$", "$$", "$$$", "$$$$"][Math.floor(Math.random() * 4)],
-      isSplit: this.state.isSplit,
-      businesses: Object.keys(this.props.businesses),
-      likedBusinesses,
-      dislikedBusinesses,
-      creator
-    };
+    if (this.state.groupName !== curGroupNames) {
+      const inputGroupName = setInterval(() => {
+        if (this.state.groupName !== curGroupNames) {
+          const temp = curGroupNames.slice(0, this.state.groupName.length + 1);
+          this.setState({ groupName: temp });
+        } else {
+          clearInterval(inputGroupName);
+          animateAddUser();
+        }
+      }, speed);
+    }
 
-    this.props.createGroup(newGroup).then(res => {
-      if (res.type === "RECEIVE_GROUP_ERRORS") {
-        return null;
-      } else if (res.type === "RECEIVE_GROUP") {
-        return this.props.history.push(`/swipe/${res.group._id}`);
-      }
-    })
+    const curUsers = [this.props.user.id, ...usersCandidateIds];
+
+    const animateAddUser = () => {
+      const inputAddUser = setInterval(async () => {
+        if (this.state.addUsers.length !== curUsers.length) {
+          await this.setState({ addUsers: curUsers.slice(0, this.state.addUsers.length + 1) })
+          const {foodRestrictions, selectedFoodRestrictions} = this.updateFoodRestrictions(this.state.addUsers);
+          await this.setState({ selectedFoodRestrictions: selectedFoodRestrictions });
+          await this.setState({ foodRestrictions: foodRestrictions });
+        } else {
+          clearInterval(inputAddUser);
+          animateEndTime();
+        }
+      }, speed);
+    }
+
+    const animateEndTime = () => {
+      let curTimes = new Date(new Date().getTime() + (60 * 24 * 30 * 60000));
+      let curYear = curTimes.getFullYear().toString();
+      let curMonth = curTimes.getMonth().toString();
+      let curDate = curTimes.getDate().toString();
+      let curHours = curTimes.getHours().toString();
+      let curMinutes = curTimes.getMinutes().toString();
+      if (curMonth.length === 1) curMonth = `0${curMonth}`;
+      if (curDate.length === 1) curDate = `0${curDate}`;
+      if (curHours.length === 1) curHours = `0${curHours}`;
+      if (curMinutes.length === 1) curMinutes = `0${curMinutes}`;
+      const timeString = `${curYear}-${curMonth}-${curDate}T${curHours}:${curMinutes}`
+
+      const inputEndTime = setInterval(async () => {
+        await this.setState({ endTime: timeString })
+        clearInterval(inputEndTime);
+        runAnimation()
+      }, speed);
+    }
+
+    const runAnimation = () => {
+      const newGroup = {
+       groupName: this.state.groupName,
+       startTime: new Date(),
+       endTime: this.state.endTime,
+       users: this.state.addUsers,
+       foodRestrictions: this.state.foodRestrictions,
+       monetaryRestriction: ["$", "$$", "$$$", "$$$$"][Math.floor(Math.random() * 4)],
+       isSplit: this.state.isSplit,
+       businesses: Object.keys(this.props.businesses),
+       likedBusinesses,
+       dislikedBusinesses,
+       creator
+     };
+ 
+     this.props.createGroup(newGroup).then(res => {
+       if (res.type === "RECEIVE_GROUP_ERRORS") {
+         return null;
+       } else if (res.type === "RECEIVE_GROUP") {
+         return this.props.history.push(`/swipe/${res.group._id}`);
+       }
+     })
+    }
   };
 
   handleChange(type) {
     let that = this;
     return function(e) {
+      console.log(e.target.value,"endTime");
       if (type === "groupName") {
         that.setState({ groupName: e.target.value });
       } else if (type === "endTime") {

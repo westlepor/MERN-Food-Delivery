@@ -86,7 +86,7 @@ class JoinGroup extends React.Component {
             {type === "Completed Group Event" ? 
               <div>
                 If you have not participated in any group event, please go to <span>Start a Group</span> tab and <span>create a new group</span>.
-              Also, you can also finish the current <span>Ongoing Group Events</span>.</div> 
+              Also, you can finish the current <span>Ongoing Group Events</span>.</div> 
             : null}
           </div>
         </div>
@@ -114,6 +114,7 @@ class JoinGroup extends React.Component {
         groups={this.completedGroups}
         fetchGroup={this.props.fetchGroup}
         clearGroups={this.props.clearGroups}
+        clearUpData={this.props.clearUpData}
       />)
     }
 
