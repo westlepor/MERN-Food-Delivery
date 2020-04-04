@@ -24,6 +24,12 @@ class HomeNavContent extends React.Component{
           businesses={this.props.businesses}
           coordinates={this.props.coordinates}
           errors={this.props.errors}
+          fetchBusinessesByCoordinates={
+          this.props.fetchBusinessesByCoordinates
+          }
+          updateFilter={this.props.updateFilter}
+          form={this.props.form}
+          zoom={this.props.zoom}
         />
       ) : (
         <JoinGroup
@@ -33,6 +39,11 @@ class HomeNavContent extends React.Component{
           fetchGroup={this.props.fetchGroup}
           clearGroups={this.props.clearGroups}
           clearUpData={this.props.clearUpData}
+          form={this.props.form}
+          zoom={this.props.zoom}
+          businesses={this.props.businesses}
+          updateFilter={this.props.updateFilter}
+          groups={this.props.groups}
         />
       );
 

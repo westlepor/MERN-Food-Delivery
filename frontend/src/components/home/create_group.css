@@ -31,6 +31,9 @@
     
 }
 
+.home-side-map-container{
+    display: none;
+}
 .groupname, .groupname-container, .groupname-container input, .add-users, .add-users-container {
     width: 100%;
 }
@@ -250,3 +253,19 @@
     margin-bottom: 10px;
     display: flex;
 } */
+
+@media only screen and (max-width: 736px) {
+
+    .home-side-map-container{
+    display: flex;
+    width: 100%;
+    height: 100vw;
+    }
+
+    .home-map-container{
+    height: 400px;
+    }
+
+
+
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faUserPlus, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import HomeSearch from './home_search'
+import HomeSearch from './home_search';
+import HomeSideMap from './home_side_map';
 import _ from 'lodash';
 import './create_group.css'
 import "balloon-css";
@@ -275,6 +276,17 @@ class CreateGroup extends React.Component {
           coordinates={this.props.coordinates}
         />
         <form className="create-group-form-main" onSubmit={this.handleSubmit}>
+          <div className='home-side-map-container'>
+            <HomeSideMap
+              fetchBusinessesByCoordinates={
+                this.props.fetchBusinessesByCoordinates
+              }
+              form={this.props.form}
+              zoom={this.props.zoom}
+              businesses={this.props.businesses}
+              updateFilter={this.props.updateFilter}
+            />
+          </div>
           <div className="create-group-form-details">
             <div className="groupname">
               <div className="groupname-container">
