@@ -85,6 +85,13 @@ class Home extends React.Component {
               fetchGroup={this.props.fetchGroup}
               clearGroups={this.props.clearGroups}
               clearUpData={this.props.clearUpData}
+              fetchBusinessesByCoordinates={
+                this.props.fetchBusinessesByCoordinates
+              }
+              zoom={this.props.zoom}
+              businesses={this.props.businesses}
+              updateFilter={this.props.updateFilter}
+              groups={this.props.groups}
             />
             <div className="home-nav-content-bottom">
               <div className="home-nav-content-bottom-container">

@@ -2,10 +2,14 @@ import React from 'react';
 import _ from 'lodash';
 import './join_group.css'
 import JoinGroupItems from "./join_group_items";
+import JoinGroupSideMap from './join_group_side_map'
 
 class JoinGroup extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      form: "join group"
+    }
     this.completedGroups = [];
     this.finishedGroups = [];
     this.ongoingGroups = [];
@@ -133,6 +137,15 @@ class JoinGroup extends React.Component {
     
     return (
       <div className="join-group-form">
+        <div className="join-group-side-map-container">
+          <JoinGroupSideMap
+            form={this.props.form}
+            zoom={this.props.zoom}
+            businesses={this.props.businesses}
+            updateFilter={this.props.updateFilter}
+            groups={this.props.groups}
+          />
+        </div>
         <div className="join-group-form-container">
           {completedGroupDiv()}
           {ongoingGroupDiv()}
