@@ -6,11 +6,8 @@
     align-items: flex-start;
     box-sizing: border-box;
     margin: 1rem 0;
-
-    /* transition-timing-function: ease-in;
-    transition: 0.2s;
-    transform: translateY(130%); */
 }
+
 
 .join-group-content-items-expand-container{
     width: 100%;

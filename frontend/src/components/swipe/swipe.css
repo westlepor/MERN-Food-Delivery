@@ -397,8 +397,8 @@
         z-index: 5;
         border-bottom-right-radius: 0;
         box-shadow: none;
-        margin: 0 0 0 20vw;
-        width: 80vw;
+        margin: 0 0 0 16vw;
+        width: 84vw;
     }
 
     .swipe-body {
