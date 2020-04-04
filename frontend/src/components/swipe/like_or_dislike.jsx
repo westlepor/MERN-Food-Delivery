@@ -41,7 +41,7 @@ class LikeOrDislike extends React.Component{
             <FontAwesomeIcon icon={faTimes} color="#ff3f3f" size="2x" />
           </span>
           <span className="results" >
-            <Link to="/home"><FontAwesomeIcon icon={faHome} color="#3ca4ff" size="2x" /></Link>
+            <Link onClick={this.props.clearUpData} to="/home"><FontAwesomeIcon icon={faHome} color="#3ca4ff" size="2x" /></Link>
           </span>
           <span className="like" onClick={this.clickButton("like")} >
             <FontAwesomeIcon icon={faHeart} color="#01df8a" size="2x" />

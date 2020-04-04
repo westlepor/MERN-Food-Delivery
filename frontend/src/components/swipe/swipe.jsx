@@ -127,7 +127,7 @@ class Swipe extends React.Component {
             <SwipeAsideMap businesses={curBizs} curBiz={curBiz}/>
           </section>
           <section className="swipe-footer">
-            <LikeOrDislike user={this.props.user} curGroup={curGroup} updateGroup={this.props.updateGroup} fetchGroup={this.props.fetchGroup} curBiz={curBiz}/>
+            <LikeOrDislike clearUpData={this.props.clearUpData} user={this.props.user} curGroup={curGroup} updateGroup={this.props.updateGroup} fetchGroup={this.props.fetchGroup} curBiz={curBiz}/>
           </section>
         </div >
         <div className="swipe-main">
