@@ -39,17 +39,22 @@ class JoinGroupMap extends React.Component {
     }
     this.findTopThree(this.curGroup)
     this.joinMarkerManager.updateMarkers(this.firstBiz, this.secondBiz, this.thirdBiz, this.businesses);
-    // this.map.flyTo({
-    //   center: [this.curGroup.longitude, this.curGroup.latitude],
-    //   zoom: 14,
-    //   bearing: 0,
-    //   speed: 1,
-    //   curve: 1,
-    //   easing: function(t) {
-    //     return t;
-    //   },
-    //   essential: true
-    // });
+    const averageCoodinates = {
+      latitude: ((this.firstBiz.latitude + this.secondBiz.latitude + this.thirdBiz.latitude ) / 3),
+      longitude: ((this.firstBiz.longitude + this.secondBiz.longitude + this.thirdBiz.longitude) / 3)
+    }
+
+    this.map.flyTo({
+      center: [averageCoodinates.longitude, averageCoodinates.latitude],
+      zoom: 13,
+      bearing: 0,
+      speed: 1,
+      curve: 1,
+      easing: function(t) {
+        return t;
+      },
+      essential: true
+    });
   }
 
   findTopThree(group) {

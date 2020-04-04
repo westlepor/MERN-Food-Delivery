@@ -79,8 +79,6 @@ class Swipe extends React.Component {
     const curGroup = this.props.groups[this.curGroupId];
     const curBizs = curGroup.businesses;
 
-
-    
     return (
       <div className="swipe">
         <div className="swipe-aside">

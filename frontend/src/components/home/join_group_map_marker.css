@@ -2,7 +2,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50% 50% 50% 0;
-  background: #fd267d;
+  background: #bbbbbb;
   transform: rotate(-45deg);
   margin: -20px 0 0 -20px;
   position: absolute;
@@ -13,7 +13,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50% 50% 50% 0;
-  background: #d2e002;
+  background: #fd267d;
   transform: rotate(-45deg);
   margin: -20px 0 0 -20px;
   position: absolute;
@@ -24,7 +24,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50% 50% 50% 0;
-  background: #8b8b8b;
+  background: #f85a2e;
   transform: rotate(-45deg);
   margin: -20px 0 0 -20px;
   position: absolute;
@@ -35,7 +35,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50% 50% 50% 0;
-  background: #A97142;
+  background: #ff7854;
   transform: rotate(-45deg);
   margin: -20px 0 0 -20px;
   position: absolute;

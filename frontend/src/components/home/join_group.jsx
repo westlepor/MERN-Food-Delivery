@@ -18,13 +18,27 @@ class JoinGroup extends React.Component {
   isExpired(endTime) {
     const date = endTime.split("T")[0].split("-");
     const time = endTime.split("T")[1].split(":");
-    const [YYYY, MM, DD] = date;
-    const [Hr, Min, Sec] = time;
+    const [ YYYY, MM, DD ] = date;
+    const [ Hr, Min, Sec ] = time;
 
     const gruopEndTime = new Date(YYYY, MM, DD, Hr, Min, Sec.slice(0, 2));
     const currentTime = new Date();
 
     return gruopEndTime.getTime() < currentTime.getTime();
+  }
+
+  finishedVotes(group) {
+    let count = 0;
+    let curUserNum = group.users.length;
+
+    Object.values(group.likedBusinesses).forEach(el => {
+      count += el.length;
+    });
+    Object.values(group.dislikedBusinesses).forEach(el => {
+      count += el.length;
+    });
+
+    return curUserNum * group.businesses.length <= count;
   }
 
   categorizeGroups() {
@@ -37,10 +51,12 @@ class JoinGroup extends React.Component {
       const gruopEndTime = new Date(curGroup.endTime);
       const currentTime = new Date();
 
-      if (gruopEndTime.getTime() > currentTime.getTime()) {
-        ongoingGroups.push(curGroup);
-      } else {
+      if (gruopEndTime.getTime() < currentTime.getTime()) {
         completedGroups.push(curGroup);
+      } else if (this.finishedVotes(curGroup)){
+        completedGroups.push(curGroup);
+      } else{
+        ongoingGroups.push(curGroup);
       }
       this.completedGroups = completedGroups;
       this.ongoingGroups = ongoingGroups;
@@ -67,13 +83,16 @@ class JoinGroup extends React.Component {
             You don't have any <span>{type}</span> yet.
           </div>  
           <div>
-            If you have not participated in any group event, please go to <span>Start a Group</span> tab and <span>create a new group</span>.
+            {type === "Completed Group Event" ? 
+              <div>
+                If you have not participated in any group event, please go to <span>Start a Group</span> tab and <span>create a new group</span>.
+              Also, you can also finish the current <span>Ongoing Group Events</span>.</div> 
+            : null}
           </div>
         </div>
       </div>
     )
   }
-
 
   render() {
     if (
@@ -85,7 +104,7 @@ class JoinGroup extends React.Component {
 
     this.categorizeGroups();
 
-    const completedGroupDiv = ()=>{
+    const completedGroupDiv = () => {
       if (this.completedGroups === undefined) return this.emptySpaceDiv("Completed Group Event");
       if (this.completedGroups.length === 0) return this.emptySpaceDiv("Completed Group Event");
       return (<JoinGroupItems
@@ -106,8 +125,8 @@ class JoinGroup extends React.Component {
         users={this.props.users}
         user={this.props.user}
         groups={this.ongoingGroups}
-        fetchGroup={this.props.fetchGroup}
         clearGroups={this.props.clearGroups}
+        clearUpData3={this.props.clearUpData}
       />)
     }
     

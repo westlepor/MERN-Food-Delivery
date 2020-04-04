@@ -15,13 +15,17 @@ export default class MarkerManager {
       const curBiz = businesses[i];
       let el = document.createElement("div");
       let childEl = document.createElement("div");
+      let rank = null;
 
       if (curBiz === first) {
         childEl.className = "first-marker";
+        rank = "No.1 "
       } else if (curBiz === second) {
         childEl.className = "second-marker";
+        rank = "No.2 "
       } else if (curBiz === third) {
         childEl.className = "third-marker";
+        rank = "No.3 "
       } else {
         childEl.className = "marker";
       }
@@ -46,7 +50,7 @@ export default class MarkerManager {
               '<div class="' +
               "home-map-popup-title" +
               '">' +
-              curBiz.businessName.split("_").join(" ") +
+              rank +  curBiz.businessName.split("_").join(" ") +
               "</div>" +
               '<div class="' +
               "home-map-popup-price-span" +
@@ -78,8 +82,12 @@ export default class MarkerManager {
               "<div>"
           )
         )
-        .addTo(this.map);
 
+      if (curBiz === first || curBiz === third || curBiz === second ) {
+        newMarker.togglePopup();;
+      }
+      
+        // addCurrentPopup(el)
       this.markers.push(newMarker);
     }
   }

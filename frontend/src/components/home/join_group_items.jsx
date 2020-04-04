@@ -44,7 +44,9 @@ class JoinGroupItems extends React.Component {
   }
 
   componentDidMount(){
-    this.fetchGroup(this.props.groups[0]._id, 0);
+    if (this.props.type === "Completed Group Event"){
+      this.fetchGroup(this.props.groups[0]._id, 0);
+    }
   }
 
   finishedVotes(group) {
@@ -113,7 +115,6 @@ class JoinGroupItems extends React.Component {
             <div className={curClass1}>{this.formatTime(group.endTime)}</div>
             <div className={curClass2}>{this.isCompleted(group)}</div>
           </div>
-          {/* {(this.state.selected === idx && this.first !== undefined) ? <JoinGroupModal topThree={topThree}/> : null } */}
           {(this.state.selected === idx) ? <JoinGroupModal group={group} topThree={topThree}/> : null }
         </Fragment>
       )
@@ -137,7 +138,7 @@ class JoinGroupItems extends React.Component {
       const ongoingDiv = (
         <Link
           to={`/swipe/${group._id}`}
-          onClick={this.props.clearUpData}
+          onClick={3}
           className="join-group-content-items"
           key={idx}
         >
