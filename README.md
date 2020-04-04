@@ -1,15 +1,14 @@
 # Chicken Tinder ![alt text](https://github.com/hkryucr/mern-ct/blob/master/frontend/public/chicken_logo_edited.png)
 
-A single page designed to help a group decide on a venue for their next gathering. 
+A single page app designed to help a group decide on a venue for their next gathering. 
 Each user can vote on each venue offered to the group (based on location and filters).
 
 [Chicken Tinder Live](https://lit-atoll-81167.herokuapp.com/#/)
 
 
-## Features
+## Key Features
 
-In Chicken Tinder, users can create a group and select an offer of venues based on location and eventually filters. 
-The creator can set a deadline for the members to vote.
+In Chicken Tinder, users can create a group and select a location in San Francisco. The group creator can then search for other users to add to their group, as well as determine any initial food restrictions they would like their group to be aware of, whether the bill would be split among all members, and the price range they would like to filter by. Data from restaurants local to the area is then added to the group. The creator will also set a deadline for the members to vote. After all members have voted or the deadline passes, the results are revealed!
 
 ![alt text](https://github.com/hkryucr/mern-ct/blob/master/frontend/public/create_group.gif "Create a group")
 
@@ -17,17 +16,15 @@ All group members can then log in to vote on each one of the pre-selected venues
 
 ![alt text](https://github.com/hkryucr/mern-ct/blob/master/frontend/public/vote.png "Vote for each venue")
 
-Once all the group members have voted or the deadline is reached, the 3 most voted venues are displayed. 
+Once all the group members have voted or the deadline is reached, the top 3 venues are displayed, based on number of votes. 
 
 ![alt text](https://github.com/hkryucr/mern-ct/blob/master/frontend/public/results.png "Show vote results")
 
-### User authentication
+### User Authentication
 
-Users can sign up or log in to use the application.
-Users can also log in through a demo account.
-User credentials are securely hashed, salted, and stored with Bcrypt.
-
-CODE
+- Users can sign up or log in to use the application.
+- Users can also log in through a demo account.
+- User credentials are securely hashed, salted, and stored with BCrypt.
 
 ### Businesses
 
@@ -39,6 +36,8 @@ CODE
 ### Votes
 
 CODE
+
+## Functionality and MVPs
 
 ## Technologies
 
