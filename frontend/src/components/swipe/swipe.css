@@ -421,7 +421,7 @@
     .swipe-aside-map{
         display: flex;
         width: 100%;
-        min-height: 500px;
+        height: 100vw;
         position: relative;
     }
     
