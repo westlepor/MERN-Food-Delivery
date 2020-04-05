@@ -1,10 +1,6 @@
 # Chicken Tinder ![alt text](https://github.com/hkryucr/mern-ct/blob/master/frontend/public/chicken_logo_edited.png)
 
-A single page app designed to help a group decide on a venue for their next gathering. 
-Each user can vote on each venue offered to the group (based on location and filters).
-
-[Chicken Tinder Live](https://lit-atoll-81167.herokuapp.com/#/)
-
+[Chicken Tinder](https://lit-atoll-81167.herokuapp.com/#/) is a single page app designed to help a group decide on a venue for their next gathering. Each user can vote on each venue offered to the group (based on location and filters).
 
 ## Key Features
 
