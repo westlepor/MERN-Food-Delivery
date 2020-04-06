@@ -29,6 +29,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
 }
 
 .tuto-slide-text-container{
@@ -52,19 +53,45 @@
     width: 80%;
     border: 1px black solid;
 }
-
-.tuto-slide-text-container p{
-    font-size: 16px;
+.tuto-slide-text h1 {
+    margin-bottom: 0.5rem;
 }
 
-#slide-2-img {
-    width: 40%;
+.tuto-slide-text p {
+    margin-bottom: 0.5rem;
+}
+
+.tuto-slide-text-inner{
+    display: flex;
+}
+
+.tuto-slide-text-inner div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tuto-slide-text-inner div > p{
+    padding: 0.5rem;
+}
+
+.tuto-slide-text-inner img{
+    width: 93%;
+}
+
+.tuto-slide-text-span{
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.tuto-slide-text-container p{
+    font-size: 1rem;
 }
 
 .tuto-slide-text-container{
     font-size: 1.5rem;
-    text-transform: ;
-
 }
 
 .tuto-slide-gif-container{
