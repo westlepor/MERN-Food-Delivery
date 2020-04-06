@@ -1,4 +1,4 @@
-# Chicken Tinder ![alt text](https://github.com/hkryucr/mern-ct/blob/master/frontend/public/chicken_logo_edited.png)
+# Chicken Tinder !
 
 [Chicken Tinder](https://lit-atoll-81167.herokuapp.com/#/) is a single page app designed to help a group decide on a venue for their next gathering. Each user can vote on each venue offered to the group (based on location and filters).
 
@@ -8,11 +8,9 @@
 
 In Chicken Tinder, users can create a group and select a location in San Francisco. The group creator can then search for other users to add to their group, as well as determine any initial food restrictions they would like their group to be aware of, whether the bill would be split among all members, and the price range they would like to filter by. Data from restaurants local to the area is then added to the group. The creator will also set a deadline for the members to vote.
 
-![alt text](https://github.com/hkryucr/mern-ct/blob/master/frontend/public/create_group.gif "Create a group")
+![alt text](https://portfolio-henry.s3-us-west-1.amazonaws.com/CT.gif)
 
 All group members can then log in to vote on each one of the pre-selected venues. Users can access any group they have been added to to either vote (if the group is ongoing) or view results (if the group deadline has passed).
-
-![alt text](https://github.com/hkryucr/mern-ct/blob/master/frontend/public/vote.png "Vote for each venue")
 
 Once all the group members have voted or the deadline is reached, the top 3 venues are displayed, based on number of votes.
 
