@@ -133,7 +133,7 @@ class CreateGroup extends React.Component {
           animateAddUser();
         }
       }, speed);
-    }
+    } 
 
     const curUsers = [this.props.user.id, ...usersCandidateIds];
 

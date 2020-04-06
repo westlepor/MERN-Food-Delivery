@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slide1, Slide2, Slide3, Slide4 } from './home_slides';
+import { Slide1, Slide2, Slide3, Slide4, Slide5, Slide6 } from './home_slides';
 
 
 
@@ -32,6 +32,12 @@ class HomeSlideShow extends React.Component {
                 break;
             case 3:
                 component = <Slide4 />
+                break;
+            case 4:
+                component = <Slide5 />
+                break;
+            case 5:
+                component = <Slide6 />
                 break;
             default:
                 return null

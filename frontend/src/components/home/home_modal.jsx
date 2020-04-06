@@ -39,7 +39,7 @@ class HomeModal extends React.Component{
                                 <div className='tuto-prev-next-container'>
                                     {this.state.stage === 0 ? null :
                                     <button className='tuto-button-prev' onClick={() => this.handleStage(-1)}>PREVIOUS</button> }
-                                    {this.state.stage === 3 ? null :
+                                    {this.state.stage === 5 ? null :
                                     <button className='tuto-button-next' onClick={() => this.handleStage(1)}>NEXT</button> }
                                 </div>
                             </div>

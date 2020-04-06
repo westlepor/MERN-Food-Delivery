@@ -14,7 +14,7 @@ class Main extends React.Component {
                 <section>
                     <div className="splash-content">
                         <h1>Eat Together</h1>
-                        <h4>Choosing a restaurant or bar for a group of people can be challenging, location, price, distance; you want to take everyones preferences into consideration. This can be time consuming and complicated, MealMatch will help the group make their decision.</h4>
+                        <h4>We help you make dinner plans, so you can focus on the more important things</h4>
                         <div className="main-buttons-container">
                             <button className='main-button-signup'> <Link onClick={this.props.clearUpData} to="/onboarding">SIGN UP</Link></button>
                             <button className='main-button-login' onClick={() => this.props.openModal('login')}>LOG IN</button>
