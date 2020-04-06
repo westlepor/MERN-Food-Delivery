@@ -28,8 +28,8 @@ export class Slide2 extends React.Component {
                         <h1># 1. START A GROUP</h1>
                         <div className="tuto-slide-text-inner">
                                 <div>
-                                    <p>STEP 2: Invite your friends to join.</p>
-                                    <p>By adding users, you can add users' food restrictions</p>
+                                    <p>STEP 2: Invite your friends to join.
+                                    By adding users, you can add users' food restrictions</p>
                                     <img id="slide-2-img" src="https://chicken-tinder-seeds.s3-us-west-1.amazonaws.com/CT_User.gif"/>
                                 </div>
                                 <div>
@@ -37,7 +37,7 @@ export class Slide2 extends React.Component {
                                     <img id="slide-2-img" src="https://chicken-tinder-seeds.s3-us-west-1.amazonaws.com/CT_Options+(1).gif"/>
                                 </div>
                             </div>
-                        <span className="tuto-slide-text-span"> Note: You can also click demogroup to create a random group for exploring Chicken Tinder. </span>
+                        <span className="tuto-slide-text-span"> Note: You can also click "Demo Group" button to create a random group for exploring Chicken Tinder. </span>
                             <div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ export class Slide3 extends React.Component {
                     <div className='tuto-slide-text'>
                         <h1># 2. VOTE FOR YOUR FAVORITE SPOTS</h1>
                         <p>You can select or discard each one of the options offered to your group.</p>
-                        <img src="https://chicken-tinder-seeds.s3-us-west-1.amazonaws.com/CT_Swipe.gif" />
+                        <img src="https://chicken-tinder-seeds.s3-us-west-1.amazonaws.com/CT_Swipe2.gif" />
                     </div>
                 </div>
                 <div className='tuto-slide-gif-container'>
@@ -77,7 +77,7 @@ export class Slide4 extends React.Component {
                         <h1># 3. MY GROUPS</h1>
                         <p>If you've been invited to an existing group or finished voting the group event, go to 'My groups' and look it up.
                         </p>
-                        <img src="https://chicken-tinder-seeds.s3-us-west-1.amazonaws.com/CT_Mygroups.gif" />
+                        <img src="https://chicken-tinder-seeds.s3-us-west-1.amazonaws.com/CT_Mygroups2.gif" />
                     </div>
                 </div>
                 <div className='tuto-slide-gif-container'>
