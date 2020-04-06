@@ -61,11 +61,39 @@ class LoginForm extends React.Component {
       email: "demouser@demo.com",
       password: "password"
     }
-    this.props.login(demoUser).then(
-      () => {
-        this.props.closeModal();
+
+    const speed = 100;
+
+    if (this.state.email !== demoUser.email) {
+      const inputEmail = setInterval(() => {
+        if (this.state.email !== demoUser.email) {
+          const temp = demoUser.email.slice(0, this.state.email.length + 1);
+          this.setState({ email: temp });
+        } else {
+          clearInterval(inputEmail);
+          animatePassword();
+        }
+      }, speed);
+    }
+
+    const animatePassword = () => {
+
+      if (this.state.password !== demoUser.password) {
+        const inputPassword = setInterval(() => {
+          if (this.state.password !== demoUser.password) {
+            const temp = demoUser.password.slice(0, this.state.password.length + 1);
+            this.setState({ password: temp });
+          } else {
+            clearInterval(inputPassword);
+            this.props.login(demoUser).then(
+              () => {
+                this.props.closeModal();
+              }
+            )
+          }
+        }, speed);
       }
-    )
+    }
   }
 
   render() {
@@ -105,6 +133,7 @@ class LoginForm extends React.Component {
                 type="password"
                 id="password"
                 placeholder="password"
+                value={this.state.password}
               />
               <span className="input-icon">
                 <FontAwesomeIcon icon={faLock} color="#2c2c2c30" size="sm" />
