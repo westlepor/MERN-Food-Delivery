@@ -111,7 +111,7 @@ class HomeSearch extends React.Component{
                 <span>Currently, </span>
                 <span className="home-search-numbiz">{curNumOfBizs}</span>
                 <span>
-                  {curNumOfBizs !== 1 ? "restaurants are" : "restaurants are"}{" "}
+                  {curNumOfBizs === 1 ? "restaurant is " : "restaurants are "}
                     selected
                 </span>
                 <span> near</span>

@@ -553,7 +553,7 @@ class CreateGroup extends React.Component {
               type="submit"
               value="Create a Group"
             />
-            <button className="submit-create-random-group" onClick={this.handleRandomSubmit}>Create a Random Group</button>
+            <button className="submit-create-random-group" onClick={this.handleRandomSubmit}>Demo Group</button>
           </div>
         </form>
       </div>

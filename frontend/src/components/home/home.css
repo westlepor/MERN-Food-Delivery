@@ -239,11 +239,10 @@
     margin-top: 2%;
 }
 .create-group-form .submit-create-random-group {
-    padding: 0.2rem 0.6rem;
     margin: 3px;
     border-radius: 50px;
     cursor: pointer;
-    font-size: 0.85rem;
+    padding: 0.3rem 1rem;
 }
 
 .create-group-form .submit-create-group {
@@ -353,36 +352,8 @@
     .home-button-container button {
         padding: 0.3rem 0;
     }
-}
 
-
-
-/* this one needs to be fixed
-@media only screen and (max-width: 800px) {
-    .home-nav-bar {
-        width: 100vw;
-        font-size: .9em;
-        min-width: 100vw;
-    }
-
-
-
-    h3 {
-        display: none;
-    }
-
-    .home-button-container button {
-        padding: 1% 6%;
-        margin-top: 3%;
-    }
-
-    .get-started-container div{
-        display: none;
-    }
-
-    .groupname-container input {
-        width: 90%;
+    .submit-create-random-group {
+        text-align: center;
     }
 }
-
-*/
