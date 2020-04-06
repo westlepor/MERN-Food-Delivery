@@ -7,7 +7,7 @@ class HomeModal extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            stage: 1
+            stage: 0
         }
         
     }
@@ -15,11 +15,11 @@ class HomeModal extends React.Component{
     handleStage(num) {
         let currentStage = this.state.stage;
 
-        if (currentStage + num < 1) {
-            currentStage = 5
-        } else if (currentStage + num > 4) {
-            currentStage = 0
-        }
+        // if (currentStage + num < 1) {
+        //     currentStage = 5
+        // } else if (currentStage + num > 4) {
+        //     currentStage = 0
+        // }
 
         this.setState({ stage: currentStage + num });
     }
@@ -37,8 +37,10 @@ class HomeModal extends React.Component{
                                     <button className='tuto-button-skip' onClick={() => this.props.handleModal()}>SKIP </button>
                                 </div>
                                 <div className='tuto-prev-next-container'>
-                                    <button className='tuto-button-prev' onClick={() => this.handleStage(-1)}>PREVIOUS</button>
-                                    <button className='tuto-button-next' onClick={() => this.handleStage(1)}>NEXT</button>
+                                    {this.state.stage === 0 ? null :
+                                    <button className='tuto-button-prev' onClick={() => this.handleStage(-1)}>PREVIOUS</button> }
+                                    {this.state.stage === 3 ? null :
+                                    <button className='tuto-button-next' onClick={() => this.handleStage(1)}>NEXT</button> }
                                 </div>
                             </div>
                         </div>

@@ -76,7 +76,7 @@
 }
 
 .tuto-prev-next-container{
-    width: 35%;
+    margin-right: 3vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -120,6 +120,7 @@
     text-align: center;
     align-items: center;
     justify-content: center;
+    margin-left: 2vw;
 }
 
 .tuto-button-skip:hover {

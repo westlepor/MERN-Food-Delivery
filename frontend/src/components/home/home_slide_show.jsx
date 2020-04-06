@@ -21,16 +21,16 @@ class HomeSlideShow extends React.Component {
         let component;
 
         switch (stage) {
-            case 1:
+            case 0:
                 component = <Slide1 />
                 break;
-            case 2:
+            case 1:
                 component = <Slide2 />
                 break;
-            case 3:
+            case 2:
                 component = <Slide3 />
                 break;
-            case 4:
+            case 3:
                 component = <Slide4 />
                 break;
             default:
