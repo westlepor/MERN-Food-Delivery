@@ -8,13 +8,16 @@
 
 In Chicken Tinder, users can create a group and select a location in San Francisco. The group creator can then search for other users to add to their group, as well as determine any initial food restrictions they would like their group to be aware of, whether the bill would be split among all members, and the price range they would like to filter by. Data from restaurants local to the area is then added to the group. The creator will also set a deadline for the members to vote.
 
-![alt text](https://portfolio-henry.s3-us-west-1.amazonaws.com/CT.gif)
+<img src="./img/CT.gif?raw=true" width="800px">
 
 All group members can then log in to vote on each one of the pre-selected venues. Users can access any group they have been added to to either vote (if the group is ongoing) or view results (if the group deadline has passed).
 
 Once all the group members have voted or the deadline is reached, the top 3 venues are displayed, based on number of votes.
 
-![alt text](https://github.com/hkryucr/mern-ct/blob/master/frontend/public/results.png "Show vote results")
+<img src="./img/CT_Swipe.gif?raw=true" width="600px">
+
+<img src="./img/CT_Mygroups.gif?raw=true" width="600px">
+
 
 ### User Authentication
 
@@ -57,7 +60,6 @@ Mongo is a non SQL database used to store users, businesses and associated datas
 
 
 ## Technical Challenges
-
 
 
 ## The Team
