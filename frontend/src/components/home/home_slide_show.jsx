@@ -1,9 +1,5 @@
 import React from 'react';
-import { Slide1, Slide2, Slide3, Slide4, Slide5, Slide6 } from './home_slides';
-
-
-
-
+import { Slide1, Slide2, Slide3, Slide4, Slide5 } from './home_slides';
 
 class HomeSlideShow extends React.Component {
 
@@ -12,11 +8,9 @@ class HomeSlideShow extends React.Component {
         this.state = {
             stage: this.props.stage
         }
-
     }
 
     render() {
-
         let stage = this.props.stage;
         let component;
 
@@ -35,9 +29,6 @@ class HomeSlideShow extends React.Component {
                 break;
             case 4:
                 component = <Slide5 />
-                break;
-            case 5:
-                component = <Slide6 />
                 break;
             default:
                 return null
