@@ -1,4 +1,4 @@
-# Chicken Tinder !
+# Chicken Tinder
 
 [Chicken Tinder](https://lit-atoll-81167.herokuapp.com/#/) is a single page app designed to help a group decide on a venue for their next gathering. Each user can vote on each venue offered to the group (based on location and filters).
 
@@ -86,13 +86,13 @@ Redux manages the front-end state. When the database information is retrieved, t
 ### Back-end
 
 #### Node.js
-Node.js allows us to use JavaScript outside web browsers and to build fast and scalable network applications. Since Node.js uses a non-blocking, event-driven, efficient I/O model, it is perfect for real-time applications that run across different devices.
+Node.js allows us to use JavaScript outside web browsers to build fast and scalable network applications. Since Node.js uses a non-blocking, event-driven, efficient I/O model, it is perfect for real-time applications that run across different devices.
 
 #### Express.js 
-Express.js is a web application framework for Node.js, which enables us to construct server applications in Node.js. 
+Express.js is a web application framework that enables us to construct server applications in Node.js. 
 
 #### Mongo DB
-Mongo is a NoSQL database used to store users, businesses and associated datas (groups and votes).
+Mongo is a NoSQL database used to store users, businesses, and associated data (groups and votes).
 
 ## Technical Challenges
 - Responsive CSS design
