@@ -1,4 +1,4 @@
-# Chicken Tinder
+# Chicken Tinder (Eat Together)
 
 [Chicken Tinder](https://lit-atoll-81167.herokuapp.com/#/) is a single page app designed to help a group decide on a venue for their next gathering. Each user can vote on each venue offered to the group (based on location and filters).
 
